@@ -38,33 +38,40 @@
     </ul>
 </div>
 
+
+<c:choose>
+    <c:when test="${!empty carList}">
+        <c:forEach items="${carList}" var="car">
+            <div>
+                <a href="${pageContext.request.contextPath}">
+                <li class="car">
+                    <img src="<c:url value="/resources/images/gti2.jpeg" />" alt="GTI" >
+                </li>
+                </a>
+                 <lo>
+                    <p align="center"><em>Model Name</em> : ${car.make}
+                    <br><em>Mileage</em> : ${car.mileage} km
+                    <br><em>Transmission</em> : ${car.transmission}
+                    <br><em>Price</em> : ${car.priceOffer}
+                    <br><em>Highest Price offer</em> : ${car.price}
+                <lo>
+            </div>
+
+            <div style="font-family: verdana; padding: 10px; border-radius: 10px; font-size: 12px; text-align: center;">
+
+            <br>
+            <br>
+            ${car.model}
+        </c:forEach>
+    </c:when>
+    <c:otherwise>
+    </c:otherwise>
+</c:choose>
 <div>
-    <li class="car">
-        <a href="/car/all-cars">
-            <img src="<c:url value="/resources/images/gti.jpeg" />" alt="GTI" >
-        </a>
-        <lo>
-            <p align="center"><em>Model Name</em> : Polo GTI
-            <br><em>Mileage</em> : 35000 km
-            <br><em>Transmission</em> : Automatic
-            <br><em>Price</em> : R200,000.00
-            <br><em>Highest Price offer</em> : R205,000.00</br>
-        <lo>
-    </li>
-    <li class="car">
-        <img src="<c:url value="/resources/images/gti2.jpeg" />" alt="GTI" >
-    </li>
-        <lo>
-            <p align="center"><em>Model Name</em> : Polo GTI
-            <br><em>Mileage</em> : 35000 km
-            <br><em>Transmission</em> : Automatic
-            <br><em>Price</em> : R200,000.00
-            <br><em>Highest Price offer</em> : R205,000.00</br>
-        <lo>
-</div>
 
 
-<div style="font-family: verdana; padding: 10px; border-radius: 10px; font-size: 12px; text-align: center;">
+
+
 
 
 </body>

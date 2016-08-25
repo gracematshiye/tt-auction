@@ -1,23 +1,32 @@
 package com.thoughtworks.ttauction.controller;
 
+import com.thoughtworks.ttauction.service.CarService;
+import com.thoughtworks.ttauction.entity.Car;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @Controller
 public class CarController {
 
-    @RequestMapping(value = "/")
-    public ModelAndView testView(){
-        String message = "Hello World!!";
+    @Autowired
+    private CarService carService;
 
-        return new ModelAndView("testJSP", "message", message);
-//        return "testJSP";
-    }
 
     @RequestMapping(value = "/all-cars", method = RequestMethod.GET)
-    public String displayAllCars(){
+    public String displayAllCars(ModelMap modelMap){
+
+//        Car car = new Car("BMW", "N-series", "Manual", 50000, "This car is fast than GTI", new BigDecimal(40000), new BigDecimal(30000));
+//        this.carService.addCar(car);
+
+        List<Car> carList = this.carService.getCars();
+
+        modelMap.addAttribute("carList", carList);
         return "all-cars";
     }
 }
