@@ -33,6 +33,9 @@
       </li>
     </ul>
 </div>
+<div>
+    <li><img src="gti.jpeg" alt="GTI"></li>
+</div>
 
 
 <div style="font-family: verdana; padding: 10px; border-radius: 10px; font-size: 12px; text-align: center;">
