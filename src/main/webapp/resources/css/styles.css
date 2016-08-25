@@ -15,7 +15,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #ab3a3a;
     top: 0;
     width: 100%;
 }
@@ -33,7 +33,7 @@ li a {
 }
 
 li a:hover:not(.active) {
-    background-color: #111;
+    background-color: #9c3333;
 }
 
 .active {
@@ -49,7 +49,7 @@ li a, .dropbtn {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
+    background-color: #9c3333;
 }
 
 li.dropdown {
@@ -79,7 +79,9 @@ li.car {
     text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+    background-color: #c14a4a
+}
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -99,7 +101,8 @@ img {
     display: block;
     margin: 0 auto;
 }
-img a {
+
+a.car {
     background-color: red;
 }
 
