@@ -24,7 +24,7 @@ public class CarServiceTest {
     private CarDao carDAO;
 
     @Mock
-    private List<Car> listOfCars = new ArrayList<Car>();
+    private List<Car> listOfCars = new ArrayList<>();
 
     @InjectMocks
     private CarService carService = new CarServiceImpl();

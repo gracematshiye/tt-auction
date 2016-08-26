@@ -3,7 +3,6 @@ package com.thoughtworks.ttauction.controller;
 
 import com.thoughtworks.ttauction.entity.Car;
 import com.thoughtworks.ttauction.service.CarService;
-import com.thoughtworks.ttauction.service.impl.CarServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,7 +30,7 @@ public class CarControllerTest {
     private MockMvc mockMvc;
 
     @Mock
-    private CarService carService = new CarServiceImpl();
+    private CarService carService ;
 
     @InjectMocks
     private CarController controller;
@@ -63,14 +62,14 @@ public class CarControllerTest {
     @Test
     public void verifyThatTheViewNameIsHomePage() throws Exception {
 
-        mockMvc.perform(get("/all-cars"))
+        mockMvc.perform(get("/cars"))
                 .andExpect(view().name("all-cars"));
     }
 
     @Test
     public void verifyTheHTTPStatusIsOkay() throws Exception {
 
-        mockMvc.perform(get("/all-cars"))
+        mockMvc.perform(get("/cars"))
                 .andExpect(status().isOk());
 
     }
@@ -83,14 +82,14 @@ public class CarControllerTest {
 
     @Test
     public void verifyCarsAttributeExists() throws Exception {
-        mockMvc.perform(get("/all-cars"))
+        mockMvc.perform(get("/cars"))
                 .andExpect(model().attributeExists("carList"));
     }
 
     @Test
     public void verifyListOfCaraHasOneElement()throws Exception {
 
-        mockMvc.perform(get("/all-cars"))
+        mockMvc.perform(get("/cars"))
                 .andExpect(model().attribute("carList", hasSize(1)));
 
     }
