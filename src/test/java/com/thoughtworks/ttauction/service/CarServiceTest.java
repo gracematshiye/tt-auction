@@ -3,7 +3,7 @@ package com.thoughtworks.ttauction.service;
 
 import com.thoughtworks.ttauction.entity.Car;
 import com.thoughtworks.ttauction.repository.CarDao;
-import com.thoughtworks.ttauction.service.impl.CarServiceImpl;
+import com.thoughtworks.ttauction.service.CarServiceImpl.java.CarServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
