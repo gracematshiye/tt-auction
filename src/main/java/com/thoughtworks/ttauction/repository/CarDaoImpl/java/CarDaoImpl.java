@@ -1,4 +1,4 @@
-package com.thoughtworks.ttauction.repository.CarDaoImpl;
+package com.thoughtworks.ttauction.repository.CarDaoImpl.java;
 
 import com.thoughtworks.ttauction.entity.Car;
 import com.thoughtworks.ttauction.repository.CarDao;
