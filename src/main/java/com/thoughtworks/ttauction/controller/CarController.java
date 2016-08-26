@@ -20,7 +20,7 @@ public class CarController {
     private CarService carService;
 
 
-    @RequestMapping(value = "/all-cars", method = RequestMethod.GET)
+    @RequestMapping(value = "/cars", method = RequestMethod.GET)
     public String displayAllCars(ModelMap modelMap){
 
 //        Car car = new Car("BMW", "N-series", "Manual", 50000, "This car is fast than GTI", new BigDecimal(40000), new BigDecimal(30000));
@@ -32,14 +32,12 @@ public class CarController {
         return "all-cars";
     }
 
-    @RequestMapping(value = "/single-car/{id}")
+    @RequestMapping(value = "/cars/{id}")
     public String displayACar(@PathVariable("id") int id, ModelMap modelMap){
 
-        List<Car> car = new ArrayList<>();
-        Car myCar = this.carService.getCarById(id);
-        car.add(myCar);
+        Car cars = this.carService.getCarById(id);
 
-        modelMap.addAttribute("car", car);
+        modelMap.addAttribute("cars", cars);
         return "single-car";
     }
 }

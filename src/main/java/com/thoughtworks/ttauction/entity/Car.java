@@ -21,7 +21,6 @@ public class Car {
     private BigDecimal priceOffer;
 
     public Car(){
-
     }
 
     public Car( String make, String model, String transmission, int mileage, String description, BigDecimal price, BigDecimal priceOffer) {
