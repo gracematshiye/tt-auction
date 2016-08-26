@@ -10,13 +10,17 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class CarserviceImpl implements CarService {
+public class CarServiceImpl implements CarService {
 
     private CarDao carDao;
 
     @Autowired
-    public CarserviceImpl(CarDao carDao){
+    public CarServiceImpl(CarDao carDao){
         this.carDao = carDao;
+    }
+
+    public CarServiceImpl() {
+
     }
 
     @Override

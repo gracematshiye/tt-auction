@@ -23,8 +23,8 @@ public class CarController {
     @RequestMapping(value = "/all-cars", method = RequestMethod.GET)
     public String displayAllCars(ModelMap modelMap){
 
-        Car car = new Car("BMW", "N-series", "Manual", 50000, "This car is fast than GTI", new BigDecimal(40000), new BigDecimal(30000));
-        this.carService.addCar(car);
+//        Car car = new Car("BMW", "N-series", "Manual", 50000, "This car is fast than GTI", new BigDecimal(40000), new BigDecimal(30000));
+//        this.carService.addCar(car);
 
         List<Car> carList = this.carService.getCars();
 
