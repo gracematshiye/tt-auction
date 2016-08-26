@@ -42,7 +42,7 @@ public class CarDaoImpl implements CarDao {
     public Car getCarById(int id) {
         Session session = sessionFactory.getCurrentSession();
 
-        Car car = (Car)session.load(Car.class, new Integer(id));
+        Car car = (Car)session.load(Car.class, id);
         return car;
     }
 }

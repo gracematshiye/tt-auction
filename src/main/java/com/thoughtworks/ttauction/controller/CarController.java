@@ -35,7 +35,7 @@ public class CarController {
     @RequestMapping(value = "/cars/{id}")
     public String displayACar(@PathVariable("id") int id, ModelMap modelMap){
 
-        Car cars = this.carService.getCarById(id);
+        Car cars = (Car) this.carService.getCarById(id);
 
         modelMap.addAttribute("cars", cars);
         return "single-car";
