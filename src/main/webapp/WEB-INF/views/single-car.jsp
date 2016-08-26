@@ -37,42 +37,29 @@
       </li>
     </ul>
 </div>
-
-
-<c:choose>
-    <c:when test="${!empty carList}">
-        <c:forEach items="${carList}" var="car">
+    <c:if test="${!empty car}">
+        <c:forEach items="${car}" var="car">
             <div>
-
                 <li class="car">
-                    <a href="${pageContext.request.contextPath}/single-car/${car.id}">
-                        <img src="<c:url value="/resources/images/gti2.jpeg" />" alt="GTI" >
-                    </a>
+                    <img src="<c:url value="/resources/images/gti2.jpeg" />" alt="GTI" >
                 </li>
 
                  <lo>
-                    <p align="center"><em>Model Name</em> : ${car.make}
-                    <br><em>Mileage</em> : ${car.mileage} km
-                    <br><em>Transmission</em> : ${car.transmission}
-                    <br><em>Price</em> : ${car.priceOffer}
-                    <br><em>Highest Price offer</em> : ${car.price}
-                <lo>
+                    <p align="center"><em>Model Name</em> : ${car.make} </p>
+                    <br><em>Mileage</em> : ${car.mileage} km </em>
+                    <br><em>Transmission</em> : ${car.transmission} </em>
+                    <br><em>Price</em> : ${car.priceOffer} </em>
+                    <br><em>Highest Price offer</em> : ${car.price} </em>
+                </lo>
+
             </div>
-
-            <div style="font-family: verdana; padding: 10px; border-radius: 10px; font-size: 12px; text-align: center;">
-
-            <br>
-
         </c:forEach>
-    </c:when>
-    <c:otherwise>
-    </c:otherwise>
-</c:choose>
+    </c:if>
+
+    <div style="font-family: verdana; padding: 10px; border-radius: 10px; font-size: 12px; text-align: center;" />
+    <br>
+
 <div>
-
-
-
-
 
 
 </body>

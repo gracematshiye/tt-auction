@@ -37,7 +37,7 @@ public class CarDaoImpl implements CarDao {
         return query.list();
     }
 
-    @SuppressWarnings("unchecked")
+
     @Override
     public Car getCarById(int id) {
         Session session = sessionFactory.getCurrentSession();
