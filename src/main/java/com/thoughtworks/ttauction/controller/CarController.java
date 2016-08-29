@@ -17,18 +17,18 @@ import java.util.List;
 public class CarController {
 
     @Autowired
-    private CarService carService;
-
+    CarService carService;
 
     @RequestMapping(value = "/cars", method = RequestMethod.GET)
     public String displayAllCars(ModelMap modelMap){
 
-//        Car car = new Car("BMW", "N-series", "Manual", 50000, "This car is fast than GTI", new BigDecimal(40000), new BigDecimal(30000));
-//        this.carService.addCar(car);
+        Car car = new Car("BMW", "N-series", "Manual", 50000, "This car is fast than GTI", new BigDecimal(40000), new BigDecimal(30000));
+        this.carService.addCar(car);
 
         List<Car> carList = this.carService.getCars();
 
         modelMap.addAttribute("carList", carList);
+
         return "all-cars";
     }
 
