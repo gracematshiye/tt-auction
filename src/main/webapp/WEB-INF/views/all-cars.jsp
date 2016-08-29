@@ -27,3 +27,5 @@
     </c:otherwise>
 </c:choose>
 <div>
+
+<%@include file="footer.jsp" %>
