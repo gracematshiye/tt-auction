@@ -27,22 +27,22 @@
     </bean>
 
     <!--Data base configuration-->
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="org.postgresql.Driver"/>
-        <property name="url" value="postgres://kbztbbratreqvq:sudfjl1cN9y7ZpYz_NKyiWQH8C@ec2-54-83-27-147.compute-1.amazonaws.com:5432/d1bjgvvekckh0s"/>
-        <property name="username" value="kbztbbratreqvq"/>
-        <property name="password" value="sudfjl1cN9y7ZpYz_NKyiWQH8C"/>
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
+        <!--<property name="driverClassName" value="org.postgresql.Driver"/>-->
+        <!--<property name="url" value="jdbc:postgresql://localhost:5433/car_auction"/>-->
+        <!--<property name="username" value="postgres"/>-->
+        <!--<property name="password" value="postgres"/>-->
+    <!--</bean>-->
+
+    <bean class="java.net.URI" id="dbUrl">
+        <constructor-arg value="postgres://kbztbbratreqvq:sudfjl1cN9y7ZpYz_NKyiWQH8C@ec2-54-83-27-147.compute-1.amazonaws.com:5432/d1bjgvvekckh0s"/>
     </bean>
 
-    <!--<bean class="java.net.URI" id="dbUrl">-->
-        <!--<constructor-arg value="postgres://kbztbbratreqvq:sudfjl1cN9y7ZpYz_NKyiWQH8C@ec2-54-83-27-147.compute-1.amazonaws.com:5432/d1bjgvvekckh0s"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
-        <!--<property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>-->
-        <!--<property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>-->
-        <!--<property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>-->
-    <!--</bean>-->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
+        <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
+        <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
+    </bean>
 
     <!--Hibernate configuration-->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
