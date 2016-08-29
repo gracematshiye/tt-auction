@@ -15,7 +15,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.2.5.RELEASE</spring.version>
         <hibernate.version>5.1.0.Final</hibernate.version>
-        <tomcat.version>8.0.30</tomcat.version>
     </properties>
 
     <dependencies>
@@ -170,31 +169,31 @@
     <build>
         <pluginManagement>
             <plugins>
-                <!--<plugin>-->
-                    <!--<groupId>org.apache.maven.plugins</groupId>-->
-                    <!--<artifactId>maven-compiler-plugin</artifactId>-->
-                    <!--<version>3.5.1</version>-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.5.1</version>
 
-                    <!--<configuration>-->
-                        <!--<source>1.8</source>-->
-                        <!--<target>1.8</target>-->
-                    <!--</configuration>-->
-                <!--</plugin>-->
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
 
-                <!--<plugin>-->
-                    <!--<groupId>org.eclipse.jetty</groupId>-->
-                    <!--<artifactId>jetty-maven-plugin</artifactId>-->
-                    <!--<version>9.3.8.RC0</version>-->
+                <plugin>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-maven-plugin</artifactId>
+                    <version>9.3.8.RC0</version>
 
-                    <!--<configuration>-->
-                        <!--<webApp>-->
-                            <!--<contextPath>/car</contextPath>-->
-                        <!--</webApp>-->
-                        <!--<httpConnector>-->
-                            <!--<port>8080</port>-->
-                        <!--</httpConnector>-->
-                    <!--</configuration>-->
-                <!--</plugin>-->
+                    <configuration>
+                        <webApp>
+                            <contextPath>/car</contextPath>
+                        </webApp>
+                        <httpConnector>
+                            <port>8080</port>
+                        </httpConnector>
+                    </configuration>
+                </plugin>
 
                 <!--  this plugins will be used by heroku to run the project-->
                 <plugin>
