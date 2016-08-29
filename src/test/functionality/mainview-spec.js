@@ -4,11 +4,14 @@ describe('Homepage message', function() {
 
     browser.get('http://localhost:8080/car/all-cars');
 
-    element(by.tagName('h1')).getAttribute('value').then(function(text) {
+    element(by.tagName('li')).getAttribute('value').then(function(text) {
         console.log(text);
     });
-
-    var myElement = element(by.css('.new'));
+//
+//    var clickCarImg = element(by.css('.car'));
+//    clickCarImg.click().expect();
+//
+    var myElement = element(by.css('.car'));
     expect(myElement.isPresent()).toBeFalsy();
   });
 });
