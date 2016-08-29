@@ -29,9 +29,9 @@
     <!--Data base configuration-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="org.postgresql.Driver"/>
-        <property name="url" value="jdbc:postgresql://localhost:5433/car_auction"/>
-        <property name="username" value="postgres"/>
-        <property name="password" value="postgres"/>
+        <property name="url" value="postgres://kbztbbratreqvq:sudfjl1cN9y7ZpYz_NKyiWQH8C@ec2-54-83-27-147.compute-1.amazonaws.com:5432/d1bjgvvekckh0s"/>
+        <property name="username" value="kbztbbratreqvq"/>
+        <property name="password" value="sudfjl1cN9y7ZpYz_NKyiWQH8C"/>
     </bean>
 
     <!--<bean class="java.net.URI" id="dbUrl">-->
