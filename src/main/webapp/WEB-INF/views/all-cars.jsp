@@ -21,7 +21,6 @@
             <div style="font-family: verdana; padding: 10px; border-radius: 10px; font-size: 12px; text-align: center;">
 
             <br>
-
         </c:forEach>
     </c:when>
     <c:otherwise>
