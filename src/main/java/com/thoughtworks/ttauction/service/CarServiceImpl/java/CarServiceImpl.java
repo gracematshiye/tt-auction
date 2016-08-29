@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class CarServiceImpl implements CarService {
 
-    CarDao carDao;
+    private CarDao carDao;
 
     @Autowired
     public CarServiceImpl(CarDao carDao){

@@ -17,7 +17,7 @@ import java.util.List;
 public class CarController {
 
     @Autowired
-    CarService carService;
+    private CarService carService;
 
     @RequestMapping(value = "/cars", method = RequestMethod.GET)
     public String displayAllCars(ModelMap modelMap){
