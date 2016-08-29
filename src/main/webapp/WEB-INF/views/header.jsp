@@ -12,18 +12,27 @@
         <li class="logo">
             <a href="${pageContext.request.contextPath}/cars" class="dropbtn">TT's Online Auction</a>
         </li>
-      <li><a href="${pageContext.request.contextPath}/cars">Home</a></li>
-      <li><a href="#">Search</a></li>
+      <li class="home"><a href="${pageContext.request.contextPath}/cars">Home</a></li>
       <li><a href="#">Live Auctions</a></li>
+      <li><a href="#">Testimonials</a></li>
+      <li><a href="#">Financing</a></li>
       <li><a href="#">Contact</a></li>
-      <li><a href="#">About</a></li>
-      <li class="dropdown">
-        <a href="#"class="dropbtn">felixsean@ymail.com</a>
-        <div class="dropdown-content">
-          <a href="#">Account</a>
-          <a href="#">Bids</a>
-          <a href="#">Logout</a>
-        </div>
-      </li>
+      <li><a href="#">About Us</a></li>
+      <c:choose>
+          <c:when test="${LoggedIn == true}">
+            <li class="dropdown">
+                <a href="#"class="dropbtn">felixsean@ymail.com</a>
+                <div class="dropdown-content">
+                  <a href="#">Account</a>
+                  <a href="#">My Bids</a>
+                  <a href="#">Logout</a>
+                </div>
+            </li>
+          </c:when>
+          <c:otherwise>
+            <li class="login"><a href="#">Login</a></li>
+          </c:otherwise>
+       </c:choose>
+
     </ul>
 </div>
