@@ -22,8 +22,8 @@ public class CarController {
     @RequestMapping(value = "/cars", method = RequestMethod.GET)
     public String displayAllCars(ModelMap modelMap){
 
-        Car car = new Car("BMW", "N-series", "Manual", 50000, "This car is fast than GTI", new BigDecimal(40000), new BigDecimal(30000));
-        this.carService.addCar(car);
+//        Car car = new Car("BMW", "N-series", "Manual", 50000, "This car is fast than GTI", new BigDecimal(40000), new BigDecimal(30000));
+//        this.carService.addCar(car);
 
         List<Car> carList = this.carService.getCars();
 
@@ -35,9 +35,9 @@ public class CarController {
     @RequestMapping(value = "/cars/{id}")
     public String displayACar(@PathVariable("id") int id, ModelMap modelMap){
 
-        Car cars = (Car) this.carService.getCarById(id);
+        Car car = this.carService.getCarById(id);
 
-        modelMap.addAttribute("cars", cars);
+        modelMap.addAttribute("car", car);
         return "single-car";
     }
 }
