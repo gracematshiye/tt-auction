@@ -15,7 +15,7 @@
     http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
-    <mvc:resources mapping="/resources/**" location="/resources/" />
+    <mvc:resources mapping="/resources/*" location="/resources/" />
 
     <context:component-scan base-package="com.thoughtworks.ttauction"/>
 
@@ -33,7 +33,6 @@
 
     <!--Data base configuration-->
 
-
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="ec2-54-235-104-63.compute-1.amazonaws.com"/>
@@ -41,6 +40,13 @@
         <property name="password" value="IND-CUOWqFpXxeJtu2uRaaNBdf"/>
     </bean>
 
+    <!--Data base configuration-->
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
+        <!--<property name="driverClassName" value="org.postgresql.Driver"/>-->
+        <!--<property name="url" value="jdbc:postgresql://localhost:5433/car_auction"/>-->
+        <!--<property name="username" value="postgres"/>-->
+        <!--<property name="password" value="postgres"/>-->
+    <!--</bean>-->
 
     <!--Hibernate configuration-->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
