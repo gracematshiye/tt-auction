@@ -7,7 +7,7 @@
     <groupId>com.thoughtworks.ttauction</groupId>
     <artifactId>ttauction</artifactId>
     <packaging>war</packaging>
-    <name>ttauction</name>
+    <name>online-auction</name>
     <version>1.0-SNAPSHOT</version>
     <url>http://maven.apache.org</url>
 

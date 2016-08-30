@@ -1,8 +1,6 @@
-package com.thoughtworks.ttauction.dao;
+package com.thoughtworks.ttauction.repository;
 
 import com.thoughtworks.ttauction.entity.Car;
-import com.thoughtworks.ttauction.repository.CarDao;
-import com.thoughtworks.ttauction.repository.CarDaoImpl.java.CarDaoImpl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.Assert;
@@ -24,7 +22,7 @@ import java.util.List;
 public class CarDaoTest {
 
     @Autowired
-    private CarDao carDao = new CarDaoImpl();
+    private CarDao carDao ;
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -77,7 +75,6 @@ public class CarDaoTest {
     @Test
     @Rollback(true)
     public void testGetCarById() throws Exception {
-        session.save(car);
 
     }
 }
