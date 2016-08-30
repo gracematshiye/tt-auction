@@ -1,6 +1,7 @@
-package com.thoughtworks.ttauction.controller;
+package com.thoughtworks.ttauction.controller.car;
 
 
+import com.thoughtworks.ttauction.controller.CarController;
 import com.thoughtworks.ttauction.entity.Car;
 import com.thoughtworks.ttauction.service.CarService;
 import org.junit.Assert;
@@ -13,6 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-public class CarControllerTest {
+public class GetAllCarsControllerTest {
 
     private MockMvc mockMvc;
 
@@ -35,15 +37,12 @@ public class CarControllerTest {
     @InjectMocks
     private CarController controller;
 
+    private List<Car> listOfCars = new ArrayList<>();
 
-    List<Car> listOfCars = new ArrayList<>();
-    Car firstCar = new Car();
+    private Car car;
 
     @Before
     public void setUp() throws Exception {
-
-        controller  = new CarController();
-
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setSuffix(".jsp");
         viewResolver.setPrefix("/WEB-INF/views");
@@ -54,9 +53,11 @@ public class CarControllerTest {
                 .setViewResolvers(viewResolver)
                 .build();
 
-        listOfCars.add(firstCar);
-        when(carService.getCars()).thenReturn(listOfCars);
+        car = new Car("Model name 1", "Make name 1", 27712, 2016, new BigDecimal(120000), "Condition 1", "Color 1", "Transmission 1", "Fuel type 1", "Description 1", new BigDecimal(100000));
 
+        listOfCars.add(car);
+
+        when(carService.getCars()).thenReturn(listOfCars);
     }
 
     @Test

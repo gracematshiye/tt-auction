@@ -9,29 +9,59 @@ import java.math.BigDecimal;
 public class Car {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "car_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String make;
+
+    @Column(name = "car_model_name")
     private String model;
-    private String transmission;
+
+    @Column(name = "car_make_name")
+    private String make;
+
+    @Column(name = "car_mileage")
     private int mileage;
-    private String description;
+
+    @Column(name = "car_year")
+    private int year;
+
+    @Column(name = "car_price")
     private BigDecimal price;
+
+    @Column(name = "car_condition")
+    private String condition;
+
+    @Column(name = "car_colour")
+    private String colour;
+
+    @Column(name = "car_transmission")
+    private String transmission;
+
+    @Column(name = "car_fuel_type")
+    private String fuel;
+
+    @Column(name = "car_description")
+    private String description;
+
+    @Column(name = "car_price_offer")
     private BigDecimal priceOffer;
 
-    public Car(){
+    public Car(String model, String make, int mileage, int year, BigDecimal price, String condition, String colour, String transmission, String fuel, String description, BigDecimal priceOffer) {
+        this.model = model;
+        this.make = make;
+        this.mileage = mileage;
+        this.year = year;
+        this.price = price;
+        this.condition = condition;
+        this.colour = colour;
+        this.transmission = transmission;
+        this.fuel = fuel;
+        this.description = description;
+        this.priceOffer = priceOffer;
     }
 
-    public Car( String make, String model, String transmission, int mileage, String description, BigDecimal price, BigDecimal priceOffer) {
+    public Car() {
 
-        this.make = make;
-        this.model = model;
-        this.transmission = transmission;
-        this.mileage = mileage;
-        this.description = description;
-        this.price = price;
-        this.priceOffer = priceOffer;
     }
 
     public int getId() {
@@ -42,14 +72,6 @@ public class Car {
         this.id = id;
     }
 
-    public String getMake() {
-        return make;
-    }
-
-    public void setMake(String make) {
-        this.make = make;
-    }
-
     public String getModel() {
         return model;
     }
@@ -58,12 +80,12 @@ public class Car {
         this.model = model;
     }
 
-    public String getTransmission() {
-        return transmission;
+    public String getMake() {
+        return make;
     }
 
-    public void setTransmission(String transmission) {
-        this.transmission = transmission;
+    public void setMake(String make) {
+        this.make = make;
     }
 
     public int getMileage() {
@@ -74,12 +96,12 @@ public class Car {
         this.mileage = mileage;
     }
 
-    public String getDescription() {
-        return description;
+    public int getYear() {
+        return year;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public BigDecimal getPrice() {
@@ -88,6 +110,46 @@ public class Car {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
+
+    public String getColour() {
+        return colour;
+    }
+
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
+
+    public String getTransmission() {
+        return transmission;
+    }
+
+    public void setTransmission(String transmission) {
+        this.transmission = transmission;
+    }
+
+    public String getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(String fuel) {
+        this.fuel = fuel;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public BigDecimal getPriceOffer() {
@@ -102,12 +164,16 @@ public class Car {
     public String toString() {
         return "Car{" +
                 "id=" + id +
-                ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
-                ", transmission='" + transmission + '\'' +
-                ", mileage='" + mileage + '\'' +
-                ", description='" + description + '\'' +
+                ", make='" + make + '\'' +
+                ", mileage=" + mileage +
+                ", year=" + year +
                 ", price=" + price +
+                ", condition='" + condition + '\'' +
+                ", colour='" + colour + '\'' +
+                ", transmission='" + transmission + '\'' +
+                ", fuel='" + fuel + '\'' +
+                ", description='" + description + '\'' +
                 ", priceOffer=" + priceOffer +
                 '}';
     }
@@ -121,11 +187,15 @@ public class Car {
 
         if (id != car.id) return false;
         if (mileage != car.mileage) return false;
-        if (make != null ? !make.equals(car.make) : car.make != null) return false;
+        if (year != car.year) return false;
         if (model != null ? !model.equals(car.model) : car.model != null) return false;
-        if (transmission != null ? !transmission.equals(car.transmission) : car.transmission != null) return false;
-        if (description != null ? !description.equals(car.description) : car.description != null) return false;
+        if (make != null ? !make.equals(car.make) : car.make != null) return false;
         if (price != null ? !price.equals(car.price) : car.price != null) return false;
+        if (condition != null ? !condition.equals(car.condition) : car.condition != null) return false;
+        if (colour != null ? !colour.equals(car.colour) : car.colour != null) return false;
+        if (transmission != null ? !transmission.equals(car.transmission) : car.transmission != null) return false;
+        if (fuel != null ? !fuel.equals(car.fuel) : car.fuel != null) return false;
+        if (description != null ? !description.equals(car.description) : car.description != null) return false;
         return priceOffer != null ? priceOffer.equals(car.priceOffer) : car.priceOffer == null;
 
     }
@@ -133,12 +203,16 @@ public class Car {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (make != null ? make.hashCode() : 0);
         result = 31 * result + (model != null ? model.hashCode() : 0);
-        result = 31 * result + (transmission != null ? transmission.hashCode() : 0);
+        result = 31 * result + (make != null ? make.hashCode() : 0);
         result = 31 * result + mileage;
-        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + year;
         result = 31 * result + (price != null ? price.hashCode() : 0);
+        result = 31 * result + (condition != null ? condition.hashCode() : 0);
+        result = 31 * result + (colour != null ? colour.hashCode() : 0);
+        result = 31 * result + (transmission != null ? transmission.hashCode() : 0);
+        result = 31 * result + (fuel != null ? fuel.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (priceOffer != null ? priceOffer.hashCode() : 0);
         return result;
     }

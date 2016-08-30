@@ -10,14 +10,14 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.test.annotation.Rollback;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
+@Rollback(true)
 public class CarServiceTest {
 
     @Mock
@@ -35,13 +35,30 @@ public class CarServiceTest {
     }
 
     @Test
-    public void testGetAllCars() throws Exception {
+    public void testAddCar() throws Exception {
+        doNothing().when(carDAO).addCar(any(Car.class));
+        carService.addCar(any(Car.class));
+        verify(carDAO, atLeastOnce()).addCar(any(Car.class));
+    }
 
-        listOfCars.add(new Car());
+    @Test
+    public void testGetAllCars() throws Exception {
         when(carDAO.getCars()).thenReturn(listOfCars);
 
         Assert.assertEquals(carService.getCars(), listOfCars);
+        carService.getCars();
 
         verify(carDAO, atLeastOnce()).getCars();
+    }
+
+    @Test
+    public void testGetCarById() throws Exception {
+        Car car = listOfCars.get(0);
+
+        when(carDAO.getCarById(anyInt())).thenReturn(car);
+
+        Assert.assertEquals(carService.getCarById(1), car);
+
+        verify(carDAO, atLeastOnce()).getCarById(anyInt());
     }
 }
