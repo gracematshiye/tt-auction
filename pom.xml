@@ -15,7 +15,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.2.5.RELEASE</spring.version>
         <hibernate.version>5.1.0.Final</hibernate.version>
-        <tomcat.version>8.0.30</tomcat.version>
     </properties>
 
     <dependencies>
@@ -158,42 +157,13 @@
         </dependency>
 
         <!--Deployment plan-->
-        <dependency>
-            <groupId>com.github.jsimone</groupId>
-            <artifactId>webapp-runner</artifactId>
-            <version>8.0.30.1</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.github.jsimone</groupId>-->
+            <!--<artifactId>webapp-runner</artifactId>-->
+            <!--<version>8.0.30.1</version>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-core</artifactId>
-            <version>${tomcat.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-logging-juli</artifactId>
-            <version>${tomcat.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-            <version>${tomcat.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jasper</artifactId>
-            <version>${tomcat.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jasper-el</artifactId>
-            <version>${tomcat.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jsp-api</artifactId>
-            <version>${tomcat.version}</version>
-        </dependency>
+
     </dependencies>
 
 
@@ -226,7 +196,6 @@
                     </configuration>
                 </plugin>
 
-                <!--  this plugins will be used by heroku to run the project-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
@@ -238,16 +207,39 @@
                             <configuration>
                                 <artifactItems>
                                     <artifactItem>
-                                        <groupId>com.github.jsimone</groupId>
-                                        <artifactId>webapp-runner</artifactId>
-                                        <version>8.0.30.2</version>
-                                        <destFileName>webapp-runner.jar</destFileName>
+                                        <groupId>org.eclipse.jetty</groupId>
+                                        <artifactId>jetty-runner</artifactId>
+                                        <version>9.3.3.v20150827</version>
+                                        <destFileName>jetty-runner.jar</destFileName>
                                     </artifactItem>
                                 </artifactItems>
                             </configuration>
                         </execution>
                     </executions>
                 </plugin>
+
+                <!--  this plugins will be used by heroku to run the project-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-dependency-plugin</artifactId>-->
+                    <!--<version>2.3</version>-->
+                    <!--<executions>-->
+                        <!--<execution>-->
+                            <!--<phase>package</phase>-->
+                            <!--<goals><goal>copy</goal></goals>-->
+                            <!--<configuration>-->
+                                <!--<artifactItems>-->
+                                    <!--<artifactItem>-->
+                                        <!--<groupId>com.github.jsimone</groupId>-->
+                                        <!--<artifactId>webapp-runner</artifactId>-->
+                                        <!--<version>8.0.30.2</version>-->
+                                        <!--<destFileName>webapp-runner.jar</destFileName>-->
+                                    <!--</artifactItem>-->
+                                <!--</artifactItems>-->
+                            <!--</configuration>-->
+                        <!--</execution>-->
+                    <!--</executions>-->
+                <!--</plugin>-->
 
             </plugins>
         </pluginManagement>
