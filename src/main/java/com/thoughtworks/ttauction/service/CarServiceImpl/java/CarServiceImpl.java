@@ -16,7 +16,10 @@ public class CarServiceImpl implements CarService {
 
     @Autowired
     public CarServiceImpl(CarDao carDao){
-        this.carDao =carDao;
+        this.carDao = carDao;
+    }
+
+    public CarServiceImpl() {
     }
 
     @Override

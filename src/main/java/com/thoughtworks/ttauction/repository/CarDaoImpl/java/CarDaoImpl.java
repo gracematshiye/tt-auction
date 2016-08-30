@@ -20,6 +20,10 @@ public class CarDaoImpl implements CarDao {
         this.sessionFactory =sessionFactory;
     }
 
+    public CarDaoImpl() {
+
+    }
+
     public void addCar(Car car) {
         Session session = sessionFactory.getCurrentSession();
 
