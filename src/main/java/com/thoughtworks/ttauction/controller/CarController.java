@@ -26,19 +26,17 @@ public class CarController {
 //        this.carService.addCar(car);
 //        this.carService.addCar(car);
 
-        List<Car> carList = this.carService.getCars();
 
-        modelMap.addAttribute("carList", carList);
+        modelMap.addAttribute("carList", this.carService.getCars());
 
         return "all-cars";
     }
 
-    @RequestMapping(value = "/cars/{id}")
+    @RequestMapping(value = "/cars/{id}", method = RequestMethod.GET)
     public String displayACar(@PathVariable("id") int id, ModelMap modelMap){
 
-        Car car = this.carService.getCarById(id);
 
-        modelMap.addAttribute("car", car);
+        modelMap.addAttribute("car", this.carService.getCarById(id));
         return "single-car";
     }
 }
