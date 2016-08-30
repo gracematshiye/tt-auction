@@ -15,11 +15,6 @@ public class CarDaoImpl implements CarDao {
 
     private SessionFactory sessionFactory;
 
-    @Autowired
-    public CarDaoImpl(SessionFactory sessionFactory){
-        this.sessionFactory = sessionFactory;
-    }
-
     @Override
     public void addCar(Car car) {
         Session session = sessionFactory.getCurrentSession();
