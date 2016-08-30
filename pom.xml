@@ -98,22 +98,17 @@
         </dependency>
 
         <!--POSTGRES DATABASE-->
-        <dependency>
-            <groupId>postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>9.1-901.jdbc4</version>
-        </dependency>
 
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>9.4.1208</version>
+            <version>9.4.1207</version>
         </dependency>
 
         <dependency> <!--SQL DRIVER-->
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>9.3-1100-jdbc41</version>
+            <version>9.4-1206-jdbc42</version>
             <scope>provided</scope>
         </dependency>
 
