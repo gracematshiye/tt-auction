@@ -16,8 +16,12 @@ import java.util.List;
 @Controller
 public class CarController {
 
-    @Autowired
     private CarService carService;
+
+    @Autowired
+    public CarController(CarService carService){
+        this.carService = carService;
+    }
 
     @RequestMapping(value = "/cars", method = RequestMethod.GET)
     public String displayAllCars(ModelMap modelMap){
@@ -33,7 +37,7 @@ public class CarController {
     }
 
     @RequestMapping(value = "/cars/{id}", method = RequestMethod.GET)
-    public String displayACar(@PathVariable("id") int id, ModelMap modelMap){
+    public String displayACar(@PathVariable("id") Integer id, ModelMap modelMap){
 
 
         modelMap.addAttribute("car", this.carService.getCarById(id));

@@ -23,6 +23,11 @@
         <property name="suffix">
             <value>.jsp</value>
         </property>
+
+        <property name="viewClass">
+            <value>org.springframework.web.servlet.view.JstlView</value>
+        </property>
+        <property name="order" value="1"></property>
     </bean>
 
     <!--Data base configuration-->
@@ -43,6 +48,13 @@
         <property name="url" value="jdbc:postgresql://localhost:5433/car_auction"/>
         <property name="username" value="postgres"/>
         <property name="password" value="postgres"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testOnReturn" value="true"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="timeBetweenEvictionRunsMillis" value="300000"/>
+        <property name="numTestsPerEvictionRun" value="1"/>
+        <property name="maxActive" value="1" />
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
     </bean>
 
     <!--Hibernate configuration-->
