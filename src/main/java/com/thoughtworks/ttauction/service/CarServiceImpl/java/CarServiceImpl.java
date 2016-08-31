@@ -2,6 +2,7 @@ package com.thoughtworks.ttauction.service.CarServiceImpl.java;
 
 import com.thoughtworks.ttauction.entity.Car;
 import com.thoughtworks.ttauction.repository.CarDao;
+import com.thoughtworks.ttauction.repository.CarDaoImpl.java.CarDaoImpl;
 import com.thoughtworks.ttauction.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,8 +13,14 @@ import java.util.List;
 @Service
 public class CarServiceImpl implements CarService {
 
-    @Autowired
     private CarDao carDao;
+
+    public CarServiceImpl(CarDao carDao){
+        this.carDao = new CarDaoImpl();
+    }
+
+    public CarServiceImpl() {
+    }
 
     @Override
     @Transactional

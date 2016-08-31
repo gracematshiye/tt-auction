@@ -2,6 +2,7 @@ package com.thoughtworks.ttauction.controller;
 
 import com.thoughtworks.ttauction.service.CarService;
 import com.thoughtworks.ttauction.entity.Car;
+import com.thoughtworks.ttauction.service.CarServiceImpl.java.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,7 +21,7 @@ public class CarController {
 
     @Autowired
     public CarController(CarService carService){
-        this.carService = carService;
+        this.carService = new CarServiceImpl();
     }
 
     @RequestMapping(value = "/cars", method = RequestMethod.GET)
