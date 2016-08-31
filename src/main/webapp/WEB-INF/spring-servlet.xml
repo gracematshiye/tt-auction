@@ -27,20 +27,23 @@
 
     <!--Data base configuration-->
 
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="org.postgresql.Driver"/>
-        <property name="url" value="ec2-54-235-104-63.compute-1.amazonaws.com"/>
-        <property name="username" value="rrakjriejfijjq"/>
-        <property name="password" value="IND-CUOWqFpXxeJtu2uRaaNBdf"/>
-    </bean>
+    <!--<bean class="java.net.URI" id="dbUrl">-->
+        <!--<constructor-arg value="#{systemEnvironment['DATABASE_URL']}"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
+        <!--<property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>-->
+        <!--<property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>-->
+        <!--<property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>-->
+    <!--</bean>-->
 
     <!--Data base configuration-->
-    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
-        <!--<property name="driverClassName" value="org.postgresql.Driver"/>-->
-        <!--<property name="url" value="jdbc:postgresql://localhost:5433/car_auction"/>-->
-        <!--<property name="username" value="postgres"/>-->
-        <!--<property name="password" value="postgres"/>-->
-    <!--</bean>-->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://localhost:5433/car_auction"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="postgres"/>
+    </bean>
 
     <!--Hibernate configuration-->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
