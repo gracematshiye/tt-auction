@@ -31,31 +31,50 @@
         <property name="order" value="1"></property>
     </bean>
 
-    <!--Data base configuration-->
+    <!--Heroku Database configuration-->
+    <bean class="java.net.URI" id="dbUrl">
+    <constructor-arg value="#{systemEnvironment['HEROKU_POSTGRESQL_NAVY_URL']}"/>
+    </bean>
 
-    <!--<bean class="java.net.URI" id="dbUrl">-->
-    <!--<constructor-arg value="#{systemEnvironment['DATABASE_URL']}"/>-->
-    <!--</bean>-->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
+        <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
+        <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
 
-    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
-    <!--<property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>-->
-    <!--<property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>-->
-    <!--<property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>-->
-    <!--</bean>-->
 
-    <!--Data base configuration-->
+        <property name="hibernate.archive.autodetection" value="class"/>
+        <property name="hibernate.show_sql" value="true"/>
+        <property name="hibernate.format_sql" value="true"/>
+        <property name="hbm2ddl.auto" value="update"/>
+
+        <property name="hibernate.connection.provider_class" value="org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider" />
+        <property name="hibernate.c3p0.min_size" value="1" />
+        <property name="hibernate.c3p0.max_size" value="5" />
+        <property name="hibernate.c3p0.acquire_increment" value="1" />
+        <property name="hibernate.c3p0.idle_test_period" value="3000" />
+        <property name="hibernate.c3p0.max_statements" value="50" />
+        <property name="hibernate.c3p0.timeout" value="1800" />
+    </bean>
+
+    <!--Local Data base configuration-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="jdbc:postgresql://localhost:5433/car_auction"/>
         <property name="username" value="postgres"/>
         <property name="password" value="postgres"/>
-        <property name="testOnBorrow" value="true"/>
-        <property name="testOnReturn" value="true"/>
-        <property name="testWhileIdle" value="true"/>
-        <property name="timeBetweenEvictionRunsMillis" value="300000"/>
-        <property name="numTestsPerEvictionRun" value="1"/>
-        <property name="maxActive" value="1"/>
-        <property name="minEvictableIdleTimeMillis" value="300000"/>
+
+        <property name="hibernate.archive.autodetection" value="class"/>
+        <property name="hibernate.show_sql" value="true"/>
+        <property name="hibernate.format_sql" value="true"/>
+        <property name="hbm2ddl.auto" value="update"/>
+
+        <property name="hibernate.connection.provider_class" value="org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider" />
+        <property name="hibernate.c3p0.min_size" value="1" />
+        <property name="hibernate.c3p0.max_size" value="5" />
+        <property name="hibernate.c3p0.acquire_increment" value="1" />
+        <property name="hibernate.c3p0.idle_test_period" value="3000" />
+        <property name="hibernate.c3p0.max_statements" value="50" />
+        <property name="hibernate.c3p0.timeout" value="1800" />
     </bean>
 
     <!--Hibernate configuration-->
