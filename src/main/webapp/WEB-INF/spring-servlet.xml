@@ -31,7 +31,7 @@
 
     <mvc:annotation-driven/>
 
-    <!--View resolver-->
+    <!---->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
             <value>/WEB-INF/views/</value>
@@ -59,7 +59,7 @@
     <!--</bean>-->
 
     <!--Hibernate configuration-->
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.annotation.AnnotationSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="hibernateProperties">
             <props>
