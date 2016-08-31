@@ -11,8 +11,7 @@
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <mvc:resources mapping="/resources/**" location="/resources/"/>
-    <context:component-scan
-            base-package="com.thoughtworks.ttauction, com.thoughtworks.ttauction.controller.CarController"/>
+    <context:component-scan base-package="com.thoughtworks.ttauction, com.thoughtworks.ttauction.controller.CarController"/>
 
     <mvc:annotation-driven/>
 
@@ -24,26 +23,31 @@
         <property name="suffix">
             <value>.jsp</value>
         </property>
+
+        <property name="viewClass">
+            <value>org.springframework.web.servlet.view.JstlView</value>
+        </property>
+        <property name="order" value="1"></property>
     </bean>
 
-    <!--Local Data base configuration-->
+    <!--Heroku Data base configuration-->
     <bean class="java.net.URI" id="dbUrl">
-        <constructor-arg value="#{systemEnvironment['HEROKU_POSTGRESQL_PINK_URL']}"/>
+    <constructor-arg value="#{systemEnvironment['HEROKU_POSTGRESQL_PINK_URL']}"/>
     </bean>
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
-        <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
-        <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
+    <property name="url"
+    value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
+    <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
+    <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
     </bean>
 
-    <!--Heroku Database -->
+    <!--Data base configuration-->
     <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
         <!--<property name="driverClassName" value="org.postgresql.Driver"/>-->
         <!--<property name="url" value="jdbc:postgresql://localhost:5433/car_auction"/>-->
         <!--<property name="username" value="postgres"/>-->
         <!--<property name="password" value="postgres"/>-->
-
     <!--</bean>-->
 
     <!--Hibernate configuration-->
@@ -69,18 +73,6 @@
     <!--Configuring Data access layer using Object relational Mapping language-->
     <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    <bean id="carDao" class="com.thoughtworks.ttauction.repository.CarDaoImpl.java.CarDaoImpl">
-        <property name="sessionFactory">
-            <ref local="sessionFactory" />
-        </property>
-    </bean>
-
-    <bean id="carService" class="com.thoughtworks.ttauction.service.CarServiceImpl.java.CarServiceImpl">
-        <property name="carDao">
-            <ref local="carDao" />
-        </property>
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
