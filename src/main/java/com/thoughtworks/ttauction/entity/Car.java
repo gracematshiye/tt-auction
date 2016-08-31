@@ -60,9 +60,6 @@ public class Car {
         this.priceOffer = priceOffer;
     }
 
-    public Car() {
-
-    }
 
     public int getId() {
         return id;
