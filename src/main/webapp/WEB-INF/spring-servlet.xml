@@ -85,6 +85,18 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <bean id="carDao" class="com.thoughtworks.ttauction.repository.CarDaoImpl.java.CarDaoImpl">
+        <property name="sessionFactory">
+            <ref local="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="carService" class="com.thoughtworks.ttauction.service.CarServiceImpl.java.CarServiceImpl">
+        <property name="carDao">
+            <ref local="carDao" />
+        </property>
+    </bean>
+
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <mvc:annotation-driven/>
 
