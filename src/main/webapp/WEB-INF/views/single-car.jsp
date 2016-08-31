@@ -13,7 +13,7 @@
 <br>
 
 <center>
-    ${car.model}
+    Under construction
 </center>
 <br>
 

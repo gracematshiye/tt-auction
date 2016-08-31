@@ -24,11 +24,6 @@
         <property name="suffix">
             <value>.jsp</value>
         </property>
-
-        <property name="viewClass">
-            <value>org.springframework.web.servlet.view.JstlView</value>
-        </property>
-        <property name="order" value="1"></property>
     </bean>
 
     <!--Heroku Database configuration-->
@@ -63,18 +58,6 @@
         <!--<property name="username" value="postgres"/>-->
         <!--<property name="password" value="postgres"/>-->
 
-        <!--<property name="hibernate.archive.autodetection" value="class"/>-->
-        <!--<property name="hibernate.show_sql" value="true"/>-->
-        <!--<property name="hibernate.format_sql" value="true"/>-->
-        <!--<property name="hbm2ddl.auto" value="update"/>-->
-
-        <!--<property name="hibernate.connection.provider_class" value="org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider" />-->
-        <!--<property name="hibernate.c3p0.min_size" value="1" />-->
-        <!--<property name="hibernate.c3p0.max_size" value="5" />-->
-        <!--<property name="hibernate.c3p0.acquire_increment" value="1" />-->
-        <!--<property name="hibernate.c3p0.idle_test_period" value="3000" />-->
-        <!--<property name="hibernate.c3p0.max_statements" value="50" />-->
-        <!--<property name="hibernate.c3p0.timeout" value="1800" />-->
     <!--</bean>-->
 
     <!--Hibernate configuration-->
@@ -100,24 +83,6 @@
     <!--Configuring Data access layer using Object relational Mapping language-->
     <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    <bean id="carDao" class="com.thoughtworks.ttauction.repository.CarDaoImpl.java.CarDaoImpl">
-        <property name="sessionFactory">
-            <ref local="sessionFactory"/>
-        </property>
-    </bean>
-
-    <bean id="carService" class="com.thoughtworks.ttauction.service.CarServiceImpl.java.CarServiceImpl">
-        <property name="carDao">
-            <ref local="carDao" />
-        </property>
-    </bean>
-
-    <bean id="carController" class="com.thoughtworks.ttauction.controller.CarController">
-        <property name="carService">
-            <ref local="carService" />
-        </property>
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
