@@ -13,11 +13,8 @@ import java.util.List;
 @Service
 public class CarServiceImpl implements CarService {
 
-    private CarDao carDao;
-
-    public CarServiceImpl(CarDao carDao){
-        this.carDao = new CarDaoImpl();
-    }
+    @Autowired
+    private CarDao carDao = new CarDaoImpl();
 
     public CarServiceImpl() {
     }

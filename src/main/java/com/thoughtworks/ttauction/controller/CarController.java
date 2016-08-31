@@ -17,12 +17,8 @@ import java.util.List;
 @Controller
 public class CarController {
 
-    private CarService carService;
-
     @Autowired
-    public CarController(CarService carService){
-        this.carService = new CarServiceImpl();
-    }
+    private CarService carService = new CarServiceImpl();
 
     @RequestMapping(value = "/cars", method = RequestMethod.GET)
     public String displayAllCars(ModelMap modelMap){
