@@ -14,13 +14,13 @@
        xsi:schemaLocation="
     http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/mvc
-    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <mvc:resources mapping="/resources/**" location="/resources/" />
 
-    <context:component-scan base-package="com.thoughtworks.ttauction, com.thoughtworks.ttauction.controller.CarController"/>
+    <context:component-scan base-package="com.thoughtworks.ttauction"/>
 
     <mvc:annotation-driven/>
 
@@ -34,8 +34,7 @@
         </property>
     </bean>
 
-    <!--Data base configuration-->
-
+    <!--Data base configuration - Server-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="ec2-54-235-104-63.compute-1.amazonaws.com"/>
@@ -43,7 +42,7 @@
         <property name="password" value="IND-CUOWqFpXxeJtu2uRaaNBdf"/>
     </bean>
 
-    <!--Data base configuration-->
+    <!--Data base configuration - Local-->
     <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
         <!--<property name="driverClassName" value="org.postgresql.Driver"/>-->
         <!--<property name="url" value="jdbc:postgresql://localhost:5433/car_auction"/>-->
