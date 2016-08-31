@@ -1,37 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
-       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
-       <!--xmlns:context="http://www.springframework.org/schema/context"-->
-       <!--xmlns:mvc="http://www.springframework.org/schema/mvc"-->
-       <!--xmlns:tx="http://www.springframework.org/schema/tx"-->
-       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd-->
-       <!--http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd-->
-       <!--http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd-->
-       <!--http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">-->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="
-                            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-                            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
-                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-                            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
-
-    <context:annotation-config />
-
-    <context:component-scan base-package="com.thoughtworks.ttauction"/>
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <mvc:resources mapping="/resources/**" location="/resources/" />
-
     <context:component-scan base-package="com.thoughtworks.ttauction, com.thoughtworks.ttauction.controller.CarController"/>
 
     <mvc:annotation-driven/>
 
-    <!---->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
             <value>/WEB-INF/views/</value>
@@ -42,7 +25,8 @@
         </property>
     </bean>
 
-    <!--Data base configuration - Server-->
+    <!--Data base configuration-->
+
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="ec2-54-235-104-63.compute-1.amazonaws.com"/>
@@ -50,7 +34,7 @@
         <property name="password" value="IND-CUOWqFpXxeJtu2uRaaNBdf"/>
     </bean>
 
-    <!--Data base configuration - Local-->
+    <!--Data base configuration-->
     <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
         <!--<property name="driverClassName" value="org.postgresql.Driver"/>-->
         <!--<property name="url" value="jdbc:postgresql://localhost:5433/car_auction"/>-->
@@ -59,7 +43,7 @@
     <!--</bean>-->
 
     <!--Hibernate configuration-->
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="hibernateProperties">
             <props>
@@ -84,5 +68,6 @@
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
+    <mvc:annotation-driven/>
 
 </beans>
