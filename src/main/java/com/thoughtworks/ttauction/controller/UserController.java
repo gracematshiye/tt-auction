@@ -25,4 +25,16 @@ public class UserController {
 
         return "redirect:/all-cars";
     }
+
+    @RequestMapping(value = "/add-user-bid", method = RequestMethod.POST)
+    public String addUserBid( ModelMap modelMap){
+
+//        List<User> listOfUsers = this.userService.getUsers();
+//
+//        for (int i = 0; i < listOfUsers.size(); i++) {
+//
+//        }
+
+        return "redirect:/cars/{car_id}";
+    }
 }

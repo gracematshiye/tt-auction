@@ -41,9 +41,10 @@ public class CarController {
 
     @RequestMapping(value = "/cars/bid/carId={carId}&userId={userId}", method = RequestMethod.GET)
     public String bidOnCar(@PathVariable("carId") Integer carId, @PathVariable("userId") Integer userId, ModelMap modelMap){
-        if (carId == userId)
+        if (userId == null)
         {
-            return "all-cars";
+            modelMap.addAttribute("carId", carId);
+            return "redirect:/add-user-bid";
         }
 
         List<Car> cars = this.carService.getCars();
