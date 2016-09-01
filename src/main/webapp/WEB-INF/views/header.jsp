@@ -10,7 +10,7 @@
 <div style="styles">
     <ul>
         <li class="logo">
-            <a href="${pageContext.request.contextPath}/cars" class="dropbtn">TT's Online Auction</a>
+            <a href="${pageContext.request.contextPath}/cars">TT's Online Auction</a>
         </li>
 
       <li class="home"><a href="${pageContext.request.contextPath}/cars">Home</a></li>
