@@ -1,12 +1,14 @@
-package com.thoughtworks.ttauction.service;
+package com.thoughtworks.ttauction.repository;
 
 
 import com.thoughtworks.ttauction.entity.User;
 
 import java.util.List;
 
-public interface UserService {
 
-//    List<User> getUsers();
+public interface UserDao {
     void addUser(User user);
+    List<User> getUsers();
+
+
 }
