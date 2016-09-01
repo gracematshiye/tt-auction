@@ -1,17 +1,30 @@
-describe('Homepage message', function() {
-  it('should return message', function() {
+describe('Homepage images', function() {
+  it('should display images', function() {
   	browser.ignoreSynchronization = true;
 
-    browser.get('http://localhost:8080/car/all-cars');
+    browser.get('http://localhost:8080/cars');
+    //browser.get('http://localhost:8080/cars');
 
-    element(by.tagName('li')).getAttribute('value').then(function(text) {
-        console.log(text);
-    });
+    //Click Home tab
+    var home =  element(by.css('.home'));
+    expect(home.isDisplayed()).toBe(true);
+    home.click();
+    expect(browser.getCurrentUrl()).toEqual("http://localhost:8080/cars");
+
+    //Click logo
+    var logo =  element(by.css('.logo'));
+    expect(logo.isDisplayed()).toBe(true);
+    logo.click();
+    expect(browser.getCurrentUrl()).toEqual("http://localhost:8080/cars");
+
+    //Click on a Car
+    var el =  element(by.css('.car'));
+    expect(el.isDisplayed()).toBe(true);
+    el.click();
+    expect(browser.getCurrentUrl()).toEqual("http://localhost:8080/cars/1");
+
 //
-//    var clickCarImg = element(by.css('.car'));
-//    clickCarImg.click().expect();
 //
-    var myElement = element(by.css('.car'));
-    expect(myElement.isPresent()).toBeFalsy();
+//
   });
 });
