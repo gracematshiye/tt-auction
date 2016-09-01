@@ -28,11 +28,11 @@ public class CarController {
         return "all-cars";
     }
 
-    @RequestMapping(value = "/cars/{id}", method = RequestMethod.GET)
-    public String displayACar(@PathVariable("id") Integer id, ModelMap modelMap){
-
-
-        modelMap.addAttribute("car", this.carService.getCarById(id));
-        return "single-car";
-    }
+//    @RequestMapping(value = "/cars/{id}", method = RequestMethod.GET)
+//    public String displayACar(@PathVariable("id") Integer id, ModelMap modelMap){
+//
+//
+//        modelMap.addAttribute("car", this.carService.getCarById(id));
+//        return "single-car";
+//    }
 }
