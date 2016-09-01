@@ -6,6 +6,7 @@
 <spring:url value="/resources/js/jquery.min.js" var="jqueryJS"/>
 <link rel="stylesheet" type="text/css" href="/resources/css/styles.css"/>
 <link href="<c:url value="/resources/css/styles.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/viewcar.css" />" rel="stylesheet">
 
 <div style="styles">
     <ul>

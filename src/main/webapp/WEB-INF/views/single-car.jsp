@@ -1,8 +1,8 @@
 <%@include file="header.jsp" %>
+
 <link href="<c:url value="/resources/css/viewcar.css" />" rel="stylesheet">
 
 <div class="viewimg">
-
 
     <p style="margin-top: 20px;"><img src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="GTI" width="50%" height="40%">
         <em>Description</em>
@@ -20,9 +20,8 @@
         <br><em>Price</em> : ${car.priceOffer}
         <br><em>Highest Price offer</em> : ${car.price}
      </div>
+
 </div>
-
-
 
 <%@include file="footer.jsp" %>
 
