@@ -31,23 +31,23 @@
     </bean>
 
     <!--Heroku Data base configuration-->
-    <bean class="java.net.URI" id="dbUrl">
-    <constructor-arg value="#{systemEnvironment['HEROKU_POSTGRESQL_PINK_URL']}"/>
-    </bean>
+    <!--<bean class="java.net.URI" id="dbUrl">-->
+    <!--<constructor-arg value="#{systemEnvironment['HEROKU_POSTGRESQL_PINK_URL']}"/>-->
+    <!--</bean>-->
 
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-    <property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
-    <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
-    <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
-    </bean>
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
+    <!--<property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>-->
+    <!--<property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>-->
+    <!--<property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>-->
+    <!--</bean>-->
 
     <!--Data base configuration-->
-    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
-        <!--<property name="driverClassName" value="org.postgresql.Driver"/>-->
-        <!--<property name="url" value="jdbc:postgresql://localhost:5432/car_auction"/>-->
-        <!--<property name="username" value="postgres"/>-->
-        <!--<property name="password" value="postgres"/>-->
-    <!--</bean>-->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://localhost:5433/car_auction"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="postgres"/>
+    </bean>
 
     <!--Hibernate configuration-->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
