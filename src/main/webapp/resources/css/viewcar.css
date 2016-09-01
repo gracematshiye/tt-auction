@@ -1,7 +1,54 @@
 .viewimg {
 
 }
+.wrapper {
+    float: center;
+    margin: auto;
+    width: 67em;
+}
+.bidWrapper {
+    float: left;
+    margin-left: 54em;
+}
+.leftDiv {
+    float: left;
+    width: 60%;
+}
+.rightDiv {
+    float: right;
+    width: 40%;
+    margin-left: 10px;
+    margin-top: -442px;
+}
 img {
     float: left;
     margin: 20px 20px 15px 20px;
+    display: block;
+    width:600px;
+    height:444px;
 }
+.btnBid {
+	box-shadow:inset 0px 1px 3px 0px #61f039;
+	background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+	background-color:#44c767;
+	border-radius:5px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:11px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2f6627;
+}
+.btnBid:hover {
+	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+	background-color:#5cbf2a;
+}
+.btnBid:active {
+	position:relative;
+	top:1px;
+}
+

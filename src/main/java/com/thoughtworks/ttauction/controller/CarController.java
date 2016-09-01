@@ -41,4 +41,18 @@ public class CarController {
         modelMap.addAttribute("car", cars.get(car_id - 1));
         return "single-car";
     }
+
+    @RequestMapping(value = "/cars/bid/carId={carId}&userId={userId}", method = RequestMethod.GET)
+    public String bidOnCar(@PathVariable("carId") Integer carId, @PathVariable("userId") Integer userId, ModelMap modelMap){
+        if (carId == userId)
+        {
+            return "all-cars";
+        }
+
+        List<Car> cars = this.carService.getCars();
+
+        //modelMap.addAttribute("car", this.carService.getCarById(car_id));
+        modelMap.addAttribute("car", cars.get(carId - 1));
+        return "single-car";
+    }
 }
