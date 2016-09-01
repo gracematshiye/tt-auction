@@ -1,4 +1,5 @@
 <%@include file="header.jsp" %>
+
 <link href="<c:url value="/resources/css/viewcar.css" />" rel="stylesheet">
 
 <div class="wrapper">
@@ -27,5 +28,4 @@
 <div class="bidWrapper">
     <a href="${pageContext.request.contextPath}/cars/bid/carId=${car.id}&userId=${user.id}" value="Bid" class="btnBid" width="20px">Bid</a>
 </div>
-
 

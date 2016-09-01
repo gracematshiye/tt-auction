@@ -16,6 +16,7 @@ public class CarDaoImpl implements CarDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Override
     public void addCar(Car car) {
         Session session = sessionFactory.getCurrentSession();
 
@@ -25,7 +26,7 @@ public class CarDaoImpl implements CarDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<Car> getCars() {
-        Session session =sessionFactory.getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
 
         Query query = session.createQuery("from Car");
 
@@ -34,7 +35,7 @@ public class CarDaoImpl implements CarDao {
 
 
     @Override
-    public Car getCarById(int id) {
+    public Car getCarById(Integer id) {
         Session session = sessionFactory.getCurrentSession();
 
         return session.load(Car.class, new Integer(id));

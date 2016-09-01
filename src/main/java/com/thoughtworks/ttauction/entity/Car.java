@@ -11,7 +11,7 @@ public class Car {
     @Id
     @Column(name = "car_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "car_model_name")
     private String model;
@@ -185,9 +185,9 @@ public class Car {
 
         Car car = (Car) o;
 
-        if (id != car.id) return false;
         if (mileage != car.mileage) return false;
         if (year != car.year) return false;
+        if (id != null ? !id.equals(car.id) : car.id != null) return false;
         if (model != null ? !model.equals(car.model) : car.model != null) return false;
         if (make != null ? !make.equals(car.make) : car.make != null) return false;
         if (price != null ? !price.equals(car.price) : car.price != null) return false;
@@ -202,7 +202,7 @@ public class Car {
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (model != null ? model.hashCode() : 0);
         result = 31 * result + (make != null ? make.hashCode() : 0);
         result = 31 * result + mileage;

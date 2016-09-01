@@ -33,7 +33,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     @Transactional
-    public Car getCarById(int id) {
+    public Car getCarById(Integer id) {
         return this.carDao.getCarById(id);
     }
 }
