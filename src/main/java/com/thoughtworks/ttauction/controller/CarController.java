@@ -32,11 +32,13 @@ public class CarController {
         return "all-cars";
     }
 
-//    @RequestMapping(value = "/cars/{id}", method = RequestMethod.GET)
-//    public String displayACar(@PathVariable("id") Integer id, ModelMap modelMap){
-//
-//
-//        modelMap.addAttribute("car", this.carService.getCarById(id));
-//        return "single-car";
-//    }
+    @RequestMapping(value = "/cars/{car_id}", method = RequestMethod.GET)
+    public String displayACar(@PathVariable("car_id") Integer car_id, ModelMap modelMap){
+
+        List<Car> cars = this.carService.getCars();
+
+        //modelMap.addAttribute("car", this.carService.getCarById(car_id));
+        modelMap.addAttribute("car", cars.get(car_id - 1));
+        return "single-car";
+    }
 }
