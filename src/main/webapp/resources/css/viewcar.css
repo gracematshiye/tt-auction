@@ -4,7 +4,7 @@
 .wrapper {
     float: center;
     margin: auto;
-    width: 67em;
+    width: 65em;
 }
 .bidWrapper {
     float: left;
@@ -16,9 +16,9 @@
 }
 .rightDiv {
     float: right;
-    width: 40%;
+    width: 21%;
     margin-left: 10px;
-    margin-top: -442px;
+    margin-top: 16px;
 }
 img {
     float: left;
@@ -26,6 +26,10 @@ img {
     display: block;
     width:600px;
     height:444px;
+}
+.imgSingle {
+    width:650px;
+    height:456px;
 }
 .btnBid {
 	box-shadow:inset 0px 1px 3px 0px #61f039;
@@ -51,4 +55,26 @@ img {
 	position:relative;
 	top:1px;
 }
-
+.wrap {
+    display: inline-block;
+    float:left;
+    width: 800px;
+    margin: 0 auto;
+    margin-left: 5px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    box-sizing: border-box;
+}
+.thumbs {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.imgPreview {
+    float: left;
+    margin: 5px;
+    display: block;
+    width:155px;
+    height:91px;
+}

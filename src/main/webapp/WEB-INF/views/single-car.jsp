@@ -4,7 +4,7 @@
 
 <div class="wrapper">
     <div class="leftDiv">
-        <img src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="GTI">
+        <img class="imgSingle" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="GTI">
     </div>
     <div class="rightDiv">
         <p>
@@ -24,10 +24,34 @@
             <br><em>Highest Price offer</em> : ${car.price}
          </div>
     </div>
+
+    <div class="thumbs">
+        <div class="wrap">
+            <img class="imgPreview" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="GTI">
+            <img class="imgPreview" src="<c:url value="/resources/images/${car.id}_2.jpeg" />" alt="GTI">
+            <img class="imgPreview" src="<c:url value="/resources/images/${car.id}_3.jpeg" />" alt="GTI">
+            <img class="imgPreview" src="<c:url value="/resources/images/${car.id}_4.jpeg" />" alt="GTI">
+            <img class="imgPreview" src="<c:url value="/resources/images/${car.id}_5.jpeg" />" alt="GTI">
+            <img class="imgPreview" src="<c:url value="/resources/images/${car.id}_6.jpeg" />" alt="GTI">
+        </div>
+    </div>
+
 </div>
 
-<div class="bidWrapper">
-    <a href="${pageContext.request.contextPath}/user/add/${car.id}" value="Bid" class="btnBid" width="20px">Bid</a>
-</div>
-
-
+<!--<div class="bidWrapper">
+    <c:choose>
+        <c:when test="${!empty userId}">
+            <div class="topDiv">
+                <input type="text" name="Hello" />
+            </div>
+            <div class="bottomDiv">
+                <a href="${pageContext.request.contextPath}/cars/bid/carId=${car.id}&userId=${userId}&offer=${offer}" value="Bid" class="btnBid" width="20px">Bid</a>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div class="bottomDiv">
+                <a href="${pageContext.request.contextPath}/cars/bid/carId=${car.id}" value="Bid" class="btnBid" width="20px">Bid</a>
+            </div>
+        </c:otherwise>
+    </c:choose>
+</div>-->
