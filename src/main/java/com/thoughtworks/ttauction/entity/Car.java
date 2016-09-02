@@ -47,6 +47,7 @@ public class Car {
     private BigDecimal priceOffer;
 
     public Car(String model, String make, int mileage, int year, BigDecimal price, String condition, String colour, String transmission, String fuel, String description, BigDecimal priceOffer) {
+        super();
         this.model = model;
         this.make = make;
         this.mileage = mileage;

@@ -42,6 +42,7 @@ public class User {
     }
 
     public User(String username, String password, String firstName, String lastName, String dateOfBirth, String emailAddress, String cellPhoneNumber, String homeAddress) {
+        super();
         this.username = username;
         this.password = password;
         this.firstName = firstName;

@@ -34,6 +34,8 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.thoughtworks.ttauction.entity.Car</value>
+                <value>com.thoughtworks.ttauction.entity.Bid</value>
+                <value>com.thoughtworks.ttauction.entity.User</value>
             </list>
         </property>
     </bean>

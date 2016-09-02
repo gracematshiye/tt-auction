@@ -8,5 +8,4 @@ public interface CarService {
 
     void addCar(Car car);
     List<Car> getCars();
-    Car getCarById(Integer id);
 }

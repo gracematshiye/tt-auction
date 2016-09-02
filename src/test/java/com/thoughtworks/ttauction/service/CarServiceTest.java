@@ -50,15 +50,4 @@ public class CarServiceTest {
 
         verify(carDAO, atLeastOnce()).getCars();
     }
-
-    @Test
-    public void testGetCarById() throws Exception {
-        Car car = listOfCars.get(0);
-
-        when(carDAO.getCarById(anyInt())).thenReturn(car);
-
-        Assert.assertEquals(carService.getCarById(1), car);
-
-        verify(carDAO, atLeastOnce()).getCarById(anyInt());
-    }
 }
