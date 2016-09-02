@@ -25,7 +25,9 @@
          </div>
     </div>
 </div>
+
 <div class="bidWrapper">
-    <a href="${pageContext.request.contextPath}/cars/bid/carId=${car.id}&userId=${user.id}" value="Bid" class="btnBid" width="20px">Bid</a>
+    <a href="${pageContext.request.contextPath}/user/add/${car.id}" value="Bid" class="btnBid" width="20px">Bid</a>
 </div>
+
 
