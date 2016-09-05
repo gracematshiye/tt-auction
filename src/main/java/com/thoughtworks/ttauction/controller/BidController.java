@@ -11,8 +11,8 @@ import org.springframework.stereotype.Controller;
 public class BidController {
 
     @Autowired
-    private CarService carService = new CarServiceImpl();
+    private CarService carService;
 
     @Autowired
-    private CustomerService userService = new CustomerServiceImpl();
+    private CustomerService userService;
 }
