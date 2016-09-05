@@ -20,6 +20,7 @@
         </li>
 
       <li class="home"><a href="${pageContext.request.contextPath}/cars">Home</a></li>
+      <li class="home"><a href="${pageContext.request.contextPath}/cars">View Car</a></li>
 
   <!--
       <li><a href="#">Live Auctions</a></li>

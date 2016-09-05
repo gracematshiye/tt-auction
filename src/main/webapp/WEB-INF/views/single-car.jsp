@@ -1,14 +1,15 @@
 <%@include file="header.jsp" %>
 
 <link href="<c:url value="/resources/css/viewcar.css" />" rel="stylesheet">
+<script type="text/javascript" src="<c:url value="/resources/js/viewcar.js" />"></script>
 
 <div class="wrapper">
     <div class="leftDiv">
-        <img class="imgSingle" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="GTI">
+        <img id="selectedCar" class="imgSingle" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="GTI">
     </div>
     <div class="rightDiv">
         <p>
-            <em>Description</em>
+            <h3><em>Description</em></h3>
             This car is just awesome,
             It has the looks, and the power to match.
             For your usual speed enthusiast, who likes getting that kick from matting the throttle to the floor.
@@ -17,6 +18,7 @@
          <br>
          <br/>
          <div>
+            <h3><em>Vehicle Details</em></h3>
             <p><em>Model Name</em> : ${car.make}
             <br><em>Mileage</em> : ${car.mileage} km
             <br><em>Transmission</em> : ${car.transmission}
@@ -27,12 +29,12 @@
 
     <div class="thumbs">
         <div class="wrap">
-            <img class="imgPreview" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="GTI">
-            <img class="imgPreview" src="<c:url value="/resources/images/${car.id}_2.jpeg" />" alt="GTI">
-            <img class="imgPreview" src="<c:url value="/resources/images/${car.id}_3.jpeg" />" alt="GTI">
-            <img class="imgPreview" src="<c:url value="/resources/images/${car.id}_4.jpeg" />" alt="GTI">
-            <img class="imgPreview" src="<c:url value="/resources/images/${car.id}_5.jpeg" />" alt="GTI">
-            <img class="imgPreview" src="<c:url value="/resources/images/${car.id}_6.jpeg" />" alt="GTI">
+            <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="Click to preview">
+            <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_2.jpeg" />" alt="GTI">
+            <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_3.jpeg" />" alt="GTI">
+            <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_4.jpeg" />" alt="GTI">
+            <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_5.jpeg" />" alt="GTI">
+            <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_6.jpeg" />" alt="GTI">
         </div>
     </div>
 <div class="bidWrapper">
@@ -57,4 +59,40 @@
             </div>
         </c:otherwise>
     </c:choose>
-</div>-->
+</div>
+
+<div class="sample">
+    	<div class="mask6">
+    		<div id="box7">
+    			<span><img src="<c:url value="/resources/images/1.jpeg" />" alt="Photo" /></span>
+    			<span><img src="<c:url value="/resources/images/1_2.jpeg" />" alt="Photo" /></span>
+    			<span><img src="<c:url value="/resources/images/1_3.jpeg" />" alt="Photo" /></span>
+    			<span><img src="<c:url value="/resources/images/1_4.jpeg" />" alt="Photo" /></span>
+    			<span><img src="<c:url value="/resources/images/1_5.jpeg" />" alt="Photo" /></span>
+    			<span><img src="<c:url value="/resources/images/1_6.jpeg" />" alt="Photo" /></span>
+    		</div>
+    	</div>
+
+    	<div id="thumbs7">
+    		<div class="thumbs">
+    			<div><img src="<c:url value="/resources/images/1.jpeg" />" alt="Photo Thumb" /></div>
+    			<div><img src="<c:url value="/resources/images/1_2.jpeg" />" alt="Photo Thumb" /></div>
+    			<div><img src="<c:url value="/resources/images/1_3.jpeg" />" alt="Photo Thumb" /></div>
+    			<div><img src="<c:url value="/resources/images/1_4.jpeg" />" alt="Photo Thumb" /></div>
+    			<div><img src="<c:url value="/resources/images/1_5.jpeg" />" alt="Photo Thumb" /></div>
+    		</div>
+
+    		<div id="thumbs_mask7"></div>
+
+    		<p id="thumbs_handles7">
+    			<span></span>
+    			<span></span>
+    			<span></span>
+    			<span></span>
+    			<span></span>
+    			<span></span>
+    			<span></span>
+    			<span></span>
+    		</p>
+    	</div>
+    </div>-->

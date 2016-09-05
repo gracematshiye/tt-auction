@@ -4,6 +4,13 @@
     <c:when test="${!empty carList}">
         <c:forEach items="${carList}" var="car">
             <div align="center">
+                <div class="leftDiv">
+
+                </div>
+                <div class="rightDiv">
+
+                </div>
+
                 <li class="car">
                     <a href="${pageContext.request.contextPath}/cars/${car.id}" >
                         <img src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="GTI" >
