@@ -36,7 +36,7 @@
         </div>
     </div>
 <div class="bidWrapper">
-    <a href="${pageContext.request.contextPath}/customer/register" value="Bid" class="btnBid" width="20px">Bid</a>
+    <a href="${pageContext.request.contextPath}/customer/register" value="Bid" class="btnBid" width="20px">Bid this car</a>
 </div>
 
 </div>
