@@ -1,34 +1,36 @@
-package com.thoughtworks.ttauction.repository.UserDaoImpl.java;
+package com.thoughtworks.ttauction.repository.CustomerDaoImpl.java;
 
-import com.thoughtworks.ttauction.entity.User;
-import com.thoughtworks.ttauction.repository.UserDao;
+import com.thoughtworks.ttauction.entity.Customer;
+import com.thoughtworks.ttauction.repository.CustomerDao;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class UserDaoImpl implements UserDao{
+public class CustomerDaoImpl implements CustomerDao {
 
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
-    public void addUser(User user) {
+    public void addCustomer(Customer customer) {
         Session session = sessionFactory.getCurrentSession();
 
-        session.save(user);
+        session.save(customer);
+
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public List<User> getUsers() {
+    public List<Customer> getCustomers() {
+
         Session session = sessionFactory.getCurrentSession();
 
-        Query query = session.createQuery("from User");
+        Query query = session.createQuery("from Customer");
 
         return query.list();
     }

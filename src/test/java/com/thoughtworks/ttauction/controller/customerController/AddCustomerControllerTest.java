@@ -1,8 +1,8 @@
-package com.thoughtworks.ttauction.controller.car;
+package com.thoughtworks.ttauction.controller.customerController;
 
-import com.thoughtworks.ttauction.controller.CarController;
-import com.thoughtworks.ttauction.entity.Car;
-import com.thoughtworks.ttauction.service.CarService;
+import com.thoughtworks.ttauction.controller.CustomerController;
+import com.thoughtworks.ttauction.entity.Customer;
+import com.thoughtworks.ttauction.service.CustomerService;
 import org.junit.Before;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -11,24 +11,24 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
 
-public class AddCarControllerTest {
+public class AddCustomerControllerTest {
+
     private MockMvc mockMvc;
 
     @Mock
-    private CarService carService ;
+    private CustomerService customerService;
 
     @InjectMocks
-    private CarController controller;
+    private CustomerController controller;
 
-    private List<Car> listOfCars = new ArrayList<>();
+    List<Customer> customerList = new ArrayList<>();
 
-    private Car car;
+    private Customer customer;
 
     @Before
     public void setUp() throws Exception {
@@ -42,10 +42,11 @@ public class AddCarControllerTest {
                 .setViewResolvers(viewResolver)
                 .build();
 
-        car = new Car("Model name 1", "Make name 1", 27712, 2016, new BigDecimal(120000), "Condition 1", "Color 1", "Transmission 1", "Fuel type 1", "Description 1", new BigDecimal(100000));
+        customer = new Customer("firstName", "lastName", "userName", "password", "dateOfBirth", "email", "contact", "address");
 
-        listOfCars.add(car);
+        customerList.add(customer);
 
-        when(carService.getCars()).thenReturn(listOfCars);
+        when(customerService.getCustomers()).thenReturn(customerList);
+
     }
 }

@@ -1,4 +1,4 @@
-package com.thoughtworks.ttauction.controller.car;
+package com.thoughtworks.ttauction.controller.carController;
 
 
 import com.thoughtworks.ttauction.controller.CarController;
@@ -19,20 +19,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 public class GetAllCarsControllerTest {
 
     private MockMvc mockMvc;
 
     @Mock
-    private CarService carService ;
+    private CarService carService;
 
     @InjectMocks
     private CarController controller;
@@ -88,7 +84,7 @@ public class GetAllCarsControllerTest {
     }
 
     @Test
-    public void verifyListOfCaraHasOneElement()throws Exception {
+    public void verifyListOfCaraHasOneElement() throws Exception {
 
         mockMvc.perform(get("/cars"))
                 .andExpect(model().attribute("carList", hasSize(1)));

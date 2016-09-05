@@ -67,7 +67,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.thoughtworks.ttauction.entity.Car</value>
-                <value>com.thoughtworks.ttauction.entity.User</value>
+                <value>com.thoughtworks.ttauction.entity.Customer</value>
             </list>
         </property>
     </bean>

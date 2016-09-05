@@ -35,6 +35,9 @@
             <img class="imgPreview" src="<c:url value="/resources/images/${car.id}_6.jpeg" />" alt="GTI">
         </div>
     </div>
+<div class="bidWrapper">
+    <a href="${pageContext.request.contextPath}/user/add/userId${car.id}&userId${customer.id}" value="Bid" class="btnBid" width="20px">Bid</a>
+</div>
 
 </div>
 
