@@ -58,7 +58,7 @@ img {
 .wrap {
     display: inline-block;
     float:left;
-    width: 800px;
+    width: 700px;
     margin: 0 auto;
     margin-left: 5px;
     margin-top: -50px;
@@ -76,8 +76,8 @@ img {
     float: left;
     margin: 5px;
     display: block;
-    width:155px;
-    height:91px;
+    width:122px;
+    height:72px;
     opacity: .65;
 }
 .imgPreview:hover {
