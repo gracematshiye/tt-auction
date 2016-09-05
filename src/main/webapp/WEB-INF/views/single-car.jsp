@@ -15,8 +15,6 @@
             For your usual speed enthusiast, who likes getting that kick from matting the throttle to the floor.
             Put this baby in 3rd gear, and press the throttle all the way down to the floor, and tell me if that doesn't thrill you a little bit.
         </p>
-         <br>
-         <br/>
          <div>
             <h3><em>Vehicle Details</em></h3>
             <p><em>Model Name</em> : ${car.make}

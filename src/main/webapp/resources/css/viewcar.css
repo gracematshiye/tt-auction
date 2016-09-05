@@ -18,7 +18,7 @@
     float: right;
     width: 21%;
     margin-left: 10px;
-    margin-top: 16px;
+    margin-top: -20px;
 }
 img {
     float: left;
@@ -61,7 +61,7 @@ img {
     width: 700px;
     margin: 0 auto;
     margin-left: 5px;
-    margin-top: -50px;
+    margin-top: -10px;
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
