@@ -16,28 +16,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CustomerController {
 
     @Autowired
-    private CustomerService userService = new CustomerServiceImpl();
+    private CustomerService customerService = new CustomerServiceImpl();
 
     @Autowired
     private CarService carService = new CarServiceImpl();
 
-    @RequestMapping(value = "/user/carId={car.id}&useId={customer.userId}")
-    public String viewCustomerPage(@PathVariable("carId") Integer carId, @PathVariable("userId") Integer userId){
+    @RequestMapping(value = "/customer/register/carId={id}")
+    public String viewRegisterPage(@PathVariable("id") Integer id) {
 
-        if (userId == null){
-            return "register";
-
-        }
-        return "redirect:/cars/{car_id}";
+        return "register";
     }
 
-    @RequestMapping(value = "/user/add", method = RequestMethod.POST)
-    public String addCustomer(@ModelAttribute("user") Customer user) {
+    @RequestMapping(value = "/customer/add", method = RequestMethod.POST)
+    public String addCustomer(@ModelAttribute("customer") Customer customer) {
 
-        if (user.getUserId() == 0){
-            userService.addCustomer(user);
+        if (customer.getId() == 0) {
+            customerService.addCustomer(customer);
         }
 
-        return "redirect:/cars/{car_id}";
+        return "redirect:/cars";
     }
 }

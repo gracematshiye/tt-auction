@@ -1,8 +1,11 @@
 package com.thoughtworks.ttauction.controller;
 
 import com.thoughtworks.ttauction.entity.Car;
+import com.thoughtworks.ttauction.entity.Customer;
 import com.thoughtworks.ttauction.service.CarService;
 import com.thoughtworks.ttauction.service.CarServiceImpl.java.CarServiceImpl;
+import com.thoughtworks.ttauction.service.CustomerService;
+import com.thoughtworks.ttauction.service.CustomerServiceImpl.java.CustomerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,6 +21,10 @@ public class CarController {
     @Autowired
     private CarService carService = new CarServiceImpl();
 
+    @Autowired
+    private CustomerService customerService = new CustomerServiceImpl();
+
+    /** This method returns a list of cars **/
     @RequestMapping(value = "/cars", method = RequestMethod.GET)
     public String displayAllCars(ModelMap modelMap){
 
@@ -26,12 +33,12 @@ public class CarController {
         return "all-cars";
     }
 
+    /** This method returns a selected car **/
     @RequestMapping(value = "/cars/{car_id}", method = RequestMethod.GET)
     public String displayACar(@PathVariable("car_id") Integer car_id, ModelMap modelMap){
 
         List<Car> cars = this.carService.getCars();
 
-        //modelMap.addAttribute("car", this.carService.getCarById(car_id));
         modelMap.addAttribute("car", cars.get(car_id - 1));
 
         return "single-car";

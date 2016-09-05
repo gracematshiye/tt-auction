@@ -6,6 +6,7 @@ import com.thoughtworks.ttauction.repository.CustomerDaoImpl.java.CustomerDaoImp
 import com.thoughtworks.ttauction.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,12 +17,15 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerDao customerDao = new CustomerDaoImpl();
 
     @Override
+    @Transactional
     public void addCustomer(Customer customer) {
-        customerDao.addCustomer(customer);
+        this.customerDao.addCustomer(customer);
     }
 
+
     @Override
+    @Transactional
     public List<Customer> getCustomers() {
-        return customerDao.getCustomers();
+        return this.customerDao.getCustomers();
     }
 }

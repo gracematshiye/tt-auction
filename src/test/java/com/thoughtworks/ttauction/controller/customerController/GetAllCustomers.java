@@ -42,7 +42,7 @@ public class GetAllCustomers {
                 .setViewResolvers(viewResolver)
                 .build();
 
-        customer = new Customer("firstName", "lastName", "userName", "password", "dateOfBirth", "email", "contact", "address");
+        customer = new Customer("firstName", "lastName", "userName", "password", "password", "dateOfBirth", "email", "contact", "address");
 
         customerList.add(customer);
 
