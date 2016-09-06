@@ -19,6 +19,7 @@
     width: 21%;
     margin-left: 10px;
     margin-top: 2px;
+    margin-right: 4em;
 }
 img {
     float: left;
@@ -110,3 +111,14 @@ img {
 }
 
 .sample{padding:20px 30px; margin:4px 0 25px 0; border:1px solid #e1e1e1}
+
+.pageTittle {
+    height: 20px;
+    float: left;
+    padding-left: 17em;
+    padding-right: 20em;
+    padding-bottom: 1em;
+}
+.pageTittle a {
+    text-decoration:none;
+}

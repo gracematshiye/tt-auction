@@ -2,7 +2,11 @@
 
 <link href="<c:url value="/resources/css/viewcar.css" />" rel="stylesheet">
 <script type="text/javascript" src="<c:url value="/resources/js/viewcar.js" />"></script>
-
+<div class="pageTittle">
+    <!--<h2>View Car Details</h2>-->
+    <h4><a href="${pageContext.request.contextPath}/cars">Home</a> / <a href="${pageContext.request.contextPath}/cars/make=${car.make}">${car.make}</a> / ${car.model} </h4>
+    <!--would be clickable links [TT's Home / Make]--->
+</div>
 <div class="wrapper">
     <div class="leftDiv">
         <img id="selectedCar" class="imgSingle" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="GTI">
@@ -10,14 +14,11 @@
     <div class="rightDiv">
         <p>
             <h3><em>Description</em></h3>
-            This car is just awesome,
-            It has the looks, and the power to match.
-            For your usual speed enthusiast, who likes getting that kick from matting the throttle to the floor.
-            Put this baby in 3rd gear, and press the throttle all the way down to the floor, and tell me if that doesn't thrill you a little bit.
+            ${car.description}
         </p>
          <div>
             <h3><em>Vehicle Details</em></h3>
-            <p><em>Model Name</em> : ${car.make}
+            <p><em>Model Name</em> : ${car.model}
             <br><em>Mileage</em> : ${car.mileage} km
             <br><em>Transmission</em> : ${car.transmission}
             <br><em>Price</em> : ${car.priceOffer}
@@ -27,7 +28,7 @@
 
     <div class="thumbs">
         <div class="wrap">
-            <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="Click to preview">
+            <img class="imgPreview active" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="Click to preview">
             <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_2.jpeg" />" alt="GTI">
             <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_3.jpeg" />" alt="GTI">
             <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_4.jpeg" />" alt="GTI">

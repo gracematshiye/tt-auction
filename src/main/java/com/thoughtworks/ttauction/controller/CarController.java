@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.io.Console;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -28,8 +30,9 @@ public class CarController {
     @RequestMapping(value = "/cars", method = RequestMethod.GET)
     public String displayAllCars(ModelMap modelMap){
 
-        modelMap.addAttribute("carList", this.carService.getCars());
-
+        if (modelMap.size() == 0) {
+            modelMap.addAttribute("carList", this.carService.getCars());
+        }
         return "all-cars";
     }
 
@@ -42,6 +45,27 @@ public class CarController {
         modelMap.addAttribute("car", cars.get(car_id - 1));
 
         return "single-car";
+    }
+
+    /** Link from View Car Page **/
+    @RequestMapping(value = "/cars/make={car_make}", method = RequestMethod.GET)
+    public String displayCarMake(@PathVariable("car_make") String car_make, ModelMap modelMap){
+
+        List<Car> cars = this.carService.getCars();
+
+        List<Car> selectMake = new ArrayList<Car>();
+
+        for (Car car: cars)
+        {
+            if (car_make.equals(car.getMake()))
+            {
+                selectMake.add(car);
+            }
+        }
+        //cars = selectMake;
+        modelMap.addAttribute("carList", selectMake);
+        //return displayAllCars(modelMap);
+        return "all-cars";
     }
 //
 //    @RequestMapping(value = "/cars/bid/carId={carId}&userId={userId}&offer={offer}", method = RequestMethod.GET)
