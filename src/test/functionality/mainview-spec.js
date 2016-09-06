@@ -3,7 +3,7 @@ describe('Homepage images', function() {
   	browser.ignoreSynchronization = true;
 
     //browser.get('http://localhost:8080/cars');
-    browser.get('https://tt-auction.herokuapp.com/cars');
+    browser.get('https://tt-auction.herokuapp.com');
 
     //Click Home tab
     var home =  element(by.css('.home'));
