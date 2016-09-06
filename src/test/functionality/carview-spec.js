@@ -3,7 +3,7 @@ describe('Car view navigation', function() {
   	browser.ignoreSynchronization = true;
 
   	//browser.get('http://localhost:8080/cars');
-  	browser.get('https://tt-auction.herokuapp.com/cars');
+  	browser.get('https://tt-auction.herokuapp.com');
 
     //Click on a Car
     var el =  element(by.css('.car'));
