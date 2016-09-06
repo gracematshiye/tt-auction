@@ -1,15 +1,10 @@
-<div class="styles">
+<div class="styles" styles="margin-top:80px">
     <footer >
     <hr>
-    <div class="container">
         <center>
             <p>&copy; 2016</p>
+            <br/>
+            <p >- TT Online Auction-</p><br />
         </center>
-
-
-        <div class="text-center center-block">
-            <p class="txt-railway">- TT Online Auction-</p><br />
-            <span class="glyphicon glyphicon-shopping-cart" style="height:200px; width: 200px"></span>
-        </div>
     </footer>
 </div>

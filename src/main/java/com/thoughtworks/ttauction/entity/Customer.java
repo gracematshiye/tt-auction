@@ -1,7 +1,5 @@
 package com.thoughtworks.ttauction.entity;
 
-
-
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -12,7 +10,7 @@ import javax.validation.constraints.Size;
 public class Customer {
 
     @Id
-    @Column(name = "cus_id")
+    @Column(name = "cus_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
