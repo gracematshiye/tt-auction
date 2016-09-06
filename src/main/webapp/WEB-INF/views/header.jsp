@@ -14,11 +14,11 @@
 <div style="styles">
     <ul>
         <li class="logo">
-            <a href="${pageContext.request.contextPath}/cars">TT's Online Auction</a>
+            <a href="${pageContext.request.contextPath}/">TT's Online Auction</a>
         </li>
 
-      <li class="home"><a href="${pageContext.request.contextPath}/cars">Home</a></li>
-      <li class="home"><a href="${pageContext.request.contextPath}/cars">View Car</a></li>
+      <li class="home"><a href="${pageContext.request.contextPath}/">Home</a></li>
+      <li class="home"><a href="${pageContext.request.contextPath}/">View Car</a></li>
 
   <!--
       <li><a href="#">Live Auctions</a></li>

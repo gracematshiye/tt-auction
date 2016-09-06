@@ -44,6 +44,6 @@ public class CustomerController {
 
 //        customerService.addCustomer(customer);
 
-        return "redirect:/cars";
+        return "redirect:/";
     }
 }
