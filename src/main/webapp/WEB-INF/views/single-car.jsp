@@ -1,12 +1,15 @@
 <%@include file="header.jsp" %>
 
 <link href="<c:url value="/resources/css/viewcar.css" />" rel="stylesheet">
+
 <script type="text/javascript" src="<c:url value="/resources/js/viewcar.js" />"></script>
+
 <div class="pageTittle">
     <!--<h2>View Car Details</h2>-->
     <h4><a href="${pageContext.request.contextPath}/cars">Home</a> / <a href="${pageContext.request.contextPath}/cars/make=${car.make}">${car.make}</a> / ${car.model} </h4>
     <!--would be clickable links [TT's Home / Make]--->
 </div>
+
 <div class="wrapper">
     <div class="leftDiv">
         <img id="selectedCar" class="imgSingle" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="GTI">
