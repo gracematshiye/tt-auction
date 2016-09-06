@@ -27,7 +27,7 @@ public class CarController {
     private CustomerService customerService;
 
     /** This method returns a list of cars **/
-    @RequestMapping(value = "/cars", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String displayAllCars(ModelMap modelMap){
 
         if (modelMap.size() == 0) {

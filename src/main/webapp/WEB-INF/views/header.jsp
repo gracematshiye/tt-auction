@@ -9,6 +9,7 @@
 <link href="<c:url value="/resources/css/form.css" />" rel="stylesheet">
 
 <spring:url value="/resources/js/jquery.min.js" var="jqueryJS"/>
+<spring:url value="/resources/js/customer-validation.js" var="jqueryJS"/>
 
 <div style="styles">
     <ul>
