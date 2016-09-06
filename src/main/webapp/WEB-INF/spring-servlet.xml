@@ -77,6 +77,12 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <!-- to enable annotation driven validation in register Form. For the internationalization we need to configure MessageSource.-->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="/WEB-INF/conf/messages"/>
+
+    </bean>
+
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <mvc:annotation-driven/>
 

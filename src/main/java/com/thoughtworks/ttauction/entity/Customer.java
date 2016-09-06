@@ -1,7 +1,11 @@
 package com.thoughtworks.ttauction.entity;
 
 
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Customer")
@@ -13,30 +17,39 @@ public class Customer {
     private Integer id;
 
     @Column(name = "cus_first_name")
+    @NotEmpty(message = "First Name can not be blank.")
     private String firstName;
 
     @Column(name = "cus_last_name")
+    @NotEmpty(message = "Last Name can not be blank.")
     private String lastName;
 
     @Column(name = "cus_username")
+    @NotEmpty(message = "Username can not be blank.")
     private String username;
 
     @Column(name = "cus_password")
+    @NotEmpty(message = "Password can not be blank.")
     private String password;
 
     @Column(name = "cus_password_confirm")
+    @NotEmpty(message = "Confirm password can not be blank.")
     private String password2;
 
     @Column(name = "cus_date_of_birth")
+    @NotEmpty(message = "Date Of Birth can not be blank.")
     private String dateOfBirth;
 
     @Column(name = "cus_email")
+    @NotEmpty(message = "Email address can not be blank.")
     private String email;
 
     @Column(name = "cus_contact")
+    @Size(message = "It must be Ten digits!!!!!!!!!!!", max=10)
     private String contact;
 
     @Column(name = "cus_address")
+    @NotEmpty(message = "Physical address can not be blank.")
     private String address;
 
     public Customer() {
