@@ -1,4 +1,5 @@
 <%@include file="header.jsp" %>
+<script language="JavaScript" type="text/javascript" xml:space="preserve" src="<c:url value="/resources/js/gen_validatorv4.js" />"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/customer-validation.js" />"></script>
 
 
@@ -11,6 +12,8 @@
                 </lo>
             </c:forEach>
         </c:if>
+
+        <font color="red"><div id="errorMessage"></div></font color="red">
         <c:url var="addCustomer" value="/customer/register/add"></c:url>
 
         <form name="registerForm" method="POST" action="${addCustomer}" modelAttribute="customer" style="margin-top:50px">
