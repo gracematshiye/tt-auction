@@ -3,6 +3,7 @@ package com.thoughtworks.ttauction.entity;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -39,11 +40,14 @@ public class Customer {
     private String dateOfBirth;
 
     @Column(name = "cus_email")
-    @NotEmpty(message = "Email address can not be blank.")
+    @NotEmpty(message = "Email can not be blank.")
+    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\." +"[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@" +"(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message = "Invalid email address")
     private String email;
 
     @Column(name = "cus_contact")
-    @Size(message = "It must be Ten digits!!!!!!!!!!!", max=10)
+    @Size(min=0, max=10)
+    @NotEmpty(message = "Contact can not be blank.")
+    @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message = "Invalid cell phone number")
     private String contact;
 
     @Column(name = "cus_address")

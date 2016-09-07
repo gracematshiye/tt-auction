@@ -21,7 +21,7 @@ public class CustomerValidator implements Validator {
         Customer customer = (Customer) object;
 
         if (!customer.getPassword().equals(customer.getPassword2())) {
-            errors.rejectValue("passwordConf", "valid.invalidPassword");
+            errors.reject("passwordConf", "password and confirm-password field must much");
         }
     }
 }
