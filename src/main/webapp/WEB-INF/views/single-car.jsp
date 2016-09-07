@@ -4,11 +4,10 @@
 
 <script type="text/javascript" src="<c:url value="/resources/js/viewcar.js" />"></script>
 
-<div class="pageTittle">
-    <h4><a href="${pageContext.request.contextPath}/">Home</a> / <a href="${pageContext.request.contextPath}/cars/make=${car.make}">${car.make}</a> / ${car.model} </h4>
-</div>
-
 <div class="wrapper">
+    <div class="pageTittle">
+        <h4><a href="${pageContext.request.contextPath}/">Home</a> / <a href="${pageContext.request.contextPath}/cars/make=${car.make}">${car.make}</a> / ${car.model} </h4>
+    </div>
     <div class="leftDiv">
         <img id="selectedCar" class="imgSingle" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="GTI">
     </div>
@@ -37,10 +36,9 @@
             <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_6.jpeg" />" alt="Click to preview">
         </div>
     </div>
-<div class="bidWrapper">
-    <a href="${pageContext.request.contextPath}/customer/register" value="Bid" class="btnBid" width="20px">Bid this car</a>
-</div>
-
+    <div class="bidWrapper">
+        <a href="${pageContext.request.contextPath}/cars/bid/carId=${car.id}&userId=${user.id}" value="Bid" class="btnBid" width="20px">Bid this car</a>
+    </div>
 </div>
 
 <!--<div class="bidWrapper">
