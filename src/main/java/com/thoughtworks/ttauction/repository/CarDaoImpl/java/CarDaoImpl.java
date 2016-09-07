@@ -28,7 +28,7 @@ public class CarDaoImpl implements CarDao {
     public List<Car> getCars() {
         Session session = sessionFactory.getCurrentSession();
 
-        Query query = session.createQuery("from Car");
+        Query query = session.createQuery("from Car order by car_id");
 
         return query.list();
     }
