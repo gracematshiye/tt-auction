@@ -15,43 +15,31 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "cus_first_name")
-    @NotEmpty(message = "First Name can not be blank.")
+    @Column(name = "cus_first_name" , nullable = false)
     private String firstName;
 
-    @Column(name = "cus_last_name")
-    @NotEmpty(message = "Last Name can not be blank.")
+    @Column(name = "cus_last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "cus_username")
-    @NotEmpty(message = "Username can not be blank.")
+    @Column(name = "cus_username", nullable = false)
     private String username;
 
-    @Column(name = "cus_password")
-    @NotEmpty(message = "Password can not be blank.")
+    @Column(name = "cus_password", nullable = false)
     private String password;
 
-    @Column(name = "cus_password_confirm")
-    @NotEmpty(message = "Confirm password can not be blank.")
+    @Column(name = "cus_password_confirm", nullable = false)
     private String password2;
 
-    @Column(name = "cus_date_of_birth")
-    @NotEmpty(message = "Date Of Birth can not be blank.")
+    @Column(name = "cus_date_of_birth", nullable = false)
     private String dateOfBirth;
 
-    @Column(name = "cus_email")
-    @NotEmpty(message = "Email can not be blank.")
-    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\." +"[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@" +"(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message = "Invalid email address")
+    @Column(name = "cus_email", nullable = false)
     private String email;
 
-    @Column(name = "cus_contact")
-    @Size(min=0, max=10)
-    @NotEmpty(message = "Contact can not be blank.")
-    @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message = "Invalid cell phone number")
+    @Column(name = "cus_contact", nullable = false)
     private String contact;
 
-    @Column(name = "cus_address")
-    @NotEmpty(message = "Physical address can not be blank.")
+    @Column(name = "cus_address", nullable = false)
     private String address;
 
     public Customer() {

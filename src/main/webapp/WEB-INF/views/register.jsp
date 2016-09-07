@@ -19,6 +19,7 @@
         <form name="registerForm" method="POST" action="${addCustomer}" modelAttribute="customer" style="margin-top:50px">
             <div>
                <input type="text" name="firstName" path="firstName" id="firstName" placeholder="First Name"  value="${customer.firstName}"/>
+               <span style="color:red;" class="error">Must not be empty</span>
             </div><br/>
             <div>
                <input type="text" name="lastName" path="lastName" id="lastName" placeholder="Last Name" value="${customer.lastName}"/>
