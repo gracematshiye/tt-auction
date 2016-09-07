@@ -115,7 +115,8 @@ img {
 .pageTittle {
     height: 20px;
     float: left;
-    padding-left: 12em;
+    padding-left: 2em;
+    padding-right: 40em;
     padding-bottom: 1em;
 }
 .pageTittle a {
