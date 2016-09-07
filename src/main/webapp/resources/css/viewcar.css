@@ -86,7 +86,7 @@ img {
     border: 2px;
     opacity: 1;
 }
-.imgPreview:active {
+.selected {
     box-shadow: 0 1px 5px rgba(0,0,0,.5);
     border-width: 2px;
     border-color: #1867c3;
@@ -115,8 +115,7 @@ img {
 .pageTittle {
     height: 20px;
     float: left;
-    padding-left: 17em;
-    padding-right: 20em;
+    padding-left: 12em;
     padding-bottom: 1em;
 }
 .pageTittle a {

@@ -31,7 +31,7 @@
 
     <div class="thumbs">
         <div class="wrap">
-            <img class="imgPreview active" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="Click to preview">
+            <img class="imgPreview selected" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="Click to preview">
             <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_2.jpeg" />" alt="Click to preview">
             <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_3.jpeg" />" alt="Click to preview">
             <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_4.jpeg" />" alt="Click to preview">
