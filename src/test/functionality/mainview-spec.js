@@ -10,14 +10,14 @@ describe('Homepage images', function() {
     expect(home.isDisplayed()).toBe(true);
     home.click();
     //expect(browser.getCurrentUrl()).toEqual("http://localhost:8080/cars");
-    expect(browser.getCurrentUrl()).toEqual("https://tt-auction.herokuapp.com");
+    expect(browser.getCurrentUrl()).toEqual("https://tt-auction.herokuapp.com/");
 
     //Click logo
     var logo =  element(by.css('.logo'));
     expect(logo.isDisplayed()).toBe(true);
     logo.click();
     //expect(browser.getCurrentUrl()).toEqual("http://localhost:8080/cars");
-    expect(browser.getCurrentUrl()).toEqual("https://tt-auction.herokuapp.com");
+    expect(browser.getCurrentUrl()).toEqual("https://tt-auction.herokuapp.com/");
 
     //Click on a Car
     var el =  element(by.css('.car'));
