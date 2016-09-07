@@ -21,8 +21,8 @@
             <p><em>Model Name</em> : ${car.model}
             <br><em>Mileage</em> : ${car.mileage} km
             <br><em>Transmission</em> : ${car.transmission}
-            <br><em>Price</em> : ${car.priceOffer}
-            <br><em>Highest Price offer</em> : ${car.price}
+            <br><em>Price</em> : ${car.price}
+            <br><em>Highest Price offer</em> : ${car.priceOffer}
          </div>
     </div>
 
