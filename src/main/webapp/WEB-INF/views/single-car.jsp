@@ -5,9 +5,7 @@
 <script type="text/javascript" src="<c:url value="/resources/js/viewcar.js" />"></script>
 
 <div class="pageTittle">
-    <!--<h2>View Car Details</h2>-->
     <h4><a href="${pageContext.request.contextPath}/">Home</a> / <a href="${pageContext.request.contextPath}/cars/make=${car.make}">${car.make}</a> / ${car.model} </h4>
-    <!--would be clickable links [TT's Home / Make]--->
 </div>
 
 <div class="wrapper">
