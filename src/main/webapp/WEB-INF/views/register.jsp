@@ -1,4 +1,5 @@
 <%@include file="header.jsp" %>
+<script type="text/javascript" src="<c:url value="/resources/js/customer-validation.js" />"></script>
 
 <div align="center" class="form-group" >
     <div id="wrapper">
@@ -11,9 +12,9 @@
         </c:if>
         <c:url var="addCustomer" value="/customer/register/add"></c:url>
 
-        <form method="POST" action="${addCustomer}" modelAttribute="customer" style="margin-top:50px">
+        <form name="registerForm" method="POST" action="${addCustomer}" modelAttribute="customer" style="margin-top:50px">
             <div>
-               <input type="text" name="firstName" path="firstName" placeholder="First Name" class="formSize" value="${customer.firstName}"/>
+               <input type="text" name="firstName" path="firstName" placeholder="First Name" class="formSize" value="${customer.firstName}" />
             </div><br/>
             <div>
                <input type="text" name="lastName" path="lastName" placeholder="Last Name" value="${customer.lastName}"/>
@@ -39,7 +40,7 @@
             <div>
             <input type="text" name="address" path="address" placeholder="physical address" value="${customer.address}"/>
             </div><br/>
-            <input type="submit" value="Register" class="btnBid" style="float:right;"/>
+            <input type="button" value="Register" class="btnBid" style="float:right;" onclick="validateForm()"/>
         </form>
     </div>
 </div>
