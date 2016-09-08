@@ -35,9 +35,10 @@ public class CarDaoImpl implements CarDao {
 
 
     @Override
-    public Car getCarById(Integer id) {
+    public Car getCarById(Integer car_id) {
         Session session = sessionFactory.getCurrentSession();
-
-        return session.load(Car.class, new Integer(id));
+        Query query = session.createQuery("from Car where car_id = " + car_id);
+        Car car = ((Car) query.list().toArray()[0]);
+        return car;
     }
 }

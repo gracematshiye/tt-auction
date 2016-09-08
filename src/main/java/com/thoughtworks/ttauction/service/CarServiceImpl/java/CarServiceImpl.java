@@ -27,6 +27,12 @@ public class CarServiceImpl implements CarService {
 
     @Override
     @Transactional
+    public Car getCarById(Integer car_id) {
+        return this.carDao.getCarById(car_id);
+    }
+
+    @Override
+    @Transactional
     public List<Car> getCars() {
         return this.carDao.getCars();
     }

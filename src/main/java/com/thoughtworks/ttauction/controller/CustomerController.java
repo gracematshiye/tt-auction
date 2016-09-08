@@ -46,4 +46,16 @@ public class CustomerController {
 
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/add-user-bid?carId={car_id}", method = RequestMethod.POST)
+    public String addUserBid( ModelMap modelMap){
+
+//        List<User> listOfUsers = this.userService.getUsers();
+//
+//        for (int i = 0; i < listOfUsers.size(); i++) {
+//
+//        }
+
+        return "redirect:/cars/{car_id}";
+    }
 }

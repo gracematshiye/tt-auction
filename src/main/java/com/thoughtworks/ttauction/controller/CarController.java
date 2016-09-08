@@ -40,10 +40,10 @@ public class CarController {
     @RequestMapping(value = "/cars/{car_id}", method = RequestMethod.GET)
     public String displayACar(@PathVariable("car_id") Integer car_id, ModelMap modelMap){
 
-        List<Car> cars = this.carService.getCars();
+        //List<Car> cars = this.carService.getCars();
 
-        modelMap.addAttribute("car", cars.get(car_id - 1));
-
+        //modelMap.addAttribute("car", cars.get(car_id - 1));
+        modelMap.addAttribute("car", this.carService.getCarById(car_id));
         return "single-car";
     }
 
@@ -68,30 +68,30 @@ public class CarController {
         return "all-cars";
     }
 //
-//    @RequestMapping(value = "/cars/bid/carId={carId}&userId={userId}&offer={offer}", method = RequestMethod.GET)
-//    public String bidOnCar(@PathVariable("carId") Integer carId, @PathVariable("userId") Integer userId, ModelMap modelMap){
+    @RequestMapping(value = "/cars/bid/carId={carId}&userId={userId}&offer={offer}", method = RequestMethod.GET)
+    public String bidOnCar(@PathVariable("carId") Integer carId, @PathVariable("userId") Integer userId, ModelMap modelMap){
+
+//        if (userId == null)
+//        {
+//            modelMap.addAttribute("carId", carId);
+//            return "redirect:/register";
+//        }
+
+        //Display textBox: Your Offer.
+        List<Car> cars = this.carService.getCars();
+
+        //modelMap.addAttribute("car", this.carService.getCarById(car_id));
+        userId = 2314;
+
+        modelMap.addAttribute("userId", userId);
+        modelMap.addAttribute("car", cars.get(carId - 1));
+        return "single-car";
+    }
 //
-////        if (userId == null)
-////        {
-////            modelMap.addAttribute("carId", carId);
-////            return "redirect:/register";
-////        }
-//
-//        //Display textBox: Your Offer.
-//        List<Car> cars = this.carService.getCars();
-//
-//        //modelMap.addAttribute("car", this.carService.getCarById(car_id));
-//        userId = 2314;
-//
-//        modelMap.addAttribute("userId", userId);
-//        modelMap.addAttribute("car", cars.get(carId - 1));
-//        return "single-car";
-//    }
-//
-//    @RequestMapping(value = "/cars/bid/carId={carId}", method = RequestMethod.GET)
-//    public String gotoRegister(@PathVariable("carId") Integer carId, ModelMap modelMap){
-//
-//        modelMap.addAttribute("carId", carId);
-//        return "redirect:/register";
-//    }
+    @RequestMapping(value = "/cars/bid/carId={carId}", method = RequestMethod.GET)
+    public String gotoRegister(@PathVariable("carId") Integer carId, ModelMap modelMap){
+
+        modelMap.addAttribute("carId", carId);
+        return "redirect:/add-user-bid";
+    }
 }
