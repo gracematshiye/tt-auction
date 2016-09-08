@@ -2,30 +2,41 @@
 //  it('should display register page', function() {
 //  	browser.ignoreSynchronization = true;
 //
+//  	browser.get('http://localhost:8080');
+//  	//browser.get('https://tt-auction.herokuapp.com');
 //
-//    //browser.get('http://localhost:8080/customer/register');
-//    browser.get('https://tt-auction.herokuapp.com/customer/register');
+//    //Click on a Car
+//    var el =  element(by.css('.car'));
+//    expect(el.isDisplayed()).toBe(true);
+//    el.click();
+//    expect(browser.getCurrentUrl()).toEqual("http://localhost:8080/cars/1");
+////    expect(browser.getCurrentUrl()).toEqual("https://tt-auction.herokuapp.com/cars/1");
 //
+//    //Click bid button
+//    var bidButton = element(by.css('.btnBid'));
+//    expect(bidButton.isDisplayed()).toBe(true);
+//    bidButton.click();
+//    expect(browser.getCurrentUrl()).toEqual("http://localhost:8080/customer/register");
 //
-//    //Add the current timestamp to the values
-//    var randVal = Date.now();
+//    //Fill in all the text box
+//    element(by.model('firstName')).sendKeys('first');
+//    element(by.model('lastName')).sendKeys('lastUser');
+//    element(by.model('username')).sendKeys('firstUser');
+//    element(by.model('password')).sendKeys('user1');
+//    element(by.model('password2')).sendKeys('user1');
+//    element(by.model('dateOfBirth')).sendKeys('10 May 1991');
+//    element(by.model('email')).sendKeys('gracem@ymail.com');
+//    element(by.model('contact')).sendKeys('0783456789');
+//    element(by.model('address')).sendKeys('22 Melle Street');
 //
-//    element(by.css('#firstName')).sendKeys('hlulani' +randVal);
-//    element(by.css('#lastName')).sendKeys('chauke' +randVal);
-//    element(by.css('#username')).sendKeys('hchauke' +randVal);
-//    element(by.css('#password')).sendKeys('1234' +randVal);
-//    element(by.css('#password2')).sendKeys('1234' +randVal);
-//    element(by.css('#dateOfBirth')).sendKeys('29/12/2016' +randVal);
-//    element(by.css('#email')).sendKeys('tt.auction@mail.co.za' +randVal);
-//    element(by.css('#contact')).sendKeys('0786683662' +randVal);
-//    element(by.css('#address')).sendKeys('my address' +randVal);
+
+//     var register =  element(by.css('.btnBid'));
+//     expect(register.isDisplayed()).toBe(true);
+//     register.click();
 //
-//    var register =  element(by.css('.btnBid'));
-//        expect(register.isDisplayed()).toBe(true);
-//        register.click();
-//
-//        //expect(browser.getCurrentUrl()).toEqual("http://localhost:8080/customer/register/add");
-//        expect(browser.getCurrentUrl()).toEqual("https://tt-auction.herokuapp.com/customer/register/add");
-//
-//        });
+//     expect(browser.getCurrentUrl()).toEqual("http://localhost:8080/customer/register/add");
+////     expect(browser.getCurrentUrl()).toEqual("https://tt-auction.herokuapp.com/customer/register/add");
+
+//    });
 //});
+
