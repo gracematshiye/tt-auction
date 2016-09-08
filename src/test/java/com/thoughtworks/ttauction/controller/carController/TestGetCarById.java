@@ -3,21 +3,30 @@ package com.thoughtworks.ttauction.controller.carController;
 import com.thoughtworks.ttauction.controller.CarController;
 import com.thoughtworks.ttauction.entity.Car;
 import com.thoughtworks.ttauction.service.CarService;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class AddCarControllerTest {
+public class TestGetCarById {
+
     private MockMvc mockMvc;
 
     @Mock
@@ -47,5 +56,24 @@ public class AddCarControllerTest {
         listOfCars.add(car);
 
         when(carService.getCars()).thenReturn(listOfCars);
+    }
+
+    @Test
+    public void testDisplayMethodIsCalled() throws Exception {  // from displayAll method
+        String viewName = controller.displayACar(new Integer(1), new ModelMap());
+        Assert.assertEquals("single-car", viewName);
+    }
+
+
+    @Test
+    public void testVerifyTheHTTPStatusIsOkay() throws Exception {
+        mockMvc.perform(get("/cars/1"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void testCarListAttributeExists() throws Exception {
+        mockMvc.perform(get("/cars/1"))
+                .andExpect(model().attribute("car", this.carService.getCarById(1)));
     }
 }

@@ -70,4 +70,18 @@
 //        Assert.assertEquals(customers.get(0).getId(), customerList_DB.get(0).getId());
 //        Assert.assertEquals(customers.get(0).getDateOfBirth(), customerList_DB.get(0).getDateOfBirth());
 //    }
+//
+//    @Test
+//    public void testGetCarById() throws Exception {
+//        Assert.assertEquals(0, session.createQuery("from Customer").list().size());
+//
+//        session.save(customer);
+//
+//        List<Customer> customers = new ArrayList<Customer>(){{
+//            add(customer);
+//        }};
+//
+//        Assert.assertEquals(customers.get(0).getId() , customer.getId());
+//
+//    }
 //}

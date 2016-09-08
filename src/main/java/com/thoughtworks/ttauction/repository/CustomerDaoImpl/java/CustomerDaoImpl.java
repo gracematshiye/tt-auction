@@ -30,9 +30,6 @@ public class CustomerDaoImpl implements CustomerDao {
 
         Session session = sessionFactory.getCurrentSession();
 
-        Query query = session.createQuery("from Customer");
-
-        return query.list();
+        return session.createQuery("from Customer").list();
     }
-
 }

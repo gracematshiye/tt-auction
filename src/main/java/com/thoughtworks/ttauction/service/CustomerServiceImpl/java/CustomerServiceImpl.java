@@ -22,11 +22,27 @@ public class CustomerServiceImpl implements CustomerService {
         this.customerDao.addCustomer(customer);
     }
 
-
     @Override
     @Transactional
     public List<Customer> getCustomers() {
         return this.customerDao.getCustomers();
     }
 
+    @Override
+    @Transactional
+    public boolean checkUserName(String username) {
+
+        boolean exist = false;
+
+        for (int i = 0; i < getCustomers().size(); i++) {
+            if (username.equals(getCustomers().get(i).getUsername())) {
+
+                exist = true;
+
+            } else {
+                exist = false;
+            }
+        }
+        return exist;
+    }
 }

@@ -2,6 +2,7 @@ package com.thoughtworks.ttauction.service;
 
 
 import com.thoughtworks.ttauction.entity.Car;
+import com.thoughtworks.ttauction.entity.Customer;
 import com.thoughtworks.ttauction.repository.CarDao;
 import com.thoughtworks.ttauction.service.CarServiceImpl.java.CarServiceImpl;
 import org.junit.Assert;
@@ -12,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.annotation.Rollback;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +37,8 @@ public class CarServiceTest {
     }
 
     @Test
-    public void testAddCar() throws Exception {
+    public void testAddNewCar() throws Exception {
+
         doNothing().when(carDAO).addCar(any(Car.class));
         carService.addCar(any(Car.class));
         verify(carDAO, atLeastOnce()).addCar(any(Car.class));
@@ -49,5 +52,16 @@ public class CarServiceTest {
         carService.getCars();
 
         verify(carDAO, atLeastOnce()).getCars();
+    }
+
+    @Test
+    public void testGetUserById() throws Exception {
+
+        Car car = listOfCars.get(0);
+
+        when(carDAO.getCarById(anyInt())).thenReturn(car);
+
+        Assert.assertEquals(carService.getCarById(anyInt()),any(Car.class));
+
     }
 }

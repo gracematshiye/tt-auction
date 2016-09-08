@@ -29,10 +29,6 @@ public class CustomerController {
     @RequestMapping(value = "/customer/register/add", method = RequestMethod.POST)
     public String addCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, ModelMap model) {
 
-        List<Customer> customers = customerService.getCustomers();
-
-        for (int i = 0; i < customers.size(); i++) {
-
             if (result.hasErrors()) {
 
                 List<FieldError> errors = result.getFieldErrors();
@@ -41,9 +37,7 @@ public class CustomerController {
 
                 return "register";
 
-            }
-
-            if (customer.getUsername() == customers.get(i).getUsername()) {
+            }else if (customerService.checkUserName(customer.getUsername()) == true){
 
                 model.addAttribute("ussErr", "Username already exist");
                 return "register";
@@ -52,12 +46,13 @@ public class CustomerController {
 
                 model.addAttribute("passErr", "Password confirmation not matching");
                 return "register";
+
+            } else {
+                this.customerService.addCustomer(customer);
+
+                return "redirect:/";
             }
-        }
 
-        this.customerService.addCustomer(customer);
-
-        return "redirect:/";
     }
 
     @RequestMapping(value = "/add-user-bid?carId={car_id}", method = RequestMethod.POST)
@@ -71,4 +66,6 @@ public class CustomerController {
 
         return "redirect:/cars/{car_id}";
     }
+
+
 }
