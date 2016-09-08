@@ -34,7 +34,7 @@ public class Customer {
     private String password2;
 
     @Column(name = "cus_date_of_birth", nullable = false)
-    @NotEmpty(message = "Please enter your date of birth in format i.e (DD/MM/YYYY)")
+    @NotEmpty(message = "Please enter your date of birth")
     private String dateOfBirth;
 
     @Column(name = "cus_email", nullable = false, unique=true)
