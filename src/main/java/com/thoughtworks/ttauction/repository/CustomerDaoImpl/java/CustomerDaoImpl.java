@@ -34,4 +34,5 @@ public class CustomerDaoImpl implements CustomerDao {
 
         return query.list();
     }
+
 }

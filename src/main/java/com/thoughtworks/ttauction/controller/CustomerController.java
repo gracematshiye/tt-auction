@@ -29,28 +29,39 @@ public class CustomerController {
     @RequestMapping(value = "/customer/register/add", method = RequestMethod.POST)
     public String addCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, ModelMap model) {
 
-        if (result.hasErrors()){
+        List<Customer> customers = customerService.getCustomers();
 
-            List<FieldError> errors = result.getFieldErrors();
-            model.addAttribute("errors", errors);
-            model.addAttribute("customer", customer);
+        for (int i = 0; i < customers.size(); i++) {
 
-            return "register";
+            if (result.hasErrors()) {
 
-        } else if (customer.getPassword() != customer.getPassword2()){
-            model.addAttribute("passErr", "Password not matching");
+                List<FieldError> errors = result.getFieldErrors();
+                model.addAttribute("errors", errors);
+                model.addAttribute("customer", customer);
 
-            return "register";
+                return "register";
 
-        } else {
+            }
 
-            customerService.addCustomer(customer);
-            return "redirect:/";
+            if (customer.getUsername() == customers.get(i).getUsername()) {
+
+                model.addAttribute("ussErr", "Username already exist");
+                return "register";
+
+            } else if (!customer.getPassword().equals(customer.getPassword2())){
+
+                model.addAttribute("passErr", "Password confirmation not matching");
+                return "register";
+            }
         }
+
+        this.customerService.addCustomer(customer);
+
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/add-user-bid?carId={car_id}", method = RequestMethod.POST)
-    public String addUserBid( ModelMap modelMap){
+    public String addUserBid(ModelMap modelMap) {
 
 //        List<User> listOfUsers = this.userService.getUsers();
 //

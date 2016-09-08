@@ -28,4 +28,5 @@ public class CustomerServiceImpl implements CustomerService {
     public List<Customer> getCustomers() {
         return this.customerDao.getCustomers();
     }
+
 }

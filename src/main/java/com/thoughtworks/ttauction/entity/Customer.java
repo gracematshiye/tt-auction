@@ -22,7 +22,7 @@ public class Customer {
     @NotEmpty(message = "Please enter your last name")
     private String lastName;
 
-    @Column(name = "cus_username", nullable = false)
+    @Column(name = "cus_username", nullable = false, unique=true)
     @NotEmpty(message = "Please enter your custom username")
     private String username;
 
@@ -37,11 +37,11 @@ public class Customer {
     @NotEmpty(message = "Please enter your date of birth in format i.e (DD/MM/YYYY)")
     private String dateOfBirth;
 
-    @Column(name = "cus_email", nullable = false)
+    @Column(name = "cus_email", nullable = false, unique=true)
     @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\." +"[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@" +"(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message = "Please enter a correct email address")
     private String email;
 
-    @Column(name = "cus_contact", nullable = false)
+    @Column(name = "cus_contact", nullable = false, unique=true)
     @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message = "Please enter a correct cell phone number")
     private String contact;
 
