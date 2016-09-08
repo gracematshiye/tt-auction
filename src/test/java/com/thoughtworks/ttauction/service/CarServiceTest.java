@@ -61,7 +61,7 @@ public class CarServiceTest {
 
         when(carDAO.getCarById(anyInt())).thenReturn(car);
 
-        Assert.assertEquals(carService.getCarById(anyInt()),any(Car.class));
+        Assert.assertEquals(carService.getCarById(anyInt()), car);
 
     }
 }

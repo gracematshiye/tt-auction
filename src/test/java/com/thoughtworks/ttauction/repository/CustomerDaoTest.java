@@ -38,12 +38,12 @@
 //    @Before
 //    public void setUp() throws Exception {
 //
-//        customer = new Customer("firstName", "lastName", "userName", "password", "password", "dateOfBirth", "email", "contact", "address");
+//        customer = new Customer("firstName", "lastName", "userName", "password", "password", "dateOfBirth", "h@mail.com", "0786683662", "address");
 //        session = sessionFactory.getCurrentSession();
 //    }
 //
 //    @Test
-//    @Rollback(true)
+//    @Rollback(value = true)
 //    public void testAddCustomer() throws Exception {
 //       Assert.assertEquals(0, session.createQuery("from Customer").list().size());
 //
@@ -53,7 +53,7 @@
 //    }
 //
 //    @Test
-//    @Rollback(true)
+//    @Rollback(value = true)
 //    public void testGetAllCustomers() throws Exception {
 //        Assert.assertEquals(0, session.createQuery("from Customer").list().size());
 //
@@ -72,6 +72,7 @@
 //    }
 //
 //    @Test
+//    @Rollback(value = true)
 //    public void testGetCarById() throws Exception {
 //        Assert.assertEquals(0, session.createQuery("from Customer").list().size());
 //

@@ -53,6 +53,7 @@ public class Customer {
     }
 
     public Customer(String firstName, String lastName, String username, String password, String password2, String dateOfBirth, String email, String contact, String address) {
+        super( );
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
