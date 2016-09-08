@@ -18,7 +18,7 @@
     float: right;
     width: 21%;
     margin-left: 10px;
-    margin-top: 2px;
+    margin-top: -40em;
     margin-right: 7em;
 }
 img {
@@ -56,22 +56,18 @@ img {
 	position:relative;
 	top:1px;
 }
-.wrap {
+.thumbs {
     display: inline-block;
     float:left;
     width: 700px;
     margin: 0 auto;
-    margin-left: 5px;
+    margin-left: 15px;
     margin-top: -10px;
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
     border: 0;
     box-sizing: border-box;
-}
-.thumbs {
-    margin-top: 10px;
-    margin-left: 10px;
 }
 .imgPreview {
     float: left;

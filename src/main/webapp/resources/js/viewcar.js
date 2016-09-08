@@ -9,4 +9,13 @@ function selectCar(content) {
     container.src = content.src;
 }
 
-//selectedThumb variable, assign a selected thumb to this, and add some styling to make it an active selected thumb
+function bidNow(){
+}
+
+//Notes:
+//Change button to bid now after validating the offer amount, dynamic call to validateOffer.js
+
+//Click [Bid this Car]
+//Show pop up: Your Offer: [55,000.00]
+//Change btnBid text to [Bid Now]
+//Click [Bid Now] to place bid

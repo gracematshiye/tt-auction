@@ -72,9 +72,13 @@ public class CarController {
         return "all-cars";
     }
 
-    //
+
+
+    //Send through
+    //@RequestMapping(value = "/cars/bid/carId={carId}&userId={userId}&offer={offer}", method = RequestMethod.GET)
     @RequestMapping(value = "/cars/bid/carId={carId}&userId={userId}&offer={offer}", method = RequestMethod.GET)
     public String bidOnCar(@PathVariable("carId") Integer carId, @PathVariable("userId") Integer userId, ModelMap modelMap) {
+
 
 //        if (userId == null)
 //        {
@@ -82,10 +86,11 @@ public class CarController {
 //            return "redirect:/register";
 //        }
 
-        //Display textBox: Your Offer.
-        List<Car> cars = this.carService.getCars();
 
-        //modelMap.addAttribute("car", this.carService.getCarById(car_id));
+        //check if modelMap doesn't already have loginStatus
+        //Display textBox: Your Offer.
+
+        List<Car> cars = this.carService.getCars();
         userId = 2314;
 
         modelMap.addAttribute("userId", userId);
@@ -93,11 +98,14 @@ public class CarController {
         return "single-car";
     }
 
-    //
-    @RequestMapping(value = "/cars/bid/carId={carId}", method = RequestMethod.GET)
-    public String gotoRegister(@PathVariable("carId") Integer carId, ModelMap modelMap) {
 
+    //#1 Unregistered User
+    @RequestMapping(value = "/cars/bid/carId={carId}", method = RequestMethod.GET)
+    public String redirectToRegister(@PathVariable("carId") Integer carId, ModelMap modelMap) {
+        System.out.println("\r\nredirectToRegister\r\n");
         modelMap.addAttribute("carId", carId);
+        //return "redirect:/add-user-bid?carId={carId}";
         return "redirect:/add-user-bid";
     }
+
 }

@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -29,43 +30,92 @@ public class CustomerController {
     @RequestMapping(value = "/customer/register/add", method = RequestMethod.POST)
     public String addCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, ModelMap model) {
 
-            if (result.hasErrors()) {
+        if (result.hasErrors()) {
 
-                List<FieldError> errors = result.getFieldErrors();
-                model.addAttribute("errors", errors);
-                model.addAttribute("customer", customer);
+            List<FieldError> errors = result.getFieldErrors();
+            model.addAttribute("errors", errors);
+            model.addAttribute("customer", customer);
 
-                return "register";
+            return "register";
 
-            }else if (customerService.checkUserName(customer.getUsername()) == true){
+        } else if (customerService.checkUserName(customer.getUsername()) == true) {
 
-                model.addAttribute("ussErr", "Username already exist");
-                return "register";
+            model.addAttribute("ussErr", "Username already exist");
+            return "register";
 
-            } else if (!customer.getPassword().equals(customer.getPassword2())){
+        } else if (!customer.getPassword().equals(customer.getPassword2())) {
+            model.addAttribute("passErr", "Password not matching");
 
-                model.addAttribute("passErr", "Password confirmation not matching");
-                return "register";
+            return "register";
 
-            } else {
-                this.customerService.addCustomer(customer);
+        } else if (!customer.getPassword().equals(customer.getPassword2())) {
 
-                return "redirect:/";
-            }
+            model.addAttribute("passErr", "Password confirmation not matching");
+            return "register";
+
+        } else {
+            this.customerService.addCustomer(customer);
+
+            return "redirect:/";
+        }
 
     }
 
-    @RequestMapping(value = "/add-user-bid?carId={car_id}", method = RequestMethod.POST)
-    public String addUserBid(ModelMap modelMap) {
 
-//        List<User> listOfUsers = this.userService.getUsers();
-//
-//        for (int i = 0; i < listOfUsers.size(); i++) {
-//
-//        }
+    @RequestMapping(value = "/customer/login", method = RequestMethod.GET)
+    public String login(ModelMap modelMap) {
 
-        return "redirect:/cars/{car_id}";
+        return "redirect:/";
     }
 
 
+    //#2 Unregistered User
+
+    //@RequestMapping(value = "/add-user-bid?carId={car_id}", method = RequestMethod.GET)
+    //public String addUserBid(@PathVariable("carId") Integer carId, ModelMap model){
+
+    @RequestMapping(value = "/add-user-bid?carId={car_id}", method = RequestMethod.GET)
+    public String addUserBid(ModelMap model) {
+        System.out.println("\r\naddUserBid\r\n");
+        //model.addAttribute("carId", carId);
+        return "/customer/register/bid";
+    }
+
+    @RequestMapping(value = "/customer/register/bid", method = RequestMethod.GET)
+    public String viewRegisterPage2(ModelMap model) {
+
+        System.out.println("\r\nviewRegisterPage2\r\n");
+        return "register";
+    }
+
+    @RequestMapping(value = "/customer/register/bid/add", method = RequestMethod.POST)
+    public String addCustomer2(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, ModelMap model) {
+
+        System.out.println("\r\naddCustomer2\r\n");
+        if (result.hasErrors()) {
+
+            List<FieldError> errors = result.getFieldErrors();
+            model.addAttribute("errors", errors);
+            model.addAttribute("customer", customer);
+
+            return "register";
+
+        } else if (!customer.getPassword().equals(customer.getPassword2())) {
+            model.addAttribute("passErr", "Password not matching");
+
+            return "register";
+
+        } else {
+
+            customerService.addCustomer(customer);
+            return "redirect:/cars";
+        }
+    }
+
+
+//    @RequestMapping(value = "/add-user-bid/carId={carId}", method = RequestMethod.GET)
+//    public String addUserBid2(@ModelAttribute("carId") Integer carId){
+//        System.out.println("\r\nHere\r\n");
+//        return "single-car";
+//    }
 }
