@@ -79,7 +79,8 @@ public class CarController {
     @RequestMapping(value = "/cars/bid/carId={carId}&userId={userId}&offer={offer}", method = RequestMethod.GET)
     public String bidOnCar(@PathVariable("carId") Integer carId, @PathVariable("userId") Integer userId, ModelMap modelMap) {
 
-
+        //bidService.addBid
+        //validate offerAmount
 //        if (userId == null)
 //        {
 //            modelMap.addAttribute("carId", carId);
@@ -103,9 +104,11 @@ public class CarController {
     @RequestMapping(value = "/cars/bid/carId={carId}", method = RequestMethod.GET)
     public String redirectToRegister(@PathVariable("carId") Integer carId, ModelMap modelMap) {
         System.out.println("\r\nredirectToRegister\r\n");
+
+
         modelMap.addAttribute("carId", carId);
         //return "redirect:/add-user-bid?carId={carId}";
-        return "redirect:/add-user-bid";
+        return "redirect:/customer/register/bid";
     }
 
 }

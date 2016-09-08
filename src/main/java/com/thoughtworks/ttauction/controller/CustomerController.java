@@ -20,10 +20,19 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
+//
+//    @RequestMapping(value = "/customer/register")
+//    public String viewRegisterPage() {
+//
+//        return "register";
+//    }
 
-    @RequestMapping(value = "/customer/register")
-    public String viewRegisterPage() {
+    @RequestMapping(value = "/customer/register/carId={carId}", method = RequestMethod.GET)
+    public String viewRegisterPageBid(@PathVariable("carId") Integer carId, ModelMap model) {
 
+        System.out.println("\r\nviewRegisterPageBid\r\n");
+
+        model.addAttribute("carId", carId);
         return "register";
     }
 
@@ -55,8 +64,9 @@ public class CustomerController {
 
         } else {
             this.customerService.addCustomer(customer);
-
-            return "redirect:/";
+            //modelMap.addAttribute("carId", carId);
+            //modelMap.addAttribute("userId", userId);
+            return "redirect:/cars";
         }
 
     }
@@ -74,19 +84,15 @@ public class CustomerController {
     //@RequestMapping(value = "/add-user-bid?carId={car_id}", method = RequestMethod.GET)
     //public String addUserBid(@PathVariable("carId") Integer carId, ModelMap model){
 
-    @RequestMapping(value = "/add-user-bid?carId={car_id}", method = RequestMethod.GET)
-    public String addUserBid(ModelMap model) {
-        System.out.println("\r\naddUserBid\r\n");
-        //model.addAttribute("carId", carId);
-        return "/customer/register/bid";
-    }
+//    @RequestMapping(value = "/add-user-bid?carId={car_id}", method = RequestMethod.GET)
+//    public String addUserBid(ModelMap model) {
+//        System.out.println("\r\naddUserBid\r\n");
+//        //model.addAttribute("carId", carId);
+//        return "/customer/register/bid";
+//    }
 
-    @RequestMapping(value = "/customer/register/bid", method = RequestMethod.GET)
-    public String viewRegisterPage2(ModelMap model) {
 
-        System.out.println("\r\nviewRegisterPage2\r\n");
-        return "register";
-    }
+
 
     @RequestMapping(value = "/customer/register/bid/add", method = RequestMethod.POST)
     public String addCustomer2(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, ModelMap model) {

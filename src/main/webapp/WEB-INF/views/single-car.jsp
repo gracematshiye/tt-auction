@@ -53,7 +53,7 @@
             </c:when>
             <c:otherwise>
                 <div class="bottomDiv">
-                    <a href="${pageContext.request.contextPath}/cars/bid/carId=${car.id}" value="Bid" class="btnBid" width="20px">Bid this Car</a>
+                    <a href="${pageContext.request.contextPath}/customer/register/carId=${car.id}" value="Bid" class="btnBid" width="20px">Bid this Car</a>
                 </div>
             </c:otherwise>
         </c:choose>
