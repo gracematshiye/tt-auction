@@ -11,6 +11,14 @@
     <div class="leftDiv">
         <img id="selectedCar" class="imgSingle" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="GTI">
     </div>
+    <div class="thumbs">
+        <img class="imgPreview selected" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="Click to preview">
+        <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_2.jpeg" />" alt="Click to preview">
+        <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_3.jpeg" />" alt="Click to preview">
+        <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_4.jpeg" />" alt="Click to preview">
+        <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_5.jpeg" />" alt="Click to preview">
+        <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_6.jpeg" />" alt="Click to preview">
+    </div>
     <div class="rightDiv">
         <p>
             <h3><em>Description</em></h3>
@@ -19,25 +27,36 @@
          <div>
             <h3><em>Vehicle Details</em></h3>
             <p><em>Model Name</em> : ${car.model}
+            <br><em>Make</em> : ${car.make}
             <br><em>Mileage</em> : ${car.mileage} km
             <br><em>Transmission</em> : ${car.transmission}
+            <br><em>Year</em> : ${car.year}
+            <br><em>Condition</em> : ${car.condition}
+            <br><em>Fuel Type</em> : ${car.fuel}
+            <br><em>Transmission</em> : ${car.transmission}
+            <br><em>Color</em> : ${car.colour}
             <br><em>Price</em> : ${car.price}
             <br><em>Highest Price offer</em> : ${car.priceOffer}
          </div>
     </div>
 
-    <div class="thumbs">
-        <div class="wrap">
-            <img class="imgPreview selected" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}.jpeg" />" alt="Click to preview">
-            <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_2.jpeg" />" alt="Click to preview">
-            <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_3.jpeg" />" alt="Click to preview">
-            <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_4.jpeg" />" alt="Click to preview">
-            <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_5.jpeg" />" alt="Click to preview">
-            <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_6.jpeg" />" alt="Click to preview">
-        </div>
-    </div>
+
     <div class="bidWrapper">
-        <a href="${pageContext.request.contextPath}/customer/register" value="Bid" class="btnBid" width="20px">Bid this car</a>
+        <c:choose>
+            <c:when test="${!empty userId}">
+                <div class="topDiv">
+                    <input type="text" name="Hello" />
+                </div>
+                <div class="bottomDiv">
+                    <a href="${pageContext.request.contextPath}/cars/bid/carId=${car.id}&userId=${userId}&offer=${offer}" value="Bid" class="btnBid" width="20px">Bid this car</a>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <div class="bottomDiv">
+                    <a href="${pageContext.request.contextPath}/cars/bid/carId=${car.id}" value="Bid" class="btnBid" width="20px">Bid this Car</a>
+                </div>
+            </c:otherwise>
+        </c:choose>
     </div>
 </div>
 
