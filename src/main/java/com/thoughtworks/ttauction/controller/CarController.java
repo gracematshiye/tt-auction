@@ -26,9 +26,11 @@ public class CarController {
     @Autowired
     private CustomerService customerService;
 
-    /** This method returns a list of cars **/
+    /**
+     * This method returns a list of cars
+     **/
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String displayAllCars(ModelMap modelMap){
+    public String displayAllCars(ModelMap modelMap) {
 
         if (modelMap.size() == 0) {
             modelMap.addAttribute("carList", this.carService.getCars());
@@ -36,9 +38,11 @@ public class CarController {
         return "all-cars";
     }
 
-    /** This method returns a selected car **/
+    /**
+     * This method returns a selected car
+     **/
     @RequestMapping(value = "/cars/{car_id}", method = RequestMethod.GET)
-    public String displayACar(@PathVariable("car_id") Integer car_id, ModelMap modelMap){
+    public String displayACar(@PathVariable("car_id") Integer car_id, ModelMap modelMap) {
 
         //List<Car> cars = this.carService.getCars();
 
@@ -47,18 +51,18 @@ public class CarController {
         return "single-car";
     }
 
-    /** Link from View Car Page **/
+    /**
+     * Link from View Car Page
+     **/
     @RequestMapping(value = "/cars/make={car_make}", method = RequestMethod.GET)
-    public String displayCarMake(@PathVariable("car_make") String car_make, ModelMap modelMap){
+    public String displayCarMake(@PathVariable("car_make") String car_make, ModelMap modelMap) {
 
         List<Car> cars = this.carService.getCars();
 
         List<Car> selectMake = new ArrayList<Car>();
 
-        for (Car car: cars)
-        {
-            if (car_make.equals(car.getMake()))
-            {
+        for (Car car : cars) {
+            if (car_make.equals(car.getMake())) {
                 selectMake.add(car);
             }
         }
@@ -67,9 +71,10 @@ public class CarController {
         //return displayAllCars(modelMap);
         return "all-cars";
     }
-//
+
+    //
     @RequestMapping(value = "/cars/bid/carId={carId}&userId={userId}&offer={offer}", method = RequestMethod.GET)
-    public String bidOnCar(@PathVariable("carId") Integer carId, @PathVariable("userId") Integer userId, ModelMap modelMap){
+    public String bidOnCar(@PathVariable("carId") Integer carId, @PathVariable("userId") Integer userId, ModelMap modelMap) {
 
 //        if (userId == null)
 //        {
@@ -87,9 +92,10 @@ public class CarController {
         modelMap.addAttribute("car", cars.get(carId - 1));
         return "single-car";
     }
-//
+
+    //
     @RequestMapping(value = "/cars/bid/carId={carId}", method = RequestMethod.GET)
-    public String gotoRegister(@PathVariable("carId") Integer carId, ModelMap modelMap){
+    public String gotoRegister(@PathVariable("carId") Integer carId, ModelMap modelMap) {
 
         modelMap.addAttribute("carId", carId);
         return "redirect:/add-user-bid";

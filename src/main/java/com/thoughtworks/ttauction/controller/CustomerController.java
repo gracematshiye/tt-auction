@@ -36,11 +36,17 @@ public class CustomerController {
             model.addAttribute("customer", customer);
 
             return "register";
+
+        } else if (customer.getPassword() != customer.getPassword2()){
+            model.addAttribute("passErr", "Password not matching");
+
+            return "register";
+
+        } else {
+
+            customerService.addCustomer(customer);
+            return "redirect:/";
         }
-
-//        customerService.addCustomer(customer);
-
-        return "redirect:/";
     }
 
     @RequestMapping(value = "/add-user-bid?carId={car_id}", method = RequestMethod.POST)

@@ -4,7 +4,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Customer")
@@ -16,30 +15,38 @@ public class Customer {
     private Integer id;
 
     @Column(name = "cus_first_name" , nullable = false)
+    @NotEmpty(message = "Please enter your first name")
     private String firstName;
 
     @Column(name = "cus_last_name", nullable = false)
+    @NotEmpty(message = "Please enter your last name")
     private String lastName;
 
     @Column(name = "cus_username", nullable = false)
+    @NotEmpty(message = "Please enter your custom username")
     private String username;
 
     @Column(name = "cus_password", nullable = false)
+    @NotEmpty(message = "Please enter your password")
     private String password;
 
     @Column(name = "cus_password_confirm", nullable = false)
     private String password2;
 
     @Column(name = "cus_date_of_birth", nullable = false)
+    @NotEmpty(message = "Please enter your date of birth in format i.e (DD/MM/YYYY)")
     private String dateOfBirth;
 
     @Column(name = "cus_email", nullable = false)
+    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\." +"[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@" +"(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message = "Please enter a correct email address")
     private String email;
 
     @Column(name = "cus_contact", nullable = false)
+    @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message = "Please enter a correct cell phone number")
     private String contact;
 
     @Column(name = "cus_address", nullable = false)
+    @NotEmpty(message = "Please enter your physical address")
     private String address;
 
     public Customer() {
