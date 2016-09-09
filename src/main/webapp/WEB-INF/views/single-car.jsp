@@ -20,7 +20,7 @@
         <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_6.jpeg" />" alt="Click to preview">
         <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_7.jpeg" />" alt="Click to preview">
     </div>
-    <div class="bidWrapper">
+    <!--<div class="bidWrapper">
         <c:choose>
             <c:when test="${!empty userId}">
                 <div class="topDiv">
@@ -36,7 +36,7 @@
                 </div>
             </c:otherwise>
         </c:choose>
-    </div>
+    </div>-->
     <div class="rightDiv">
          <div>
             <h3><em>Vehicle Details</em></h3>
