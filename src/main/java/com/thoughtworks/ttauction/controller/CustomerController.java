@@ -20,24 +20,23 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
-//
-//    @RequestMapping(value = "/customer/register")
-//    public String viewRegisterPage() {
-//
-//        return "register";
-//    }
+
+    @RequestMapping(value = "/customer/register")
+    public String viewRegister() {
+
+        return "register";
+    }
 
     @RequestMapping(value = "/customer/register/carId={carId}", method = RequestMethod.GET)
-    public String viewRegisterPageBid(@PathVariable("carId") Integer carId, ModelMap model) {
-
-        System.out.println("\r\nviewRegisterPageBid\r\n");
+    public String viewRegisterBid(@PathVariable("carId") Integer carId, ModelMap model) {
 
         model.addAttribute("carId", carId);
         return "register";
     }
-
-    @RequestMapping(value = "/customer/register/add", method = RequestMethod.POST)
-    public String addCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, ModelMap model) {
+    @RequestMapping(value = "/customer/register/add/carId={carId}", method = RequestMethod.POST)
+    public String addCustomer(@Valid @ModelAttribute("customer") Customer customer, @PathVariable("carId") Integer carId, BindingResult result, ModelMap model) {
+    //@RequestMapping(value = "/customer/register/add/carId={carId}", method = RequestMethod.POST)
+    //public String addCustomer(@Valid @ModelAttribute("customer") Customer customer, @PathVariable("carId") Integer carId, BindingResult result, ModelMap model) {
 
         if (result.hasErrors()) {
 
@@ -47,26 +46,34 @@ public class CustomerController {
 
             return "register";
 
-        } else if (customerService.checkUserName(customer.getUsername()) == true) {
+        }
+        else if (customerService.checkUserName(customer.getUsername()) == true) {
 
             model.addAttribute("ussErr", "Username already exist");
             return "register";
 
-        } else if (!customer.getPassword().equals(customer.getPassword2())) {
+        }
+        else if (!customer.getPassword().equals(customer.getPassword2())) {
             model.addAttribute("passErr", "Password not matching");
 
             return "register";
 
-        } else if (!customer.getPassword().equals(customer.getPassword2())) {
+        }
+        else if (!customer.getPassword().equals(customer.getPassword2())) {
 
             model.addAttribute("passErr", "Password confirmation not matching");
             return "register";
 
-        } else {
+        }
+        else
+        {
             this.customerService.addCustomer(customer);
-            //modelMap.addAttribute("carId", carId);
-            //modelMap.addAttribute("userId", userId);
-            return "redirect:/cars";
+            //Customer user = this.customerService.getCustomer(customer);
+            //model.addAttribute("carId", carId);
+            //model.addAttribute("userId", user.getUserId());
+            model.addAttribute("userId", 1234);
+            //return username
+            return "redirect:/cars/{carId}&uname=uname";
         }
 
     }

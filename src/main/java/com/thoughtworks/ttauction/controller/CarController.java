@@ -51,6 +51,16 @@ public class CarController {
         return "single-car";
     }
 
+    @RequestMapping(value = "/cars/carId={car_id}&userId={user_id}", method = RequestMethod.GET)
+    public String displayACarId(@PathVariable("car_id") Integer car_id, ModelMap modelMap) {
+
+        //List<Car> cars = this.carService.getCars();
+
+        //modelMap.addAttribute("car", cars.get(car_id - 1));
+        modelMap.addAttribute("car", this.carService.getCarById(car_id));
+        return "single-car";
+    }
+
     /**
      * Link from View Car Page
      **/
@@ -103,11 +113,8 @@ public class CarController {
     //#1 Unregistered User
     @RequestMapping(value = "/cars/bid/carId={carId}", method = RequestMethod.GET)
     public String redirectToRegister(@PathVariable("carId") Integer carId, ModelMap modelMap) {
-        System.out.println("\r\nredirectToRegister\r\n");
-
 
         modelMap.addAttribute("carId", carId);
-        //return "redirect:/add-user-bid?carId={carId}";
         return "redirect:/customer/register/bid";
     }
 

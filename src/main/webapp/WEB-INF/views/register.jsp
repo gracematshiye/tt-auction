@@ -18,7 +18,7 @@
        <!-- <font color="red"><div id="errorMessage"></div></font color="red"> -->
        <p id="returnmessage"></p>
 
-        <c:url var="addCustomer" value="/customer/register/add"></c:url>
+        <c:url var="addCustomer" value="/customer/register/add/carId=${carId}"></c:url>
 
         <form name="registerForm" method="POST" action="${addCustomer}" modelAttribute="customer" style="margin-top:50px">
             <div>
@@ -69,7 +69,7 @@
                <input type="text" name="address" path="address" id="address" value="${customer.address}"/>
             </div><br/>
 
-               <input type="submit" value="Register"  class="btnBid" style="float:right;"/>
+            <input type="submit" value="Register"  class="btnBid" style="float:right;"/>
             <!-- <input type="submit" value="Register" id="submit" class="btnBid" style="float:right;" onclick="validateForm()"/> -->
         </form>
     </div>
