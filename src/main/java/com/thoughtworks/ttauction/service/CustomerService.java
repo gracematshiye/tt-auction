@@ -8,4 +8,5 @@ public interface CustomerService {
     void addCustomer(Customer customer);
     List<Customer> getCustomers();
     boolean checkUserName(String username);
+    boolean checkEmail(String email);
 }

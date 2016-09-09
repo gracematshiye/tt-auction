@@ -45,4 +45,21 @@ public class CustomerServiceImpl implements CustomerService {
         }
         return exist;
     }
+
+    @Override
+    @Transactional
+    public boolean checkEmail(String email) {
+        boolean exist = false;
+
+        for (int i = 0; i < getCustomers().size(); i++) {
+            if (email.equals(getCustomers().get(i).getEmail())) {
+
+                exist = true;
+
+            } else {
+                exist = false;
+            }
+        }
+        return exist;
+    }
 }

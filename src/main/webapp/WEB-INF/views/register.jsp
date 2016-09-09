@@ -1,6 +1,7 @@
 <%@include file="header.jsp" %>
-<script type="text/javascript" src="<c:url value="/resources/js/customer-validation.js" />"></script>
-<script type="text/javascript" src="<c:url value="/resources/js/password-match-check.js" />"></script>
+
+<script type="text/javascript" src="<c:url value="/resources/js/validation/register-validation.js" />"></script>
+
 <script type="text/javascript" src="<c:url value="/resources/js/jquery.min.js" />"></script>
 
 
@@ -23,18 +24,18 @@
         <form name="registerForm" method="POST" action="${addCustomer}" modelAttribute="customer" style="margin-top:50px">
             <div>
                 <label style="float:left; color:#B22222;">First name</label>
-               <input type="text" name="firstName" path="firstName" id="firstName" value="${customer.firstName}"/>
+               <input type="text" name="firstName" path="firstName" id="firstName" value="${customer.firstName}" onfocusout="validaText()"/>
             </div><br/>
 
             <div>
                <label style="float:left; color:#B22222;">Last name</label>
-               <input type="text" name="lastName" path="lastName" id="lastName" value="${customer.lastName}"/>
+               <input type="text" name="lastName" path="lastName" id="lastName" value="${customer.lastName}" onfocusout="validaText()"/>
             </div><br/>
 
             <div>
                <label style="float:left; color:#B22222;">Username</label>
                <input type="text" name="username" path="username" id="username" value="${customer.username}"/>
-               <font color="red">${ussErr}</font></span>
+               <font color="red">${ussErr}</font>
             </div><br/>
 
             <div>
@@ -44,8 +45,8 @@
 
             <div>
                <label style="float:left; color:#B22222;">Confirm password</label>
-               <input type="text" name="password2" path="password2" id="password2" onkeyup="checkPasswordMatch();"/>
-               <font color="red"><div id = "passErr">${ussErr}</div></font>
+               <input type="text" name="password2" path="password2" id="password2" onfocusout="validatePassword();"/>
+               <font color="red"><div id = "passErr" style="float:left;"></div></font>
             </div><br/>
 
             <div>
@@ -55,13 +56,14 @@
 
             <div>
                <label style="float:left; color:#B22222;">Email address</label>
-               <input type="text" name="email" path="email" id="email" value="${customer.email}"/>
-               <font color="red">${emlErr}</font></span>
+               <input type="text" name="email" path="email" id="email" value="${customer.email}" onfocusout="validateEmail()"/>
+               <font color="red"><div id = "emlErr" style="float:left;"></div></font>
             </div><br/>
 
             <div>
                <label style="float:left; color:#B22222;">Cell phone</label>
-               <input type="text" name="contact" path="contact" id="contact" value="${customer.contact}"/>
+               <input type="text" name="contact" path="contact" id="contact" value="${customer.contact}" onfocusout="validatePhone()"/>
+               <font color="red"><div id = "cntErr" style="float:left;"></div></font>
             </div><br/>
 
             <div>

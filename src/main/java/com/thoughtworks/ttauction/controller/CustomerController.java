@@ -33,10 +33,9 @@ public class CustomerController {
         model.addAttribute("carId", carId);
         return "register";
     }
+
     @RequestMapping(value = "/customer/register/add/carId={carId}", method = RequestMethod.POST)
     public String addCustomer(@Valid @ModelAttribute("customer") Customer customer, @PathVariable("carId") Integer carId, BindingResult result, ModelMap model) {
-    //@RequestMapping(value = "/customer/register/add/carId={carId}", method = RequestMethod.POST)
-    //public String addCustomer(@Valid @ModelAttribute("customer") Customer customer, @PathVariable("carId") Integer carId, BindingResult result, ModelMap model) {
 
         if (result.hasErrors()) {
 
@@ -46,27 +45,18 @@ public class CustomerController {
 
             return "register";
 
-        }
-        else if (customerService.checkUserName(customer.getUsername())) {
+        } else if (customerService.checkUserName(customer.getUsername())) {
 
             model.addAttribute("ussErr", "Username already exist");
             return "register";
 
-        }
-        else if (!customer.getPassword().equals(customer.getPassword2())) {
-            model.addAttribute("passErr", "Password not matching");
-
-            return "register";
-
-        }
-        else if (!customer.getPassword().equals(customer.getPassword2())) {
+        } else if (!customer.getPassword().equals(customer.getPassword2())) {
 
             model.addAttribute("passErr", "Password confirmation not matching");
             return "register";
 
-        }
-        else
-        {
+        } else {
+
             this.customerService.addCustomer(customer);
             //Customer user = this.customerService.getCustomer(customer);
             //model.addAttribute("carId", carId);
@@ -74,6 +64,7 @@ public class CustomerController {
             model.addAttribute("userId", 1234);
             //return username
             //return "redirect:/cars/{carId}&uname=uname";
+
             return "redirect:/cars/{carId}";
         }
 
@@ -98,8 +89,6 @@ public class CustomerController {
 //        //model.addAttribute("carId", carId);
 //        return "/customer/register/bid";
 //    }
-
-
 
 
     @RequestMapping(value = "/customer/register/bid/add", method = RequestMethod.POST)

@@ -16,7 +16,7 @@
         </li>
 
       <li class="home"><a href="${pageContext.request.contextPath}/">Home</a></li>
-      <li class="home"><a href="${pageContext.request.contextPath}/">View Car</a></li>
+      <!--<li class="home"><a href="${pageContext.request.contextPath}/">View Car</a></li>-->
 
   <!--
       <li><a href="#">Live Auctions</a></li>
