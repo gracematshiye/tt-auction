@@ -56,9 +56,6 @@
             ${car.description}
          </p>
     </div>
-
-
-
 </div>
 
 <!--<div class="bidWrapper">
@@ -98,6 +95,8 @@
     			<div><img src="<c:url value="/resources/images/1_3.jpeg" />" alt="Photo Thumb" /></div>
     			<div><img src="<c:url value="/resources/images/1_4.jpeg" />" alt="Photo Thumb" /></div>
     			<div><img src="<c:url value="/resources/images/1_5.jpeg" />" alt="Photo Thumb" /></div>
+    			<div><img src="<c:url value="/resources/images/1_6.jpeg" />" alt="Photo Thumb" /></div>
+    			<div><img src="<c:url value="/resources/images/1_7.jpeg" />" alt="Photo Thumb" /></div>
     		</div>
 
     		<div id="thumbs_mask7"></div>
