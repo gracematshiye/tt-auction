@@ -19,28 +19,6 @@
         <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_5.jpeg" />" alt="Click to preview">
         <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_6.jpeg" />" alt="Click to preview">
     </div>
-    <div class="rightDiv">
-        <p>
-            <h3><em>Description</em></h3>
-            ${car.description}
-        </p>
-         <div>
-            <h3><em>Vehicle Details</em></h3>
-            <p><em>Model Name</em> : ${car.model}
-            <br><em>Make</em> : ${car.make}
-            <br><em>Mileage</em> : ${car.mileage} km
-            <br><em>Transmission</em> : ${car.transmission}
-            <br><em>Year</em> : ${car.year}
-            <br><em>Condition</em> : ${car.condition}
-            <br><em>Fuel Type</em> : ${car.fuel}
-            <br><em>Transmission</em> : ${car.transmission}
-            <br><em>Color</em> : ${car.colour}
-            <br><em>Price</em> : ${car.price}
-            <br><em>Highest Price offer</em> : ${car.priceOffer}
-         </div>
-    </div>
-
-
     <div class="bidWrapper">
         <c:choose>
             <c:when test="${!empty userId}">
@@ -58,6 +36,29 @@
             </c:otherwise>
         </c:choose>
     </div>
+    <div class="rightDiv">
+         <div>
+            <h3><em>Vehicle Details</em></h3>
+            <p><em>Model Name</em> : ${car.model}
+            <br><em>Make</em> : ${car.make}
+            <br><em>Mileage</em> : ${car.mileage} km
+            <br><em>Transmission</em> : ${car.transmission}
+            <br><em>Year</em> : ${car.year}
+            <br><em>Condition</em> : ${car.condition}
+            <br><em>Fuel Type</em> : ${car.fuel}
+            <br><em>Transmission</em> : ${car.transmission}
+            <br><em>Color</em> : ${car.colour}
+            <br><em>Price</em> : ${car.price}
+            <br><em>Highest Price offer</em> : ${car.priceOffer}
+         </div>
+         <p>
+            <h3><em>Description</em></h3>
+            ${car.description}
+         </p>
+    </div>
+
+
+
 </div>
 
 <!--<div class="bidWrapper">
@@ -113,3 +114,5 @@
     		</p>
     	</div>
     </div>-->
+
+

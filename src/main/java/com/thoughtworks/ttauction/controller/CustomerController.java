@@ -47,7 +47,7 @@ public class CustomerController {
             return "register";
 
         }
-        else if (customerService.checkUserName(customer.getUsername()) == true) {
+        else if (customerService.checkUserName(customer.getUsername())) {
 
             model.addAttribute("ussErr", "Username already exist");
             return "register";
@@ -73,7 +73,8 @@ public class CustomerController {
             //model.addAttribute("userId", user.getUserId());
             model.addAttribute("userId", 1234);
             //return username
-            return "redirect:/cars/{carId}&uname=uname";
+            //return "redirect:/cars/{carId}&uname=uname";
+            return "redirect:/cars/{carId}";
         }
 
     }
