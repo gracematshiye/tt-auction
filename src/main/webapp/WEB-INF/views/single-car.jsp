@@ -18,6 +18,7 @@
         <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_4.jpeg" />" alt="Click to preview">
         <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_5.jpeg" />" alt="Click to preview">
         <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_6.jpeg" />" alt="Click to preview">
+        <img class="imgPreview" onClick="selectCar(this)" src="<c:url value="/resources/images/${car.id}_7.jpeg" />" alt="Click to preview">
     </div>
     <div class="bidWrapper">
         <c:choose>
