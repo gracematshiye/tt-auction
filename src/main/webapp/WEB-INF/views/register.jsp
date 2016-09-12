@@ -40,12 +40,12 @@
 
             <div>
                <label style="float:left; color:#B22222;">Password</label>
-               <input type="text" name="password" path="password" id="password" required />
+               <input type="password" name="password" path="password" id="password" required />
             </div><br/>
 
             <div>
                <label style="float:left; color:#B22222;">Confirm password</label>
-               <input type="text" name="password2" path="password2" id="password2" onfocusout="validatePassword();" required/>
+               <input type="password" name="password2" path="password2" id="password2" onfocusout="validatePassword();" required/>
                <font color="red"><div id = "passErr" style="float:left;"></div></font>
             </div><br/>
 
