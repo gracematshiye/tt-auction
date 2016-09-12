@@ -78,41 +78,40 @@
 </div>
 
 <div class="sample">
-    	<div class="mask6">
-    		<div id="box7">
-    			<span><img src="<c:url value="/resources/images/1.jpeg" />" alt="Photo" /></span>
-    			<span><img src="<c:url value="/resources/images/1_2.jpeg" />" alt="Photo" /></span>
-    			<span><img src="<c:url value="/resources/images/1_3.jpeg" />" alt="Photo" /></span>
-    			<span><img src="<c:url value="/resources/images/1_4.jpeg" />" alt="Photo" /></span>
-    			<span><img src="<c:url value="/resources/images/1_5.jpeg" />" alt="Photo" /></span>
-    			<span><img src="<c:url value="/resources/images/1_6.jpeg" />" alt="Photo" /></span>
-    		</div>
-    	</div>
+       <div class="mask6">
+          <div id="box7">
+             <span><img src="<c:url value="/resources/images/1.jpeg" />" alt="Photo" /></span>
+             <span><img src="<c:url value="/resources/images/1_2.jpeg" />" alt="Photo" /></span>
+             <span><img src="<c:url value="/resources/images/1_3.jpeg" />" alt="Photo" /></span>
+             <span><img src="<c:url value="/resources/images/1_4.jpeg" />" alt="Photo" /></span>
+             <span><img src="<c:url value="/resources/images/1_5.jpeg" />" alt="Photo" /></span>
+             <span><img src="<c:url value="/resources/images/1_6.jpeg" />" alt="Photo" /></span>
+          </div>
+       </div>
 
-    	<div id="thumbs7">
-    		<div class="thumbs">
-    			<div><img src="<c:url value="/resources/images/1.jpeg" />" alt="Photo Thumb" /></div>
-    			<div><img src="<c:url value="/resources/images/1_2.jpeg" />" alt="Photo Thumb" /></div>
-    			<div><img src="<c:url value="/resources/images/1_3.jpeg" />" alt="Photo Thumb" /></div>
-    			<div><img src="<c:url value="/resources/images/1_4.jpeg" />" alt="Photo Thumb" /></div>
-    			<div><img src="<c:url value="/resources/images/1_5.jpeg" />" alt="Photo Thumb" /></div>
-    			<div><img src="<c:url value="/resources/images/1_6.jpeg" />" alt="Photo Thumb" /></div>
-    			<div><img src="<c:url value="/resources/images/1_7.jpeg" />" alt="Photo Thumb" /></div>
-    		</div>
+       <div id="thumbs7">
+          <div class="thumbs">
+             <div><img src="<c:url value="/resources/images/1.jpeg" />" alt="Photo Thumb" /></div>
+             <div><img src="<c:url value="/resources/images/1_2.jpeg" />" alt="Photo Thumb" /></div>
+             <div><img src="<c:url value="/resources/images/1_3.jpeg" />" alt="Photo Thumb" /></div>
+             <div><img src="<c:url value="/resources/images/1_4.jpeg" />" alt="Photo Thumb" /></div>
+             <div><img src="<c:url value="/resources/images/1_5.jpeg" />" alt="Photo Thumb" /></div>
+             <div><img src="<c:url value="/resources/images/1_6.jpeg" />" alt="Photo Thumb" /></div>
+             <div><img src="<c:url value="/resources/images/1_7.jpeg" />" alt="Photo Thumb" /></div>
+          </div>
 
-    		<div id="thumbs_mask7"></div>
+          <div id="thumbs_mask7"></div>
 
-    		<p id="thumbs_handles7">
-    			<span></span>
-    			<span></span>
-    			<span></span>
-    			<span></span>
-    			<span></span>
-    			<span></span>
-    			<span></span>
-    			<span></span>
-    		</p>
-    	</div>
+          <p id="thumbs_handles7">
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+          </p>
+       </div>
     </div>-->
-
 
