@@ -32,7 +32,7 @@
             </c:when>
             <c:otherwise>
                 <div class="bottomDiv">
-                    <a href="${pageContext.request.contextPath}/customer/register/carId=${car.id}"><input type="button" value="Bid this Car" id="btnBid" class="btnBid inactive active" style="float:right;" /></a>
+                    <a href="${pageContext.request.contextPath}/customer/register/carId=${car.id}"><input type="button" value="Bid this Car" id="btnBid" class="btn btn-bid" style="float:right;" /></a>
                 </div>
             </c:otherwise>
         </c:choose>

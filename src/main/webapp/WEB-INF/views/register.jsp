@@ -71,7 +71,7 @@
                <input type="text" name="address" path="address" id="address" value="${customer.address}" required/>
             </div><br/>
 
-            <input type="submit" value="Register" id="btnBid" class="btnBid"  style="float:right;"/>
+            <input type="submit" value="Register" id="btnBid" class="btn btn-register"  style="float:right;"/>
             <!-- <input type="submit" value="Register" id="submit" class="btnBid inactive active" style="float:right;" onclick="validateForm()"/> -->
         </form>
     </div>
