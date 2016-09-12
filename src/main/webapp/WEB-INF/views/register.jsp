@@ -71,7 +71,7 @@
                <input type="text" name="address" path="address" id="address" onfocusout="useThis()" value="${customer.address}"/>
             </div><br/>
             <input type="submit" value="Register" onclick="useThis()" id="btnBid" class="btnBid" <c:out value="disabled='disabled'"/>" style="float:right;"/>
-            <!-- <input type="submit" value="Register" id="submit" class="btnBid inactive active" style="float:right;" onclick="validateForm()"/> -->
+            <!-- <input type="button" value="Register" id="submit" class="btnBid inactive active" style="float:right;" onclick="validateForm()"/> -->
         </form>
     </div>
 </div>

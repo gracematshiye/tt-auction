@@ -32,7 +32,7 @@ img {
     width:650px;
     height:456px;
 }
-.btnBid {
+/***.btnBid {
 	box-shadow:inset 0px 1px 3px 0px #61f039;
 	background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
 	background-color:#44c767;
@@ -47,14 +47,36 @@ img {
 	padding:11px 23px;
 	text-decoration:none;
 	text-shadow:0px -1px 0px #2f6627;
+}**/
+.btnBid {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-appearance: button;
 }
 .btnBid:hover {
-	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
-	background-color:#5cbf2a;
+    background-color: #449d44;
+    border-color: #398439;
 }
 .btnBid:active {
 	position:relative;
 	top:1px;
+
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
 }
 .thumbs {
     display: inline-block;
