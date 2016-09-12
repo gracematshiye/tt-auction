@@ -68,6 +68,7 @@ public class CustomerController {
     @RequestMapping(value = "/customer/login", method = RequestMethod.GET)
     public String login(ModelMap modelMap) {
 
+//        model.addAttribute("customer", customer);
         return "redirect:/";
     }
 
