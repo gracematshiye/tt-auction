@@ -37,15 +37,7 @@ public class CustomerController {
     @RequestMapping(value = "/customer/register/add/carId={carId}", method = RequestMethod.POST)
     public String addCustomer(@Valid @ModelAttribute("customer") Customer customer, @PathVariable("carId") Integer carId, BindingResult result, ModelMap model) {
 
-        if (result.hasErrors()) {
-
-            List<FieldError> errors = result.getFieldErrors();
-            model.addAttribute("errors", errors);
-            model.addAttribute("customer", customer);
-
-            return "register";
-
-        } else if (customerService.checkUserName(customer.getUsername())) {
+        if (customerService.checkUserName(customer.getUsername())) {
 
             model.addAttribute("ussErr", "Username already exist");
             return "register";
@@ -55,15 +47,17 @@ public class CustomerController {
             model.addAttribute("passErr", "Password confirmation not matching");
             return "register";
 
+        } else if (result.hasErrors()) {
+
+            List<FieldError> errors = result.getFieldErrors();
+            model.addAttribute("errors", errors);
+            model.addAttribute("customer", customer);
+
+            return "register";
+
         } else {
 
             this.customerService.addCustomer(customer);
-            //Customer user = this.customerService.getCustomer(customer);
-            //model.addAttribute("carId", carId);
-            //model.addAttribute("userId", user.getUserId());
-            model.addAttribute("userId", 1234);
-            //return username
-            //return "redirect:/cars/{carId}&uname=uname";
 
             return "redirect:/cars/{carId}";
         }
@@ -77,25 +71,4 @@ public class CustomerController {
         return "redirect:/";
     }
 
-
-    //#2 Unregistered User
-
-    //@RequestMapping(value = "/add-user-bid?carId={car_id}", method = RequestMethod.GET)
-    //public String addUserBid(@PathVariable("carId") Integer carId, ModelMap model){
-
-//    @RequestMapping(value = "/add-user-bid?carId={car_id}", method = RequestMethod.GET)
-//    public String addUserBid(ModelMap model) {
-//        System.out.println("\r\naddUserBid\r\n");
-//        //model.addAttribute("carId", carId);
-//        return "/customer/register/bid";
-//    }
-
-
-
-
-//    @RequestMapping(value = "/add-user-bid/carId={carId}", method = RequestMethod.GET)
-//    public String addUserBid2(@ModelAttribute("carId") Integer carId){
-//        System.out.println("\r\nHere\r\n");
-//        return "single-car";
-//    }
 }

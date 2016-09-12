@@ -14,38 +14,38 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "cus_first_name" , nullable = false)
+    @Column(name = "cus_first_name" )
     @NotEmpty(message = "Please enter your first name")
     private String firstName;
 
-    @Column(name = "cus_last_name", nullable = false)
+    @Column(name = "cus_last_name")
     @NotEmpty(message = "Please enter your last name")
     private String lastName;
 
-    @Column(name = "cus_username", nullable = false, unique=true)
+    @Column(name = "cus_username", unique=true)
     @NotEmpty(message = "Please enter your custom username")
     private String username;
 
-    @Column(name = "cus_password", nullable = false)
+    @Column(name = "cus_password")
     @NotEmpty(message = "Please enter your password")
     private String password;
 
-    @Column(name = "cus_password_confirm", nullable = false)
+    @Column(name = "cus_password_confirm")
     private String password2;
 
-    @Column(name = "cus_date_of_birth", nullable = false)
+    @Column(name = "cus_date_of_birth")
     @NotEmpty(message = "Please enter your date of birth")
     private String dateOfBirth;
 
-    @Column(name = "cus_email", nullable = false, unique=true)
-    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\." +"[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@" +"(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message = "Please enter a correct email address")
+    @Column(name = "cus_email")
+    @NotEmpty(message = "Please enter your email address")
     private String email;
 
-    @Column(name = "cus_contact", nullable = false, unique=true)
-    @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message = "Please enter a correct cell phone number")
+    @Column(name = "cus_contact")
+    @NotEmpty(message = "Please enter your cell phone number")
     private String contact;
 
-    @Column(name = "cus_address", nullable = false)
+    @Column(name = "cus_address")
     @NotEmpty(message = "Please enter your physical address")
     private String address;
 
