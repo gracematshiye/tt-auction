@@ -91,29 +91,6 @@ public class CustomerController {
 //    }
 
 
-    @RequestMapping(value = "/customer/register/bid/add", method = RequestMethod.POST)
-    public String addCustomer2(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, ModelMap model) {
-
-        System.out.println("\r\naddCustomer2\r\n");
-        if (result.hasErrors()) {
-
-            List<FieldError> errors = result.getFieldErrors();
-            model.addAttribute("errors", errors);
-            model.addAttribute("customer", customer);
-
-            return "register";
-
-        } else if (!customer.getPassword().equals(customer.getPassword2())) {
-            model.addAttribute("passErr", "Password not matching");
-
-            return "register";
-
-        } else {
-
-            customerService.addCustomer(customer);
-            return "redirect:/cars";
-        }
-    }
 
 
 //    @RequestMapping(value = "/add-user-bid/carId={carId}", method = RequestMethod.GET)

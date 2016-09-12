@@ -11,6 +11,7 @@ function validateEmail(){
      } else {
 
       $("#emlErr").hide();
+      useThis();
     }
 }
 
@@ -26,7 +27,7 @@ function validatePhone(){
 
      } else {
       $("#cntErr").hide();
-
+        useThis();
      }
 }
 
@@ -40,6 +41,22 @@ function validatePassword() {
 
         } else {
             $("#passErr").hide();
-
+            useThis();
        }
+}
+
+function useThis() {
+    var firstName = $("#firstName").val();
+    var lastName = $("#lastName").val();
+    var username = $("#username").val();
+    var password = $("#password").val();
+    var password2 = $("#password2").val();
+    var dateOfBirth = $("#dateOfBirth").val();
+    var email = $("#email").val();
+    var contact = $("#contact").val();
+    var address = $("#address").val();
+    if (!(firstName === "" || lastName === "" || username === "" || password === "" || password2 === "" || dateOfBirth === "" || email === "" || contact === "" || address === "" ))
+    {
+        $("#btnBid").removeAttr('disabled');
+    }
 }

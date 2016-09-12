@@ -51,16 +51,6 @@ public class CarController {
         return "single-car";
     }
 
-    @RequestMapping(value = "/cars/carId={car_id}&userId={user_id}", method = RequestMethod.GET)
-    public String displayACarId(@PathVariable("car_id") Integer car_id, ModelMap modelMap) {
-
-        //List<Car> cars = this.carService.getCars();
-
-        //modelMap.addAttribute("car", cars.get(car_id - 1));
-        modelMap.addAttribute("car", this.carService.getCarById(car_id));
-        return "single-car";
-    }
-
     /**
      * Link from View Car Page
      **/

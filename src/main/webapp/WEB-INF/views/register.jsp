@@ -24,17 +24,17 @@
         <form name="registerForm" method="POST" action="${addCustomer}" modelAttribute="customer" style="margin-top:50px">
             <div>
                 <label style="float:left; color:#B22222;">First name</label>
-               <input type="text" name="firstName" path="firstName" id="firstName" value="${customer.firstName}" onfocusout="validaText()"/>
+               <input type="text" name="firstName" path="firstName" id="firstName" onfocusout="useThis()" value="${customer.firstName}" onfocusout="validaText()"/>
             </div><br/>
 
             <div>
                <label style="float:left; color:#B22222;">Last name</label>
-               <input type="text" name="lastName" path="lastName" id="lastName" value="${customer.lastName}" onfocusout="validaText()"/>
+               <input type="text" name="lastName" path="lastName" id="lastName" onfocusout="useThis()" value="${customer.lastName}" onfocusout="validaText()"/>
             </div><br/>
 
             <div>
                <label style="float:left; color:#B22222;">Username</label>
-               <input type="text" name="username" path="username" id="username" value="${customer.username}"/>
+               <input type="text" name="username" path="username" id="username" onfocusout="useThis()" value="${customer.username}"/>
                <font color="red">${ussErr}</font>
             </div><br/>
 
@@ -51,7 +51,7 @@
 
             <div>
                <label style="float:left; color:#B22222;">Date of birth</label>
-               <input type="text" name="dateOfBirth" path="dateOfBirth" id="dateOfBirth" placeholder="Date format: (DD/MM/YYYY)" value="${customer.dateOfBirth}"/>
+               <input type="text" name="dateOfBirth" path="dateOfBirth" id="dateOfBirth" onfocusout="useThis()" placeholder="Date format: (DD/MM/YYYY)" value="${customer.dateOfBirth}"/>
             </div><br/>
 
             <div>
@@ -68,11 +68,10 @@
 
             <div>
                <label style="float:left; color:#B22222;">Physical address</label>
-               <input type="text" name="address" path="address" id="address" value="${customer.address}"/>
+               <input type="text" name="address" path="address" id="address" onfocusout="useThis()" value="${customer.address}"/>
             </div><br/>
-
-            <input type="submit" value="Register"  class="btnBid" style="float:right;"/>
-            <!-- <input type="submit" value="Register" id="submit" class="btnBid" style="float:right;" onclick="validateForm()"/> -->
+            <input type="submit" value="Register" onclick="useThis()" id="btnBid" class="btnBid" <c:out value="disabled='disabled'"/>" style="float:right;"/>
+            <!-- <input type="submit" value="Register" id="submit" class="btnBid inactive active" style="float:right;" onclick="validateForm()"/> -->
         </form>
     </div>
 </div>
