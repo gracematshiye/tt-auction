@@ -70,8 +70,8 @@
                <label style="float:left; color:#B22222;">Physical address</label>
                <input type="text" name="address" path="address" id="address" value="${customer.address}" required/>
             </div><br/>
-
-            <input type="submit" value="Register" id="btnBid" class="btn btn-register"  style="float:right;"/>
+            <a href="${pageContext.request.contextPath}/cars/${carId}"><input type="button" value="Cancel" id="btnBid" class="btn btn-basic" /></a>
+            <input type="submit" value="Register" id="btnBid" class="btn btn-register" />
             <!-- <input type="submit" value="Register" id="submit" class="btnBid inactive active" style="float:right;" onclick="validateForm()"/> -->
         </form>
     </div>

@@ -9,6 +9,7 @@ import com.thoughtworks.ttauction.service.CustomerServiceImpl.java.CustomerServi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,13 +42,21 @@ public class CarController {
     /**
      * This method returns a selected car
      **/
-    @RequestMapping(value = "/cars/{car_id}", method = RequestMethod.GET)
-    public String displayACar(@PathVariable("car_id") Integer car_id, ModelMap modelMap) {
+//    @RequestMapping(value = "/cars/{car_id}", method = RequestMethod.GET)
+//    public String displayACar(@PathVariable("car_id") Integer car_id, ModelMap modelMap) {
+//
+//        modelMap.addAttribute("car", this.carService.getCarById(car_id));
+//        //modelMap.addAttribute("userName", "catch22");//try this
+//        return "single-car";
+//    }
 
-        //List<Car> cars = this.carService.getCars();
 
-        //modelMap.addAttribute("car", cars.get(car_id - 1));
-        modelMap.addAttribute("car", this.carService.getCarById(car_id));
+    //@RequestMapping(value = "/cars/carId={carId}&uname={uname}", method = RequestMethod.GET)
+    @RequestMapping(value = "/cars/{carId}", method = RequestMethod.GET)
+    public String displayACarUname(@PathVariable("carId") Integer carId, @ModelAttribute("uname") String uname, ModelMap modelMap) {
+
+        modelMap.addAttribute("uname", uname);
+        modelMap.addAttribute("car", this.carService.getCarById(carId));
         return "single-car";
     }
 
@@ -76,28 +85,28 @@ public class CarController {
 
     //Send through
     //@RequestMapping(value = "/cars/bid/carId={carId}&userId={userId}&offer={offer}", method = RequestMethod.GET)
-    @RequestMapping(value = "/cars/bid/carId={carId}&userId={userId}&offer={offer}", method = RequestMethod.GET)
-    public String bidOnCar(@PathVariable("carId") Integer carId, @PathVariable("userId") Integer userId, ModelMap modelMap) {
-
-        //bidService.addBid
-        //validate offerAmount
-//        if (userId == null)
-//        {
-//            modelMap.addAttribute("carId", carId);
-//            return "redirect:/register";
-//        }
-
-
-        //check if modelMap doesn't already have loginStatus
-        //Display textBox: Your Offer.
-
-        List<Car> cars = this.carService.getCars();
-        userId = 2314;
-
-        modelMap.addAttribute("userId", userId);
-        modelMap.addAttribute("car", cars.get(carId - 1));
-        return "single-car";
-    }
+//    @RequestMapping(value = "/cars/bid/carId={carId}&userId={userId}&offer={offer}", method = RequestMethod.GET)
+//    public String bidOnCars(@PathVariable("carId") Integer carId, @PathVariable("userId") Integer userId, ModelMap modelMap) {
+//
+//        //bidService.addBid
+//        //validate offerAmount
+////        if (userId == null)
+////        {
+////            modelMap.addAttribute("carId", carId);
+////            return "redirect:/register";
+////        }
+//
+//
+//        //check if modelMap doesn't already have loginStatus
+//        //Display textBox: Your Offer.
+//
+//        List<Car> cars = this.carService.getCars();
+//        userId = 2314;
+//
+//        modelMap.addAttribute("userId", userId);
+//        modelMap.addAttribute("car", cars.get(carId - 1));
+//        return "single-car";
+//    }
 
 
     //#1 Unregistered User

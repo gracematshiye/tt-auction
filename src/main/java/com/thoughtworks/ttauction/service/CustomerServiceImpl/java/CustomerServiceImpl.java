@@ -30,6 +30,13 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     @Transactional
+    public String getUsername(String username)
+    {
+        return this.getUsername(username);
+    }
+
+    @Override
+    @Transactional
     public boolean checkUserName(String username) {
 
         boolean exist = false;

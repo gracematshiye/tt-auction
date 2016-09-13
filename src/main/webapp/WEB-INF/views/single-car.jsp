@@ -22,17 +22,18 @@
     </div>
     <div class="bidWrapper">
         <c:choose>
-            <c:when test="${!empty userId}">
+            <c:when test="${!empty uname}">
                 <div class="topDiv">
-                    <input type="text" name="Hello" />
+                    <input id="offer" type="text" name="offer" path="offer" />
+                    <!--<input type="hidden" name="offer" value="offer">-->
                 </div>
                 <div class="bottomDiv">
-                    <a href="${pageContext.request.contextPath}/cars/bid/carId=${car.id}&userId=${userId}&offer=${offer}" value="Bid" class="btnBid" width="20px">Bid this car</a>
+                    <a href="${pageContext.request.contextPath}/bid/carId=${car.id}&uname=${uname}&offer=${offer}"><input type="button" value="Bid Now" class="btn btn-bid" /></a>
                 </div>
             </c:when>
             <c:otherwise>
                 <div class="bottomDiv">
-                    <a href="${pageContext.request.contextPath}/customer/register/carId=${car.id}"><input type="button" value="Bid this Car" id="btnBid" class="btn btn-bid" style="float:right;" /></a>
+                    <a href="${pageContext.request.contextPath}/customer/register/carId=${car.id}"><input type="button" value="Bid this Car" id="btnBid" class="btn btn-bid" /></a>
                 </div>
             </c:otherwise>
         </c:choose>
@@ -61,7 +62,7 @@
 
 <!--<div class="bidWrapper">
     <c:choose>
-        <c:when test="${!empty userId}">
+        <c:when test="${!empty uname}">
             <div class="topDiv">
                 <input type="text" name="Hello" />
             </div>
