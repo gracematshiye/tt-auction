@@ -1,7 +1,5 @@
 package com.thoughtworks.ttauction.entity;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -14,20 +12,23 @@ public class Bid {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne
-    private Car _car;
+    @Column(name = "car_id")
+    private Integer carId;
 
-    @OneToOne
-    private Customer _customer;
+    @Column(name = "user_id")
+    private Integer userId;
 
-    private BigDecimal _offer;
-    private Boolean _bid_status;
+    @Column(name = "cus_bid_offer")
+    private BigDecimal offer;
 
-    public Bid(Car _car, Customer _customer, BigDecimal _offer, Boolean _bid_status) {
-        this._car = _car;
-        this._customer = _customer;
-        this._offer = _offer;
-        this._bid_status = _bid_status;
+    @Column(name = "bid_status")
+    private boolean status;
+
+    public Bid(Integer carId, Integer userId, BigDecimal offer, boolean status) {
+        this.carId = carId;
+        this.userId = userId;
+        this.offer = offer;
+        this.status = status;
     }
 
     public Integer getId() {
@@ -38,46 +39,46 @@ public class Bid {
         this.id = id;
     }
 
-    public Car get_car() {
-        return _car;
+    public Integer getCarId() {
+        return carId;
     }
 
-    public void set_car(Car _car) {
-        this._car = _car;
+    public void setCarId(Integer carId) {
+        this.carId = carId;
     }
 
-    public Customer get_customer() {
-        return _customer;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void set_customer(Customer _customer) {
-        this._customer = _customer;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public BigDecimal get_offer() {
-        return _offer;
+    public BigDecimal getOffer() {
+        return offer;
     }
 
-    public void set_offer(BigDecimal _offer) {
-        this._offer = _offer;
+    public void setOffer(BigDecimal offer) {
+        this.offer = offer;
     }
 
-    public Boolean get_bid_status() {
-        return _bid_status;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void set_bid_status(Boolean _bid_status) {
-        this._bid_status = _bid_status;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     @Override
     public String toString() {
         return "Bid{" +
                 "id=" + id +
-                ", _car=" + _car +
-                ", _customer=" + _customer +
-                ", _offer=" + _offer +
-                ", _bid_status=" + _bid_status +
+                ", carId=" + carId +
+                ", userId=" + userId +
+                ", offer=" + offer +
+                ", status=" + status +
                 '}';
     }
 
@@ -88,21 +89,21 @@ public class Bid {
 
         Bid bid = (Bid) o;
 
+        if (status != bid.status) return false;
         if (id != null ? !id.equals(bid.id) : bid.id != null) return false;
-        if (_car != null ? !_car.equals(bid._car) : bid._car != null) return false;
-        if (_customer != null ? !_customer.equals(bid._customer) : bid._customer != null) return false;
-        if (_offer != null ? !_offer.equals(bid._offer) : bid._offer != null) return false;
-        return _bid_status != null ? _bid_status.equals(bid._bid_status) : bid._bid_status == null;
+        if (carId != null ? !carId.equals(bid.carId) : bid.carId != null) return false;
+        if (userId != null ? !userId.equals(bid.userId) : bid.userId != null) return false;
+        return offer != null ? offer.equals(bid.offer) : bid.offer == null;
 
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (_car != null ? _car.hashCode() : 0);
-        result = 31 * result + (_customer != null ? _customer.hashCode() : 0);
-        result = 31 * result + (_offer != null ? _offer.hashCode() : 0);
-        result = 31 * result + (_bid_status != null ? _bid_status.hashCode() : 0);
+        result = 31 * result + (carId != null ? carId.hashCode() : 0);
+        result = 31 * result + (userId != null ? userId.hashCode() : 0);
+        result = 31 * result + (offer != null ? offer.hashCode() : 0);
+        result = 31 * result + (status ? 1 : 0);
         return result;
     }
 }

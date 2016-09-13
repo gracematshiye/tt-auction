@@ -2,7 +2,7 @@ package com.thoughtworks.ttauction.service;
 
 import com.thoughtworks.ttauction.entity.Bid;
 import com.thoughtworks.ttauction.repository.BidDao;
-import com.thoughtworks.ttauction.service.BidServiceImpl.java.BidServiceimpl;
+import com.thoughtworks.ttauction.service.BidServiceImpl.java.BidServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +25,7 @@ public class BidServiceTest {
     private List<Bid> bidList = new ArrayList<>();
 
     @InjectMocks
-    private BidService bidService = new BidServiceimpl();
+    private BidService bidService = new BidServiceImpl();
 
     @Before
     public void setUp() {

@@ -11,12 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class BidServiceimpl implements BidService {
+public class BidServiceImpl implements BidService {
 
     @Autowired
     private BidDao bidDao = new BidDaoImpl();
 
-    public BidServiceimpl(){
+    public BidServiceImpl(){
 
     }
 
