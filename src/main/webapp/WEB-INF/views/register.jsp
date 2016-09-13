@@ -51,7 +51,7 @@
 
             <div>
                <label style="float:left; color:#B22222;">Date of birth</label>
-               <input type="text" name="dateOfBirth" path="dateOfBirth" id="dateOfBirth" placeholder="Date format: (DD/MM/YYYY)" value="${customer.dateOfBirth}" required/>
+               <input type="text" name="dateOfBirth" path="dateOfBirth" id="dateOfBirth" placeholder="In format: (DD/MM/YYYY)" value="${customer.dateOfBirth}" required/>
             </div><br/>
 
             <div>
