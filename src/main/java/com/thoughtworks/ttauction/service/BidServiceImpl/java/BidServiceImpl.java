@@ -1,4 +1,4 @@
-package com.thoughtworks.ttauction.service.impl.java;
+package com.thoughtworks.ttauction.service.BidServiceImpl.java;
 
 import com.thoughtworks.ttauction.entity.Bid;
 import com.thoughtworks.ttauction.repository.BidDao;
