@@ -16,7 +16,7 @@ public class Bid {
     private Integer carId;
 
     @Column(name = "user_id")
-    private Integer userId;
+    private String uname;
 
     @Column(name = "cus_bid_offer")
     private BigDecimal offer;
@@ -24,9 +24,12 @@ public class Bid {
     @Column(name = "bid_status")
     private boolean status;
 
-    public Bid(Integer carId, Integer userId, BigDecimal offer, boolean status) {
+    public Bid() {
+    }
+
+    public Bid(Integer carId, String uname, BigDecimal offer, boolean status) {
         this.carId = carId;
-        this.userId = userId;
+        this.uname = uname;
         this.offer = offer;
         this.status = status;
     }
@@ -47,12 +50,12 @@ public class Bid {
         this.carId = carId;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public String getUname() {
+        return uname;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUname(String uname) {
+        this.uname = uname;
     }
 
     public BigDecimal getOffer() {
@@ -76,7 +79,7 @@ public class Bid {
         return "Bid{" +
                 "id=" + id +
                 ", carId=" + carId +
-                ", userId=" + userId +
+                ", uname='" + uname + '\'' +
                 ", offer=" + offer +
                 ", status=" + status +
                 '}';
@@ -92,7 +95,7 @@ public class Bid {
         if (status != bid.status) return false;
         if (id != null ? !id.equals(bid.id) : bid.id != null) return false;
         if (carId != null ? !carId.equals(bid.carId) : bid.carId != null) return false;
-        if (userId != null ? !userId.equals(bid.userId) : bid.userId != null) return false;
+        if (uname != null ? !uname.equals(bid.uname) : bid.uname != null) return false;
         return offer != null ? offer.equals(bid.offer) : bid.offer == null;
 
     }
@@ -101,7 +104,7 @@ public class Bid {
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (carId != null ? carId.hashCode() : 0);
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
+        result = 31 * result + (uname != null ? uname.hashCode() : 0);
         result = 31 * result + (offer != null ? offer.hashCode() : 0);
         result = 31 * result + (status ? 1 : 0);
         return result;

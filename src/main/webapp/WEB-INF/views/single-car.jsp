@@ -3,6 +3,7 @@
 <link href="<c:url value="/resources/css/viewcar.css" />" rel="stylesheet">
 
 <script type="text/javascript" src="<c:url value="/resources/js/viewcar.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/bid.js" />"></script>
 
 <div class="wrapper">
     <div class="pageTittle">
@@ -23,13 +24,18 @@
     <div class="bidWrapper">
         <c:choose>
             <c:when test="${!empty uname}">
-                <div class="topDiv">
-                    <input id="offer" type="text" name="offer" path="offer" />
-                    <!--<input type="hidden" name="offer" value="offer">-->
-                </div>
-                <div class="bottomDiv">
-                    <a href="${pageContext.request.contextPath}/bid/carId=${car.id}&uname=${uname}&offer=${offer}"><input type="button" value="Bid Now" class="btn btn-bid" /></a>
-                </div>
+                <c:url var="addBid" value="/bid/carId=${carId}&uname=${uname}"></c:url>
+                <form name="registerForm" method="POST" action="${addBid}" modelAttribute="addBid" style="margin-top:50px">
+                    <div class="topDiv">
+                        <input type="number" name="offer" path="offer" id="offer" required/>
+                        <input type="number" name="carId" path="carId" id="carId"  value="${carId}" required/>
+                        <input type="test" name="uname" path="uname" id="uname"  value="${uname}" required/>
+
+                    </div>
+                    <div class="bottomDiv">
+                        <input type="submit" id="btnBid" value="Bid Now" class="btn btn-bid" />
+                    </div>
+                </form>
             </c:when>
             <c:otherwise>
                 <div class="bottomDiv">
@@ -63,12 +69,7 @@
 <!--<div class="bidWrapper">
     <c:choose>
         <c:when test="${!empty uname}">
-            <div class="topDiv">
-                <input type="text" name="Hello" />
-            </div>
-            <div class="bottomDiv">
-                <a href="${pageContext.request.contextPath}/cars/bid/carId=${car.id}&userId=${userId}&offer=${offer}" value="Bid" class="btnBid" width="20px">Bid</a>
-            </div>
+
         </c:when>
         <c:otherwise>
             <div class="bottomDiv">

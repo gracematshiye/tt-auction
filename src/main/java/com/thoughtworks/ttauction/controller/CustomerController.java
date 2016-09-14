@@ -59,14 +59,13 @@ public class CustomerController {
 
             this.customerService.addCustomer(customer);
             String uname = customer.getUsername();
-            if (this.customerService.checkUserName(customer.getUsername()))
-            {
+
+            if (this.customerService.checkUserName(customer.getUsername())) {
                 //model.addAttribute("carId", carId);
-                model.addAttribute("uname", uname);
-                model.addAttribute("offer", 0);
-            }
-            else
-            {
+                model.addAttribute("uname", customer.getUsername());
+
+            } else {
+
                 model.addAttribute("uname", "");
             }
             //return "redirect:/cars/carId={carId}&uname={uname}";
