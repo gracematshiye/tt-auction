@@ -2,7 +2,7 @@ package com.thoughtworks.ttauction.controller;
 
 import com.thoughtworks.ttauction.entity.Bid;
 import com.thoughtworks.ttauction.service.BidService;
-import com.thoughtworks.ttauction.service.BidServiceImpl.java.BidServiceImpl;
+import com.thoughtworks.ttauction.service.impl.java.BidServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

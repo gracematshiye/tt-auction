@@ -2,7 +2,7 @@ package com.thoughtworks.ttauction.service;
 
 import com.thoughtworks.ttauction.entity.Bid;
 import com.thoughtworks.ttauction.repository.BidDao;
-import com.thoughtworks.ttauction.service.BidServiceImpl.java.BidServiceImpl;
+import com.thoughtworks.ttauction.service.impl.java.BidServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
