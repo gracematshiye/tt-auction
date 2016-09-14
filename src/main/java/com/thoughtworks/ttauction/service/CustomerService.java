@@ -9,6 +9,6 @@ public interface CustomerService {
     List<Customer> getCustomers();
     boolean checkUserName(String username);
     boolean checkEmail(String email);
-
     String getUsername(String username);
+//    Customer findByUsername(String username);
 }

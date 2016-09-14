@@ -69,4 +69,19 @@ public class CustomerServiceImpl implements CustomerService {
         }
         return exist;
     }
+
+//    @Override
+//    @Transactional
+//    public Customer findByUsername(String username) {
+//        Customer customer = null;
+//        for (int i = 0; i < getCustomers().size(); i++) {
+//            if (username.equals(getCustomers().get(i).getUsername())) {
+//
+//                customer = getCustomers().get(i);
+//
+//            }
+//        }
+//        return customer;
+//
+//    }
 }
