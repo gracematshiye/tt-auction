@@ -3,7 +3,6 @@
 <link href="<c:url value="/resources/css/viewcar.css" />" rel="stylesheet">
 
 <script type="text/javascript" src="<c:url value="/resources/js/viewcar.js" />"></script>
-<script type="text/javascript" src="<c:url value="/resources/js/bid.js" />"></script>
 
 <div class="wrapper">
     <div class="pageTittle">
@@ -24,18 +23,20 @@
     <div class="bidWrapper">
         <c:choose>
             <c:when test="${!empty uname}">
+
                 <c:url var="addBid" value="/bid/carId=${carId}&uname=${uname}"></c:url>
                 <form name="registerForm" method="POST" action="${addBid}" modelAttribute="addBid" style="margin-top:50px">
                     <div class="topDiv">
-                        <input type="number" name="offer" path="offer" id="offer" required/>
-                        <input type="number" name="carId" path="carId" id="carId"  value="${carId}" required/>
-                        <input type="test" name="uname" path="uname" id="uname"  value="${uname}" required/>
+                        <div id="offer"><!-- Offer amount input field -->
+                            <input type="number" name="offer" id="offer" path="offer" required/>
+                        </div>
 
                     </div>
-                    <div class="bottomDiv">
+                    <div class="bottomDiv"><!-- Button -->
                         <input type="submit" id="btnBid" value="Bid Now" class="btn btn-bid" />
                     </div>
                 </form>
+
             </c:when>
             <c:otherwise>
                 <div class="bottomDiv">

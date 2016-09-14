@@ -41,7 +41,6 @@ function validatePassword() {
 
         } else {
             $("#passErr").hide();
-            useThis();
        }
 }
 
