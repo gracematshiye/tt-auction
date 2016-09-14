@@ -24,9 +24,6 @@ public class CarController {
     @Autowired
     private CarService carService = new CarServiceImpl();
 
-    @Autowired
-    private CustomerService customerService;
-
     /**
      * This method returns a list of cars
      **/
@@ -36,27 +33,16 @@ public class CarController {
         if (modelMap.size() == 0) {
             modelMap.addAttribute("carList", this.carService.getCars());
         }
+
         return "all-cars";
     }
 
-    /**
-     * This method returns a selected car
-     **/
-//    @RequestMapping(value = "/cars/{car_id}", method = RequestMethod.GET)
-//    public String displayACar(@PathVariable("car_id") Integer car_id, ModelMap modelMap) {
-//
-//        modelMap.addAttribute("car", this.carService.getCarById(car_id));
-//        //modelMap.addAttribute("userName", "catch22");//try this
-//        return "single-car";
-//    }
-
-
-    //@RequestMapping(value = "/cars/carId={carId}&uname={uname}", method = RequestMethod.GET)
     @RequestMapping(value = "/cars/{carId}", method = RequestMethod.GET)
     public String displayACarUname(@PathVariable("carId") Integer carId, @ModelAttribute("uname") String uname, ModelMap modelMap) {
 
         modelMap.addAttribute("uname", uname);
         modelMap.addAttribute("car", this.carService.getCarById(carId));
+
         return "single-car";
     }
 
@@ -75,46 +61,17 @@ public class CarController {
                 selectMake.add(car);
             }
         }
-        //cars = selectMake;
         modelMap.addAttribute("carList", selectMake);
-        //return displayAllCars(modelMap);
+
         return "all-cars";
     }
-
-
-
-    //Send through
-    //@RequestMapping(value = "/cars/bid/carId={carId}&userId={userId}&offer={offer}", method = RequestMethod.GET)
-//    @RequestMapping(value = "/cars/bid/carId={carId}&userId={userId}&offer={offer}", method = RequestMethod.GET)
-//    public String bidOnCars(@PathVariable("carId") Integer carId, @PathVariable("userId") Integer userId, ModelMap modelMap) {
-//
-//        //bidService.addBid
-//        //validate offerAmount
-////        if (userId == null)
-////        {
-////            modelMap.addAttribute("carId", carId);
-////            return "redirect:/register";
-////        }
-//
-//
-//        //check if modelMap doesn't already have loginStatus
-//        //Display textBox: Your Offer.
-//
-//        List<Car> cars = this.carService.getCars();
-//        userId = 2314;
-//
-//        modelMap.addAttribute("userId", userId);
-//        modelMap.addAttribute("car", cars.get(carId - 1));
-//        return "single-car";
-//    }
-
 
     //#1 Unregistered User
     @RequestMapping(value = "/cars/bid/carId={carId}", method = RequestMethod.GET)
     public String redirectToRegister(@PathVariable("carId") Integer carId, ModelMap modelMap) {
 
         modelMap.addAttribute("carId", carId);
+
         return "redirect:/customer/register/bid";
     }
-
 }

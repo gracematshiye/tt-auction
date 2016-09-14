@@ -2,8 +2,7 @@ package com.thoughtworks.ttauction.controller;
 
 import com.thoughtworks.ttauction.entity.Bid;
 import com.thoughtworks.ttauction.service.BidService;
-import com.thoughtworks.ttauction.service.CarService;
-import com.thoughtworks.ttauction.service.CustomerService;
+import com.thoughtworks.ttauction.service.BidServiceImpl.java.BidServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,13 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class BidController {
 
     @Autowired
-    private CarService carService;
-
-    @Autowired
-    private CustomerService userService;
-
-    @Autowired
-    private BidService bidService;
+    private BidService bidService = new BidServiceImpl();
 
     @RequestMapping(value = "/bid/carId={carId}&uname={uname}", method = RequestMethod.POST)
     public String bidOnCar(@ModelAttribute("bid")Bid bid, ModelMap modelMap, @PathVariable("uname") String uname, @PathVariable("carId") Integer carId) {

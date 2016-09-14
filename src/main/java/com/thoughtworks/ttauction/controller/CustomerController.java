@@ -2,6 +2,7 @@ package com.thoughtworks.ttauction.controller;
 
 import com.thoughtworks.ttauction.entity.Customer;
 import com.thoughtworks.ttauction.service.CustomerService;
+import com.thoughtworks.ttauction.service.CustomerServiceImpl.java.CustomerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,7 +20,7 @@ import java.util.List;
 public class CustomerController {
 
     @Autowired
-    private CustomerService customerService;
+    private CustomerService customerService = new CustomerServiceImpl();
 
     @RequestMapping(value = "/customer/register")
     public String viewRegister() {
@@ -72,12 +73,4 @@ public class CustomerController {
             return "redirect:/cars/{carId}";
         }
     }
-
-    @RequestMapping(value = "/customer/login", method = RequestMethod.GET)
-    public String login(ModelMap modelMap) {
-
-//        model.addAttribute("customer", customer);
-        return "redirect:/";
-    }
-
 }

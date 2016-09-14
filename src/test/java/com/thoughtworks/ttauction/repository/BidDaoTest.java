@@ -39,7 +39,7 @@
 //    public void setUp() throws Exception {
 //        session = sessionFactory.getCurrentSession();
 //
-//        bid = new Bid(1, 1, new BigDecimal(130000), new Boolean(false));
+//        bid = new Bid(1, "user", new BigDecimal(130000), new Boolean(false));
 //    }
 //
 //    @Test
