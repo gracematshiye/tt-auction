@@ -28,7 +28,9 @@
                 <form name="registerForm" method="POST" action="${addBid}" modelAttribute="addBid" style="margin-top:50px">
                     <div class="topDiv">
                         <div id="offer"><!-- Offer amount input field -->
-                            <input type="number" name="offer" id="offer" path="offer" required/>
+                            <label style="float:left; color:#B22222;">exceed this offer amount</label> (R ${priceOffer})
+                            <br/>
+                            <input type="number" name="offer" id="offer" path="offer" placeholder="Enter offer amount" required/>
                         </div>
 
                     </div>

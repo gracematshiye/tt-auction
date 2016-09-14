@@ -42,6 +42,7 @@ public class CarController {
 
         modelMap.addAttribute("uname", uname);
         modelMap.addAttribute("car", this.carService.getCarById(carId));
+        modelMap.addAttribute("priceOffer", this.carService.getCarById(carId).getPriceOffer());
 
         return "single-car";
     }
