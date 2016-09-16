@@ -38,17 +38,12 @@ public class CustomerController {
     @RequestMapping(value = "/customer/register/add/carId={carId}", method = RequestMethod.POST)
     public String addCustomer(@Valid @ModelAttribute("customer") Customer customer, @PathVariable("carId") Integer carId, BindingResult result, ModelMap model) {
 
-        if (customerService.checkUserName(customer.getUsername())) {
+        if (customerService.checkUserName(customer.getUsername()) == true) {
 
             model.addAttribute("ussErr", "Username already exist");
             return "register";
 
-        } else if (!customer.getPassword().equals(customer.getPassword2())) {
-
-            model.addAttribute("passErr", "Password confirmation not matching");
-            return "register";
-
-        } else if (result.hasErrors()) {
+        }  else if (result.hasErrors()) {
 
             List<FieldError> errors = result.getFieldErrors();
             model.addAttribute("errors", errors);

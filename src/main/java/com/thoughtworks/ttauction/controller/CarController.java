@@ -2,6 +2,8 @@ package com.thoughtworks.ttauction.controller;
 
 import com.thoughtworks.ttauction.entity.Car;
 import com.thoughtworks.ttauction.entity.Customer;
+import com.thoughtworks.ttauction.service.BidService;
+import com.thoughtworks.ttauction.service.BidServiceImpl.java.BidServiceImpl;
 import com.thoughtworks.ttauction.service.CarService;
 import com.thoughtworks.ttauction.service.CarServiceImpl.java.CarServiceImpl;
 import com.thoughtworks.ttauction.service.CustomerService;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.io.Console;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +26,9 @@ public class CarController {
 
     @Autowired
     private CarService carService = new CarServiceImpl();
+
+    @Autowired
+    private BidService bidService = new BidServiceImpl();
 
     /**
      * This method returns a list of cars
@@ -42,7 +48,18 @@ public class CarController {
 
         modelMap.addAttribute("uname", uname);
         modelMap.addAttribute("car", this.carService.getCarById(carId));
-        modelMap.addAttribute("priceOffer", this.carService.getCarById(carId).getPriceOffer());
+
+        BigDecimal firsOffer = new BigDecimal(0);
+
+        for (int i = 0; i < bidService.getBids().size(); i++) {
+
+            BigDecimal secondOffer = bidService.getBids().get(i).getOffer();
+
+            BigDecimal priceOffer = firsOffer.max(secondOffer);
+
+            modelMap.addAttribute("priceOffer", priceOffer);
+
+        }
 
         return "single-car";
     }
