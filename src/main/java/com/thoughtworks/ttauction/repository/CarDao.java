@@ -9,4 +9,6 @@ public interface CarDao {
     void addCar(Car car);
     List<Car> getCars();
     Car getCarById(Integer id);
+
+    void update(Car car);
 }

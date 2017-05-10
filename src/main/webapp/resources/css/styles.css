@@ -3,12 +3,19 @@ body {margin: 0;}
 li.login {
     float: right;
     display: inline-block;
-    padding-right: 27%;
+    padding-right: 10%;
+}
+
+li.welcome {
+    float: left;
+    color:green;
 }
 
 li.home {
-    padding-left: 10%;
+    padding-left: 35px;
 }
+
+li.
 body {margin:0;}
 
 ul {

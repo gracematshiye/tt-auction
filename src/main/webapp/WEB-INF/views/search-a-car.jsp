@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <c:url var="search" value="/cars/search"></c:url>
 
 <form method="POST" action="${search}" modelAttribute="search" style="margin-top:50px">

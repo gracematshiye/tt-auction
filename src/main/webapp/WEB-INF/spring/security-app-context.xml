@@ -1,0 +1,58 @@
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://www.springframework.org/schema/security"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans.xsd
+                    http://www.springframework.org/schema/security
+                    http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+
+    <beans:import resource='persistence-config.xml'/>
+
+
+    <http auto-config="true">
+        <intercept-url pattern="/cars/**" access="ROLE_ADMIN, ROLE_USER"/>
+        <intercept-url pattern="/register" access="ROLE_USER"/>
+        <intercept-url pattern="/user-profile/**" access="ROLE_ADMIN, ROLE_USER, ROLE_DEACTIVATED_USER"/>
+        <intercept-url pattern="/admin/**" access="ROLE_ADMIN"/>
+        <form-login login-page="/login"
+                    authentication-success-handler-ref="myAuthenticationSuccessHandler"
+                    authentication-failure-url="/loginfailed"/>
+
+        <logout logout-success-url="/"/>
+        <access-denied-handler error-page="/403"/>
+    </http>
+
+    <beans:bean id="myAuthenticationSuccessHandler"
+                class="com.thoughtworks.ttauction.handler.AfterSuccessLoginHandler" />
+
+    <authentication-manager alias="authenticationManager"> 
+        <authentication-provider>
+            <user-service>
+                <user name="guest" password="12345" authorities="ROLE_USER" />
+                <user name="admin" password="12345" authorities="ROLE_USER, ROLE_ADMIN" />
+            </user-service>
+
+            <!--<password-encoder ref="encoder" />-->
+                <!--<jdbc-user-service data-source-ref="dataSource"-->
+
+                                   <!--users-by-username-query="-->
+                                   <!--SELECT cus_username, cus_password, enabled-->
+                                   <!--FROM Account-->
+                                   <!--WHERE cus_username=?"-->
+
+                                   <!--authorities-by-username-query="-->
+                                   <!--SELECT u.cus_username, r.role_name-->
+                                   <!--FROM Account u, Role r-->
+                                   <!--WHERE u.cus_id = r.role_id AND u.cus_username=?"-->
+                <!--/>-->
+        </authentication-provider>
+    </authentication-manager>
+
+
+    <!--<beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">-->
+        <!--<beans:constructor-arg value="10" />-->
+    <!--</beans:bean>-->
+
+</beans:beans>

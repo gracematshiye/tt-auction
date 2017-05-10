@@ -1,87 +1,74 @@
 package com.thoughtworks.ttauction.entity;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Bid")
-public class Bid {
+public class Bid implements Serializable {
 
     @Id
     @Column(name = "bid_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer bid_id;
 
-    @Column(name = "car_id")
-    private Integer carId;
+    @Column(name = "bid_username")
+    private String bid_username;
 
-    @Column(name = "user_id")
-    private String uname;
+    @Column(name = "bid_car_id")
+    private Integer bid_car_id;
 
-    @Column(name = "cus_bid_offer")
-    private BigDecimal offer;
-
-    @Column(name = "bid_status")
-    private boolean status;
+    @Column(name = "bid_quatity")
+    private Integer bid_quatity;
 
     public Bid() {
     }
 
-    public Bid(Integer carId, String uname, BigDecimal offer, boolean status) {
-        this.carId = carId;
-        this.uname = uname;
-        this.offer = offer;
-        this.status = status;
+    public Bid(String bid_username, Integer bid_car_id, Integer bid_quatity) {
+        this.bid_username = bid_username;
+        this.bid_car_id = bid_car_id;
+        this.bid_quatity = bid_quatity;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getBid_id() {
+        return bid_id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setBid_id(Integer bid_id) {
+        this.bid_id = bid_id;
     }
 
-    public Integer getCarId() {
-        return carId;
+    public String getBid_username() {
+        return bid_username;
     }
 
-    public void setCarId(Integer carId) {
-        this.carId = carId;
+    public void setBid_username(String bid_username) {
+        this.bid_username = bid_username;
     }
 
-    public String getUname() {
-        return uname;
+    public Integer getBid_car_id() {
+        return bid_car_id;
     }
 
-    public void setUname(String uname) {
-        this.uname = uname;
+    public void setBid_car_id(Integer bid_car_id) {
+        this.bid_car_id = bid_car_id;
     }
 
-    public BigDecimal getOffer() {
-        return offer;
+    public Integer getBid_quatity() {
+        return bid_quatity;
     }
 
-    public void setOffer(BigDecimal offer) {
-        this.offer = offer;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setBid_quatity(Integer bid_quatity) {
+        this.bid_quatity = bid_quatity;
     }
 
     @Override
     public String toString() {
         return "Bid{" +
-                "id=" + id +
-                ", carId=" + carId +
-                ", uname='" + uname + '\'' +
-                ", offer=" + offer +
-                ", status=" + status +
+                "bid_id=" + bid_id +
+                ", bid_username='" + bid_username + '\'' +
+                ", bid_car_id=" + bid_car_id +
+                ", bid_quatity=" + bid_quatity +
                 '}';
     }
 
@@ -92,21 +79,19 @@ public class Bid {
 
         Bid bid = (Bid) o;
 
-        if (status != bid.status) return false;
-        if (id != null ? !id.equals(bid.id) : bid.id != null) return false;
-        if (carId != null ? !carId.equals(bid.carId) : bid.carId != null) return false;
-        if (uname != null ? !uname.equals(bid.uname) : bid.uname != null) return false;
-        return offer != null ? offer.equals(bid.offer) : bid.offer == null;
+        if (bid_id != null ? !bid_id.equals(bid.bid_id) : bid.bid_id != null) return false;
+        if (bid_username != null ? !bid_username.equals(bid.bid_username) : bid.bid_username != null) return false;
+        if (bid_car_id != null ? !bid_car_id.equals(bid.bid_car_id) : bid.bid_car_id != null) return false;
+        return bid_quatity != null ? bid_quatity.equals(bid.bid_quatity) : bid.bid_quatity == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (carId != null ? carId.hashCode() : 0);
-        result = 31 * result + (uname != null ? uname.hashCode() : 0);
-        result = 31 * result + (offer != null ? offer.hashCode() : 0);
-        result = 31 * result + (status ? 1 : 0);
+        int result = bid_id != null ? bid_id.hashCode() : 0;
+        result = 31 * result + (bid_username != null ? bid_username.hashCode() : 0);
+        result = 31 * result + (bid_car_id != null ? bid_car_id.hashCode() : 0);
+        result = 31 * result + (bid_quatity != null ? bid_quatity.hashCode() : 0);
         return result;
     }
 }

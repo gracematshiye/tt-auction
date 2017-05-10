@@ -2,11 +2,13 @@ package com.thoughtworks.ttauction.entity;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "Car")
-public class Car {
+public class Car implements Serializable {
 
     @Id
     @Column(name = "car_id")
@@ -17,15 +19,17 @@ public class Car {
     private String model;
 
     @Column(name = "car_make_name")
+    @NotNull
     private String make;
 
     @Column(name = "car_mileage")
-    private int mileage;
+    private Integer mileage;
 
     @Column(name = "car_year")
-    private int year;
+    private Integer year;
 
     @Column(name = "car_price")
+    @NotNull
     private BigDecimal price;
 
     @Column(name = "car_condition")
@@ -35,6 +39,7 @@ public class Car {
     private String colour;
 
     @Column(name = "car_transmission")
+    @NotNull
     private String transmission;
 
     @Column(name = "car_fuel_type")
@@ -43,11 +48,16 @@ public class Car {
     @Column(name = "car_description")
     private String description;
 
-    @Column(name = "car_price_offer")
-    private BigDecimal priceOffer;
+    @Column(name = "car_quantity")
+    private Integer quantity;
 
-    public Car(String model, String make, int mileage, int year, BigDecimal price, String condition, String colour, String transmission, String fuel, String description, BigDecimal priceOffer) {
-        super();
+    @Column(name = "car_image_url")
+    private String imageUrl;
+
+    public Car() {
+    }
+
+    public Car(String model, String make, Integer mileage, Integer year, BigDecimal price, String condition, String colour, String transmission, String fuel, String description, Integer quantity, String imageUrl) {
         this.model = model;
         this.make = make;
         this.mileage = mileage;
@@ -58,18 +68,15 @@ public class Car {
         this.transmission = transmission;
         this.fuel = fuel;
         this.description = description;
-        this.priceOffer = priceOffer;
+        this.quantity = quantity;
+        this.imageUrl = imageUrl;
     }
 
-    public Car() {
-
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -89,19 +96,19 @@ public class Car {
         this.make = make;
     }
 
-    public int getMileage() {
+    public Integer getMileage() {
         return mileage;
     }
 
-    public void setMileage(int mileage) {
+    public void setMileage(Integer mileage) {
         this.mileage = mileage;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
@@ -153,12 +160,20 @@ public class Car {
         this.description = description;
     }
 
-    public BigDecimal getPriceOffer() {
-        return priceOffer;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setPriceOffer(BigDecimal priceOffer) {
-        this.priceOffer = priceOffer;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     @Override
@@ -175,7 +190,8 @@ public class Car {
                 ", transmission='" + transmission + '\'' +
                 ", fuel='" + fuel + '\'' +
                 ", description='" + description + '\'' +
-                ", priceOffer=" + priceOffer +
+                ", quantity=" + quantity +
+                ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 
@@ -186,18 +202,19 @@ public class Car {
 
         Car car = (Car) o;
 
-        if (mileage != car.mileage) return false;
-        if (year != car.year) return false;
         if (id != null ? !id.equals(car.id) : car.id != null) return false;
         if (model != null ? !model.equals(car.model) : car.model != null) return false;
         if (make != null ? !make.equals(car.make) : car.make != null) return false;
+        if (mileage != null ? !mileage.equals(car.mileage) : car.mileage != null) return false;
+        if (year != null ? !year.equals(car.year) : car.year != null) return false;
         if (price != null ? !price.equals(car.price) : car.price != null) return false;
         if (condition != null ? !condition.equals(car.condition) : car.condition != null) return false;
         if (colour != null ? !colour.equals(car.colour) : car.colour != null) return false;
         if (transmission != null ? !transmission.equals(car.transmission) : car.transmission != null) return false;
         if (fuel != null ? !fuel.equals(car.fuel) : car.fuel != null) return false;
         if (description != null ? !description.equals(car.description) : car.description != null) return false;
-        return priceOffer != null ? priceOffer.equals(car.priceOffer) : car.priceOffer == null;
+        if (quantity != null ? !quantity.equals(car.quantity) : car.quantity != null) return false;
+        return imageUrl != null ? imageUrl.equals(car.imageUrl) : car.imageUrl == null;
 
     }
 
@@ -206,15 +223,16 @@ public class Car {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (model != null ? model.hashCode() : 0);
         result = 31 * result + (make != null ? make.hashCode() : 0);
-        result = 31 * result + mileage;
-        result = 31 * result + year;
+        result = 31 * result + (mileage != null ? mileage.hashCode() : 0);
+        result = 31 * result + (year != null ? year.hashCode() : 0);
         result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (condition != null ? condition.hashCode() : 0);
         result = 31 * result + (colour != null ? colour.hashCode() : 0);
         result = 31 * result + (transmission != null ? transmission.hashCode() : 0);
         result = 31 * result + (fuel != null ? fuel.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (priceOffer != null ? priceOffer.hashCode() : 0);
+        result = 31 * result + (quantity != null ? quantity.hashCode() : 0);
+        result = 31 * result + (imageUrl != null ? imageUrl.hashCode() : 0);
         return result;
     }
 }

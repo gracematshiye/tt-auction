@@ -1,48 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
 
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="
-    http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/mvc
-    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
-    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"-->
+       <!--xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"-->
+       <!--xsi:schemaLocation="-->
+    <!--http://www.springframework.org/schema/beans-->
+    <!--http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/mvc-->
+    <!--http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd-->
+    <!--http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd-->
+    <!--http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">-->
 
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
-    <context:component-scan base-package="com.thoughtworks.ttauction, com.thoughtworks.ttauction.controller.CarController"/>
+    <!--<mvc:resources mapping="/resources/**" location="/resources/"/>-->
+    <!--<context:component-scan base-package="com.thoughtworks.ttauction, com.thoughtworks.ttauction.controller.CarController"/>-->
 
-    <mvc:annotation-driven/>
+    <!--<mvc:annotation-driven/>-->
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix">
-            <value>/WEB-INF/views/</value>
-        </property>
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--<property name="prefix">-->
+            <!--<value>/WEB-INF/views/</value>-->
+        <!--</property>-->
 
-        <property name="suffix">
-            <value>.jsp</value>
-        </property>
-    </bean>
-
-    <!--Heroku Data base configuration-->
-    <bean class="java.net.URI" id="dbUrl">
-    <constructor-arg value="#{systemEnvironment['HEROKU_POSTGRESQL_PINK_URL']}"/>
-    </bean>
-
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-    <property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
-    <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
-    <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
-    </bean>
-
-    <!--Data base configuration-->
-    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
-        <!--<property name="driverClassName" value="org.postgresql.Driver"/>-->
-        <!--<property name="url" value="jdbc:postgresql://localhost:5433/car_auction"/>-->
-        <!--<property name="username" value="postgres"/>-->
-        <!--<property name="password" value="postgres"/>-->
+        <!--<property name="suffix">-->
+            <!--<value>.jsp</value>-->
+        <!--</property>-->
     <!--</bean>-->
+
+    <!--&lt;!&ndash;Heroku Data base configuration&ndash;&gt;-->
+    <!--&lt;!&ndash;<bean class="java.net.URI" id="dbUrl">&ndash;&gt;-->
+    <!--&lt;!&ndash;<constructor-arg value="#{systemEnvironment['HEROKU_POSTGRESQL_PINK_URL']}"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
 
     <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
         <!--<property name="driverClassName" value="org.postgresql.Driver"/>-->
@@ -51,40 +43,41 @@
         <!--<property name="password" value="postgres"/>-->
     <!--</bean>-->
 
-    <!--Hibernate configuration-->
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</prop>
-                <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
-            </props>
-        </property>
+    <!--&lt;!&ndash;Hibernate configuration&ndash;&gt;-->
+    <!--<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+        <!--<property name="hibernateProperties">-->
+            <!--<props>-->
+                <!--<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</prop>-->
+                <!--<prop key="hibernate.show_sql">true</prop>-->
+                <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
+            <!--</props>-->
+        <!--</property>-->
 
-        <!--Configuring based on annotation i.e @Entity, @Id, @Column-->
-        <property name="annotatedPackages" value="com.thoughtworks.ttauction"/>
-        <property name="annotatedClasses">
-            <list>
-                <value>com.thoughtworks.ttauction.entity.Car</value>
-                <value>com.thoughtworks.ttauction.entity.Customer</value>
-                <value>com.thoughtworks.ttauction.entity.Bid</value>
-            </list>
-        </property>
-    </bean>
+        <!--&lt;!&ndash;Configuring based on annotation i.e @Entity, @Id, @Column&ndash;&gt;-->
+        <!--<property name="annotatedPackages" value="com.thoughtworks.ttauction"/>-->
+        <!--<property name="annotatedClasses">-->
+            <!--<list>-->
+                <!--<value>com.thoughtworks.ttauction.entity.Car</value>-->
+                <!--<value>com.thoughtworks.ttauction.entity.Account</value>-->
+                <!--<value>com.thoughtworks.ttauction.entity.Bid</value>-->
+                <!--<value>com.thoughtworks.ttauction.entity.AccountRoleuntRole</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
 
-    <!--Configuring Data access layer using Object relational Mapping language-->
-    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+    <!--&lt;!&ndash;Configuring Data access layer using Object relational Mapping language&ndash;&gt;-->
+    <!--<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">-->
+        <!--<property name="sessionFactory" ref="sessionFactory"/>-->
+    <!--</bean>-->
 
-    <!-- to enable annotation driven validation in register Form. For the internationalization we need to configure MessageSource.-->
-    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basename" value="/WEB-INF/conf/messages"/>
+    <!--&lt;!&ndash; to enable annotation driven validation in register Form. For the internationalization we need to configure MessageSource.&ndash;&gt;-->
+    <!--<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">-->
+        <!--<property name="basename" value="/WEB-INF/conf/messages"/>-->
 
-    </bean>
+    <!--</bean>-->
 
-    <tx:annotation-driven transaction-manager="transactionManager"/>
-    <mvc:annotation-driven/>
+    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
+    <!--<mvc:annotation-driven/>-->
 
-</beans>
+<!--</beans>-->

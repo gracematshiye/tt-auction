@@ -3,6 +3,7 @@
         margin:0 auto;
         font-family:Verdana, sans-serif;
     }
+
     legend {
         color:#0481b1;
         font-size:16px;
@@ -109,13 +110,18 @@
         margin-bottom:3px;
     }
 
+#fieldName{
+    width:300px;
+    color: #ab3a3a;
+}
+
 .btn-register {
-    background-color: #5cb85c;
+    background-color: #ab3a3a;
     border-color: #4cae4c;
     float: right;
 }
 .btn-basic {
-    background-color: #337ab7;
+    background-color: #ab3a3a;
     border-color: #2e6da4;
     float: left;
  }
