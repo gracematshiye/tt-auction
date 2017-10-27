@@ -13,9 +13,6 @@ public class Account implements Serializable {
     @Column(name = "cus_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cus_id;
-
-    @Column(name = "cus_first_name" )
-    @NotEmpty(message = "Please enter your first name")
     private String firstName;
 
     @Column(name = "cus_last_name")

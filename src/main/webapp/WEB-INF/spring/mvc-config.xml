@@ -11,15 +11,17 @@
 
     <mvc:view-controller path="/" view-name="all-cars"/>
 
-    <mvc:resources mapping="/resources/css/**" location="/resources/css/"/>
-    <mvc:resources mapping="/resources/js/**" location="/resources/js/"/>
-    <mvc:resources mapping="/images/**" location="/images/"/>
+    <mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926"/>
 
     <!-- Resolves view names to protected .jsp resources within the /WEB-INF/views directory -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/views/"/>
-        <property name="suffix" value=".jsp"/>
-        <property name="contentType" value="text/html;charset=utf-8"/>
+        <property name="prefix">
+            <value>/WEB-INF/views/</value>
+        </property>
+
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
     </bean>
 
     <!-- Image upload  -->

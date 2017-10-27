@@ -37,8 +37,7 @@ public class CarController {
     public String displayAllCars(ModelMap modelMap, Principal principal) {
 
 
-//        Car car = new Car("VW", "VW TSI", 1243, 2016, new BigDecimal(130500), "Engine failure", "White", "Automatic", "Disel", "This car is fast",10 , );
-//        carService.addCar(car);
+//        Car car = new Car("VW", "VW TSI", 1243, 2016, new BigDecimal(130500), "Engine failure", "White", "Automatic", "Disel", "This car is fast",10, "/images/1.jpeg");
 //        carService.addCar(car);
 
         modelMap.addAttribute("carList", this.carService.getCars());

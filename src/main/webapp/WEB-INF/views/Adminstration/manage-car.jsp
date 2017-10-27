@@ -8,7 +8,7 @@
     </div>
 
     <c:url var="addCar" value="/admin/car/manage/create"></c:url>
-    <form name="addCarForm" method="post" action="${addCar}" modelAttribute="car" style="margin-top:50px" enctype="multipart/form-data" class="list-group-item">
+    <form name="addCarForm" method="POST" action="${addCar}" modelAttribute="car" style="margin-top:50px" enctype="multipart/form-data" class="list-group-item">
 
     <table border="0">
         <tr>
